@@ -81,7 +81,7 @@ function activeNav(event: any) {
           <button
             class="cmg-actions-plus cmg-btn cmg-more-actions vertical my-4 mx-auto bg-blue-600 border-blue-600"
           >
-            <img src='@/assets/img/navbar/plus-icon.svg' alt="plus-icon"/>
+            <img src="../../assets/img/navbar/plus-icon.svg" alt="plus-icon" />
           </button>
         </li>
       </ul>

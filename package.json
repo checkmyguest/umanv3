@@ -1,43 +1,49 @@
 {
- "name": "umanv3-test",
- "private": true,
- "version": "0.0.0",
- "type": "module",
- "scripts": {
-  "dev": "vite",
-  "build": "vue-tsc --noEmit && vite build",
-  "preview": "vite preview"
- },
- "dependencies": {
-  "eslint-plugin-unicorn": "^43.0.2",
-  "pinia": "^2.0.22",
-  "vite-svg-loader": "^3.6.0",
-  "vue": "^3.2.37",
-  "vue-router": "4"
- },
- "devDependencies": {
-  "@vitejs/plugin-vue": "^3.1.0",
-  "sass": "^1.32.7",
-  "sass-loader": "^12.0.0",
-  "typescript": "^4.6.4",
-  "vite": "^3.1.0",
-  "vue-tsc": "^0.40.4"
- },
- "eslintConfig": {
-  "env": {
-   "es2022": true
+  "name": "umanv3-test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
-  "parserOptions": {
-   "ecmaVersion": "latest",
-   "sourceType": "module"
+  "dependencies": {
+    "eslint-plugin-unicorn": "^43.0.2",
+    "pinia": "^2.0.22",
+    "vite-svg-loader": "^3.6.0",
+    "vue": "^3.2.37",
+    "vue-router": "4"
   },
-  "plugins": [
-   "unicorn"
-  ],
-  "rules": {
-   "unicorn/better-regex": "error",
-   "unicorn/…": "error"
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-prettier-vue": "^4.2.0",
+    "eslint-plugin-vue": "^9.5.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "typescript": "*",
+    "vite": "^3.1.0",
+    "vue-tsc": "^0.40.4"
   },
-  "extends": "plugin:unicorn/all"
- }
+  "eslintConfig": {
+    "env": {
+      "es2022": true
+    },
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "unicorn"
+    ],
+    "rules": {
+      "unicorn/better-regex": "error",
+      "unicorn/…": "error"
+    }
+  }
 }

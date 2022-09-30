@@ -15,8 +15,7 @@ export default defineConfig({
           
           // Use additionalData from legacy nuxt scss options
           return `@import '@/assets/style/_variables.scss';
-                  @import '@/assets/style/style.scss';
-                  @import '@/assets/style/tailwind.css'; ${source}`;
+                  @import '@/assets/style/style.scss'; ${source}`;
         }
       },
     },
