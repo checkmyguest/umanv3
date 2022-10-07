@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { Reservation } from '@/core/@models/reservation';
-import { ReservationServiceData } from '@/core/services/reservation-service';
+import { Reservation } from '../../../core/@models/reservation';
+import { ReservationServiceData } from '../../../core/services/reservation-service';
 
   const hello = "This is a message"
   const reservationServiceData = new ReservationServiceData();
