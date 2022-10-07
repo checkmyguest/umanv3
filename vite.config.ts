@@ -8,15 +8,19 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData (source, fp) {
+        additionalData(source, fp) {
           // All scss files ending with imports.scss
           // will not re-import additionalData
-          if (fp.endsWith('_variables.scss') || fp.endsWith('/style/style.scss')) return source;
-          
+          if (
+            fp.endsWith("_variables.scss") ||
+            fp.endsWith("/style/style.scss")
+          )
+            return source;
+
           // Use additionalData from legacy nuxt scss options
           return `@import '@/assets/style/_variables.scss';
                   @import '@/assets/style/style.scss'; ${source}`;
-        }
+        },
       },
     },
   },

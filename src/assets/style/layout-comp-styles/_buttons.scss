@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 .refresh-btn {
   display: flex;
   align-items: center;
@@ -13,13 +13,13 @@
     height: auto;
   }
   &:hover {
-    background: #D1E2FF;
+    background: #d1e2ff;
     .tooltip {
       display: block;
     }
   }
   &:active:not(.loading) {
-    background: #8CB6FE;
+    background: #8cb6fe;
   }
 }
 
@@ -30,8 +30,8 @@
   cursor: pointer;
   text-align: center;
   border-radius: 4px;
-  box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: .1);
-  transition: .2s;
+  box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: 0.1);
+  transition: 0.2s;
   padding-bottom: 3px !important;
   outline: none;
   display: flex;
@@ -43,7 +43,7 @@
     height: 26px;
   }
   &:hover {
-    box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: .2);
+    box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: 0.2);
   }
   &.full-btn {
     width: 100%;
@@ -69,7 +69,7 @@
     }
   }
   span.arrow-actions {
-    border-left: 1px solid rgba(0, 0, 0, .1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
     margin-left: 8px;
     padding: 8px;
     padding-bottom: 7px;
@@ -103,7 +103,7 @@
       border-color: $blue-darker-btn;
     }
     &.disabled {
-      background-color: rgba($color: $blue, $alpha: .5);
+      background-color: rgba($color: $blue, $alpha: 0.5);
       color: $white;
     }
     span.icon-left {
@@ -158,7 +158,7 @@
     }
     &:active {
       background-color: $white;
-      border-color: #F4F6F8;
+      border-color: #f4f6f8;
     }
     &.disabled {
       color: $sky-dark;
@@ -186,10 +186,10 @@
   &.tertiary-actions-btn {
     background-color: $white;
     border-color: $sky-dark;
-    box-shadow: 0 0 1px 0 rgba($color: #000000, $alpha: .1);
+    box-shadow: 0 0 1px 0 rgba($color: #000000, $alpha: 0.1);
     &:hover {
       background-color: $sky-lighter;
-      box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: .1);
+      box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: 0.1);
     }
     &:focus {
       background-color: $sky-lighter;
@@ -293,12 +293,12 @@
     &:hover {
       // background: $blue-light!important;
       span.arrow-actions {
-        border-left: 1px solid rgba($color: #000000, $alpha: .1);
+        border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
       }
     }
     &:focus {
       span.arrow-actions {
-        border-left: 1px solid rgba($color: $blue, $alpha: .1);
+        border-left: 1px solid rgba($color: $blue, $alpha: 0.1);
         svg,
         img {
           path {
@@ -309,7 +309,7 @@
     }
     &:active {
       span.arrow-actions {
-        border-left: 1px solid rgba($color: #000000, $alpha: .1);
+        border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
         svg,
         img {
           path {
@@ -340,7 +340,7 @@
       border-color: $red-btn-border;
     }
     &.disabled {
-      background-color: rgba($color: $red, $alpha: .5);
+      background-color: rgba($color: $red, $alpha: 0.5);
     }
     span.icon-left {
       svg,
@@ -386,6 +386,7 @@
     height: 22px;
     justify-content: center;
     padding: 0;
+    margin-left: 1px;
     &.vertical {
       svg,
       img {
@@ -436,7 +437,7 @@
   border-radius: 4px;
   overflow: hidden;
   z-index: 100;
-  box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: .1);
+  box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: 0.1);
   display: none;
   top: 28px;
   // top: 30px;
@@ -468,7 +469,7 @@
     align-items: center;
     padding: 3px 8px 7px 8px;
     color: #000;
-    transition: .2s;
+    transition: 0.2s;
     cursor: pointer;
     border-radius: 4px;
     &:hover {

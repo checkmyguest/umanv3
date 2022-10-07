@@ -19,7 +19,6 @@
   &.inputSearch {
     border: solid 1px $border2 !important;
     color: #596477;
-
   }
   &::placeholder {
     color: $grey3;
@@ -32,16 +31,16 @@
     }
   }
   &.cmg-input-flat {
-    &:hover{
+    &:hover {
       background-color: $sky-light;
       border: solid 1px transparent !important;
-      &:focus{
+      &:focus {
         // background-color: $sky-light;
         border: solid 1px #1b71ff !important;
         box-shadow: none;
       }
     }
-    &:focus{
+    &:focus {
       // background-color: $sky-light;
       border: solid 1px #1b71ff !important;
       box-shadow: none;
@@ -54,12 +53,12 @@
   &:focus {
     color: black;
     border: 1px solid $blue;
-    box-shadow: 0 0 1px 1px rgba($color: $blue, $alpha: .2);
+    box-shadow: 0 0 1px 1px rgba($color: $blue, $alpha: 0.2);
     outline: none;
 
     &:hover {
       border: none !important;
-      box-shadow: 0 0 1px 1px rgba($color: $blue, $alpha: .2);
+      box-shadow: 0 0 1px 1px rgba($color: $blue, $alpha: 0.2);
       background-color: transparent;
     }
   }
@@ -71,16 +70,16 @@
     }
     &:focus {
       border: 1px solid $red-dark;
-      box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: .2);
+      box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: 0.2);
     }
   }
   &.disabled {
-    opacity: .7;
+    opacity: 0.7;
     pointer-events: none;
     background-color: $sky-light;
   }
   &.cmg-input-icon {
-    background-image: url('~@/assets/img/information.svg');
+    background-image: url("~@/assets/img/information.svg");
     background-repeat: no-repeat;
     background-size: 12px;
     background-position: center;
@@ -88,7 +87,7 @@
     padding-left: 25px;
   }
   &.cmg-input-icon-right {
-    background-image: url('~@/assets/img/signe-dollar.svg');
+    background-image: url("~@/assets/img/signe-dollar.svg");
     background-repeat: no-repeat;
     background-size: 14px;
     background-position: center;
@@ -97,7 +96,7 @@
   }
   &.cmg-input-flat {
     border: none;
-    background-image: url('~@/assets/img/loupe.svg');
+    background-image: url("~@/assets/img/loupe.svg");
     &::placeholder {
       color: $primary;
     }
@@ -130,11 +129,11 @@
     padding: 4px 25px 6px;
   }
   &::after {
-    content: '';
+    content: "";
     display: block;
     height: 15px;
     width: 15px;
-    background-image: url('~@/assets/img/signe-dollar.svg');
+    background-image: url("~@/assets/img/signe-dollar.svg");
     background-repeat: no-repeat;
     background-size: 14px;
     background-position: center left;
@@ -174,8 +173,8 @@
     appearance: textfield;
   }
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
   }
   button {
@@ -232,7 +231,6 @@
     fill: $red;
   }
 }
-
 
 .iti--allow-dropdown {
   .iti__flag-container {
@@ -323,7 +321,7 @@
   &.danger {
     color: $red;
     .checkmark {
-      background-color: rgba($color: $red, $alpha: .2);
+      background-color: rgba($color: $red, $alpha: 0.2);
       border: 1px solid $red;
       &::after {
         content: "";
@@ -342,14 +340,14 @@
     }
     input {
       &:checked ~ .checkmark {
-        background-color: rgba($color: $red, $alpha: .2);
+        background-color: rgba($color: $red, $alpha: 0.2);
         border: 1px solid $red;
       }
     }
     &:hover {
       input ~ .checkmark {
         border: 1px solid $red;
-        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: .2);
+        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: 0.2);
       }
     }
   }
@@ -364,7 +362,7 @@
     color: $red;
     .checkmark {
       border-radius: 50%;
-      background-color: rgba($color: $red, $alpha: .2);
+      background-color: rgba($color: $red, $alpha: 0.2);
       border: 1px solid $red;
       &::after {
         color: white;
@@ -379,7 +377,7 @@
     &:hover {
       input ~ .checkmark {
         border: 1px solid $red;
-        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: .2);
+        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: 0.2);
       }
     }
   }
@@ -387,7 +385,7 @@
   &.flat-danger {
     color: $red;
     .checkmark {
-      background-color: rgba($color: $red, $alpha: .2);
+      background-color: rgba($color: $red, $alpha: 0.2);
       border: 1px solid $red;
       &::after {
         content: "";
@@ -406,14 +404,14 @@
     }
     input {
       &:checked ~ .checkmark {
-        background-color: rgba($color: $red, $alpha: .2);
+        background-color: rgba($color: $red, $alpha: 0.2);
         border: 1px solid $red;
       }
     }
     &:hover {
       input ~ .checkmark {
         border: 1px solid $red;
-        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: .2);
+        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: 0.2);
       }
     }
   }
@@ -423,7 +421,7 @@
     color: $border2;
     pointer-events: none;
     .checkmark {
-      background-color: rgba($color: $border2, $alpha: .3);
+      background-color: rgba($color: $border2, $alpha: 0.3);
     }
   }
   &.disabled-rounded {
@@ -490,7 +488,7 @@
     input {
       &:checked ~ .checkmark {
         border: 1px solid $red;
-        background-color: rgba($color: $red, $alpha: .2);
+        background-color: rgba($color: $red, $alpha: 0.2);
       }
     }
     .checkmark {
@@ -502,7 +500,7 @@
       border: 1px solid $red;
       border-radius: 50%;
       margin-top: 2px;
-      background-color: rgba($color: $red, $alpha: .2);
+      background-color: rgba($color: $red, $alpha: 0.2);
       &::after {
         content: "";
         position: absolute;
@@ -518,7 +516,7 @@
     &:hover {
       input ~ .checkmark {
         border: 1px solid $red;
-        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: .2);
+        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: 0.2);
       }
     }
   }
@@ -526,7 +524,7 @@
     color: $border2;
     pointer-events: none;
     .checkmark {
-      background-color: rgba($color: $border2, $alpha: .3);
+      background-color: rgba($color: $border2, $alpha: 0.3);
     }
   }
 }
@@ -556,7 +554,7 @@
         }
       }
       &:hover {
-        background-color: rgba($color: $blue, $alpha: .7);
+        background-color: rgba($color: $blue, $alpha: 0.7);
       }
     }
     &:focus + .slider {
@@ -575,8 +573,8 @@
     right: 0;
     bottom: 0;
     background-color: $slider-blue;
-    -webkit-transition: all .2s;
-    transition: all .2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
     border-radius: 34px;
     &::before {
       position: absolute;
@@ -586,8 +584,8 @@
       left: 1px;
       bottom: 1px;
       background-color: white;
-      -webkit-transition: .2s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-      transition: .2s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+      -webkit-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border-radius: 50%;
     }
     &:active {
@@ -614,7 +612,7 @@
 .collapseBtn {
   width: 26px;
   height: 26px;
-  transition: .2s;
+  transition: 0.2s;
   background-color: $white;
   border: 1px solid $sky;
   border-radius: 4px;
@@ -655,36 +653,36 @@
 
 //Litepicker colors
 :root {
-  --litepicker-container-months-color-bg: #FFF;
+  --litepicker-container-months-color-bg: #fff;
   --litepicker-container-months-box-shadow-color: #ddd;
   --litepicker-footer-color-bg: #fafafa;
   --litepicker-footer-box-shadow-color: #ddd;
-  --litepicker-tooltip-color-bg: #FFF;
-  --litepicker-month-header-color: #1F2B37;
+  --litepicker-tooltip-color-bg: #fff;
+  --litepicker-month-header-color: #1f2b37;
   --litepicker-button-prev-month-color: #9e9e9e;
   --litepicker-button-next-month-color: #9e9e9e;
-  --litepicker-button-prev-month-color-hover: #196DFD;
-  --litepicker-button-next-month-color-hover: #196DFD;
+  --litepicker-button-prev-month-color-hover: #196dfd;
+  --litepicker-button-next-month-color-hover: #196dfd;
   --litepicker-month-width: calc(var(--litepicker-day-width) * 7); // 7 days
   --litepicker-month-weekday-color: #9e9e9e;
   --litepicker-month-week-number-color: #9e9e9e;
   --litepicker-day-width: 38px;
-  --litepicker-day-color: #1F2B37;
-  --litepicker-day-color-hover: #196DFD;
+  --litepicker-day-color: #1f2b37;
+  --litepicker-day-color-hover: #196dfd;
   --litepicker-is-today-color: #f44336;
-  --litepicker-is-in-range-color: #E8F0FF;
+  --litepicker-is-in-range-color: #e8f0ff;
   --litepicker-is-locked-color: #9e9e9e;
-  --litepicker-is-start-color: #FFF;
-  --litepicker-is-start-color-bg: #196DFD;
-  --litepicker-is-end-color: #FFF;
-  --litepicker-is-end-color-bg: #196DFD;
-  --litepicker-button-cancel-color: #FFF;
+  --litepicker-is-start-color: #fff;
+  --litepicker-is-start-color-bg: #196dfd;
+  --litepicker-is-end-color: #fff;
+  --litepicker-is-end-color-bg: #196dfd;
+  --litepicker-button-cancel-color: #fff;
   --litepicker-button-cancel-color-bg: #9e9e9e;
-  --litepicker-button-apply-color: #FFF;
-  --litepicker-button-apply-color-bg: #196DFD;
+  --litepicker-button-apply-color: #fff;
+  --litepicker-button-apply-color-bg: #196dfd;
   --litepicker-button-reset-color: #909090;
-  --litepicker-button-reset-color-hover: #196DFD;
-  --litepicker-highlighted-day-color: #1F2B37;
+  --litepicker-button-reset-color-hover: #196dfd;
+  --litepicker-highlighted-day-color: #1f2b37;
   --litepicker-highlighted-day-color-bg: #ffeb3b;
 }
 
@@ -710,7 +708,8 @@
               text-decoration: underline;
             }
           }
-          .reset-button, .current-button {
+          .reset-button,
+          .current-button {
             color: $secondary;
             position: absolute;
             bottom: 10px;
@@ -743,7 +742,7 @@
             outline: none;
             &:hover {
               &::after {
-                box-shadow: 0 0 1px 1px rgba($color: $sky-dark, $alpha: .2);
+                box-shadow: 0 0 1px 1px rgba($color: $sky-dark, $alpha: 0.2);
               }
             }
             &::after {
@@ -841,7 +840,8 @@
       bottom: 6px;
       position: absolute;
 
-      .button-cancel, .button-apply {
+      .button-cancel,
+      .button-apply {
         background-color: transparent;
         color: $secondary;
         border: none;
@@ -976,7 +976,7 @@
     &:focus {
       color: black;
       border: 1px solid $blue;
-      box-shadow: 0 0 1px 1px rgba($color: $blue, $alpha: .2);
+      box-shadow: 0 0 1px 1px rgba($color: $blue, $alpha: 0.2);
       outline: none;
     }
     &.danger {
@@ -987,11 +987,11 @@
       }
       &:focus {
         border: 1px solid $red-dark;
-        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: .2);
+        box-shadow: 0 0 1px 1px rgba($color: $red, $alpha: 0.2);
       }
     }
     &.disabled {
-      opacity: .7;
+      opacity: 0.7;
       pointer-events: none;
       background-color: $sky-light;
     }
@@ -1011,7 +1011,9 @@
   z-index: 10;
   border-radius: 4px;
   background: white;
-  &.type, &.resa, &.key {
+  &.type,
+  &.resa,
+  &.key {
     z-index: inherit;
   }
   &::-webkit-scrollbar-track {
@@ -1110,7 +1112,7 @@
         color: $secondary;
         display: grid;
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           right: 0;
           width: 26px;
@@ -1118,7 +1120,7 @@
           background: $blue-lighter;
         }
         &::after {
-          content: '+';
+          content: "+";
           position: absolute;
           right: 6px;
           transform: rotate(45deg);
@@ -1168,7 +1170,7 @@
         height: 30px;
         margin-top: 0;
         &::before {
-          content: '';
+          content: "";
           width: 16px;
           height: 16px;
           border-radius: 2px;
@@ -1186,7 +1188,7 @@
             border-color: $secondary;
           }
           &::after {
-            content: '';
+            content: "";
             left: 14px;
             top: 9px;
             width: 4px;
@@ -1254,7 +1256,7 @@
               display: none;
             }
             &::after {
-              content: '';
+              content: "";
               left: 14px;
               top: 9px;
               width: 4px;
@@ -1305,7 +1307,8 @@
           margin-top: 0;
           margin-right: 4px;
           pointer-events: none;
-          &::before, &::after {
+          &::before,
+          &::after {
             display: none;
           }
           &.selected {
@@ -1315,7 +1318,7 @@
       }
       &.selected-values {
         &::after {
-          content: '';
+          content: "";
           border-right: solid 1px $sky-dark;
           position: absolute;
           width: 1px;
@@ -1326,7 +1329,9 @@
         .input-content {
           position: relative;
           z-index: 1;
-          svg, span, input {
+          svg,
+          span,
+          input {
             display: none;
           }
         }
@@ -1374,7 +1379,7 @@
             pointer-events: all;
             left: 0;
             &::after {
-              content: '+';
+              content: "+";
               position: absolute;
               right: 12px;
               left: unset;
@@ -1436,7 +1441,8 @@
             &:hover {
               background-color: $blue-lighter;
             }
-            &::before, &::after {
+            &::before,
+            &::after {
               display: none;
             }
           }
@@ -1493,7 +1499,8 @@
         &:last-child {
           margin-right: 12px;
         }
-        &::before, &::after {
+        &::before,
+        &::after {
           display: none;
         }
         &.selected {
@@ -1507,7 +1514,7 @@
             &::before {
               content: attr(initials);
               position: absolute;
-              background: #EDF3F9;
+              background: #edf3f9;
               width: 100%;
               height: 100%;
               top: 0;
@@ -1549,7 +1556,8 @@
           height: 30px;
           margin-top: 4px;
           margin-right: 0;
-          &::before, &::after {
+          &::before,
+          &::after {
             display: block;
           }
           &::after {
@@ -1589,7 +1597,7 @@
       width: 24px;
       min-width: 24px;
       padding-bottom: 2px;
-      background-color: #EDF3F9;
+      background-color: #edf3f9;
       @include flexCenter(2px);
       border-radius: 2px;
       cursor: pointer;
@@ -1604,7 +1612,8 @@
         margin-top: 0px;
         margin-right: 4px;
         border-radius: 2px;
-        &::before, &::after {
+        &::before,
+        &::after {
           display: none;
         }
         &.selected {
@@ -1613,7 +1622,7 @@
             &::before {
               content: attr(initials);
               position: absolute;
-              background: #EDF3F9;
+              background: #edf3f9;
               width: 100%;
               height: 100%;
               top: 0;
@@ -1655,7 +1664,8 @@
           height: 30px;
           margin-top: 4px;
           margin-right: 0;
-          &::before, &::after {
+          &::before,
+          &::after {
             display: block;
           }
           &::after {

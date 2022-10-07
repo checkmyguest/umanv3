@@ -1,7 +1,7 @@
-@import './layout-comp-styles/buttons';
-@import './layout-comp-styles/inputs';
-@import './layout-comp-styles/alerts';
-@import './layout-comp-styles/typos';
+@import "./layout-comp-styles/buttons";
+@import "./layout-comp-styles/inputs";
+@import "./layout-comp-styles/alerts";
+@import "./layout-comp-styles/typos";
 
 // Fonts
 
@@ -124,7 +124,9 @@
 }
 
 //fix dark mode
-body, input, textarea {
+body,
+input,
+textarea {
   background: white;
   margin: 0;
   padding: 0;
@@ -180,7 +182,9 @@ body, input, textarea {
       }
       &.slide {
         .main-slide {
-          img, video, embed {
+          img,
+          video,
+          embed {
             width: 500px;
             height: 460px;
             object-fit: contain;
@@ -188,7 +192,9 @@ body, input, textarea {
         }
         nav {
           display: flex;
-          img, video, embed {
+          img,
+          video,
+          embed {
             width: 60px;
             height: 60px;
             object-fit: cover;
@@ -203,7 +209,7 @@ body, input, textarea {
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
-          background-image: url('~@/assets/img/triangle-select.svg');
+          background-image: url("~@/assets/img/triangle-select.svg");
           background-repeat: no-repeat;
           background-size: 7px;
           background-position: 97% center;
@@ -360,7 +366,7 @@ body, input, textarea {
                 .picker-wrap {
                   .start-date-input,
                   .end-date-input {
-                    background-image: url('~@/assets/img/arrow-down.svg');
+                    background-image: url("~@/assets/img/arrow-down.svg");
                     background-repeat: no-repeat;
                     background-size: 10px;
                     background-position: center;
@@ -373,7 +379,7 @@ body, input, textarea {
                 .start-hour-input,
                 .end-hour-input {
                   appearance: none;
-                  background-image: url('~@/assets/img/arrow-down.svg');
+                  background-image: url("~@/assets/img/arrow-down.svg");
                   background-repeat: no-repeat;
                   background-size: 10px;
                   background-position: center;
@@ -395,7 +401,7 @@ body, input, textarea {
                 .platform-dropdown {
                   .search-platform {
                     input {
-                      background-image: url('~@/assets/img/loupe.svg');
+                      background-image: url("~@/assets/img/loupe.svg");
                       padding-left: 28px;
                     }
                   }
@@ -410,7 +416,7 @@ body, input, textarea {
                 }
                 .reservation-number {
                   .cmg-input-icon-right {
-                    background-image: url('~@/assets/img/signe-dollar.svg');
+                    background-image: url("~@/assets/img/signe-dollar.svg");
                     background-repeat: no-repeat;
                     background-size: 14px;
                     background-position: center;
@@ -421,7 +427,7 @@ body, input, textarea {
               }
               .action-tags {
                 .action-selected-tags {
-                  background-image: url('~@/assets/img/arrow-down.svg');
+                  background-image: url("~@/assets/img/arrow-down.svg");
                   background-repeat: no-repeat;
                   background-size: 10px;
                   background-position: center;
@@ -456,7 +462,7 @@ body, input, textarea {
                 .tags-dropdown {
                   .tags-search {
                     margin-top: 10px;
-                    background-image: url('~@/assets/img/loupe.svg');
+                    background-image: url("~@/assets/img/loupe.svg");
                     background-repeat: no-repeat;
                     background-size: 12px;
                     background-position: center;
@@ -466,7 +472,7 @@ body, input, textarea {
               }
               .action-cleaning-runner {
                 .action-selected-options {
-                  background-image: url('~@/assets/img/arrow-down.svg');
+                  background-image: url("~@/assets/img/arrow-down.svg");
                   background-repeat: no-repeat;
                   background-size: 10px;
                   background-position: center;
@@ -501,7 +507,7 @@ body, input, textarea {
                 .action-dropdown {
                   .action-search {
                     margin-top: 10px;
-                    background-image: url('~@/assets/img/loupe.svg');
+                    background-image: url("~@/assets/img/loupe.svg");
                     background-repeat: no-repeat;
                     background-size: 12px;
                     background-position: center;
@@ -512,7 +518,7 @@ body, input, textarea {
               .fields-wrapper {
                 .change-password {
                   .change-pass-link {
-                    svg {
+                    svg  {
                       background-color: red;
                       path {
                         fill: $blue !important;
@@ -593,24 +599,26 @@ body, input, textarea {
 
 /* Notification animation right */
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-enter, .slide-fade-leave-to {
+.slide-fade-enter,
+.slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }
 
 /* Notification animation left */
 .slide-fade-left-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-left-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-left-enter, .slide-fade-left-leave-to {
+.slide-fade-left-enter,
+.slide-fade-left-leave-to {
   transform: translateX(-18px);
   opacity: 0;
 }
@@ -733,7 +741,7 @@ body {
                   &.tags-line {
                     .cmg-dropdown {
                       .cmg-input {
-                        background-image: url('~@/assets/img/loupe.svg');
+                        background-image: url("~@/assets/img/loupe.svg");
                         background-repeat: no-repeat;
                         background-size: 12px;
                         background-position: center;
@@ -775,7 +783,7 @@ body {
                     border-color: transparent;
                     cursor: pointer;
                     background-color: transparent !important;
-                    transition: all .2s;
+                    transition: all 0.2s;
                     &[type="checkbox"] {
                       width: 100%;
                       height: 100%;
@@ -842,7 +850,7 @@ body {
                   &.issue-creator {
                     div {
                       span {
-                        background-color: #EDF3F9;
+                        background-color: #edf3f9;
                       }
                     }
                   }
@@ -851,10 +859,10 @@ body {
                       text-transform: capitalize;
                     }
                     .assigned-name {
-                      background-color: #EDF3F9;
+                      background-color: #edf3f9;
                     }
                     .add-assign {
-                      background-color: #EDF3F9;
+                      background-color: #edf3f9;
                       .cmg-dropdown {
                         top: -3px;
                         height: auto;
@@ -886,7 +894,7 @@ body {
                     color: $blue;
                   }
                   .mission-assigned {
-                    background-color: #EDF3F9;
+                    background-color: #edf3f9;
                   }
                   .text-small-gray {
                     color: $grey4;
@@ -1106,7 +1114,7 @@ input {
 
 .skeleton {
   position: relative;
-  background-color: #EEF1F5;
+  background-color: #eef1f5;
   border-radius: 4px;
   margin: 10px 0;
 
@@ -1122,7 +1130,13 @@ input {
     top: 0;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, #EEF1F5 0%, rgba(0, 0, 0, 0.05) 20%, #EEF1F5 40%, #EEF1F5 100%);
+    background-image: linear-gradient(
+      to right,
+      #eef1f5 0%,
+      rgba(0, 0, 0, 0.05) 20%,
+      #eef1f5 40%,
+      #eef1f5 100%
+    );
     background-repeat: no-repeat;
     background-size: 1000px 1000px;
     animation: shimmer 1s linear infinite;
@@ -1190,7 +1204,7 @@ input {
       height: 30px;
       width: 30px;
       display: block;
-      background-color: #EEF1F5;
+      background-color: #eef1f5;
       // position: relative;
       // left: -50px;
       // top: 10px;
@@ -1228,11 +1242,11 @@ input {
 
 @keyframes shimmer {
   0% {
-      background-position: -1000px 0;
+    background-position: -1000px 0;
   }
 
   100% {
-      background-position: 1000px 0;
+    background-position: 1000px 0;
   }
 }
 
@@ -1244,7 +1258,8 @@ input {
   margin-top: 4px;
 }
 
-html, body {
+html,
+body {
   overscroll-behavior-x: none;
 }
 

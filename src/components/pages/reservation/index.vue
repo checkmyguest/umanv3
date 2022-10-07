@@ -1,3 +1,3 @@
 <template>
-    <h1>Reservation</h1>
+  <h1>Reservation</h1>
 </template>

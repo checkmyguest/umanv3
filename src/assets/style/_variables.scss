@@ -1,5 +1,5 @@
 // Colors
-$primary: #1F2B37;
+$primary: #1f2b37;
 $secondary: #1b71ff;
 $background1: #fafafa;
 $background2: #838aa4;
@@ -18,7 +18,7 @@ $slider-blue: #d1e3ff;
 $slider-blue-dark: #556b8d;
 
 /// INK
-$ink-lightest: #9898AA;
+$ink-lightest: #9898aa;
 $ink-lighter: #637381;
 $ink-light: #454f5b;
 $ink: #1f2b37;
@@ -46,9 +46,9 @@ $red-alert: #fff1f6;
 $red-light: #fab9ca;
 $red-dark: #bf1d08;
 $red-btn-border: #cd0654;
-$red-darker: #FFC4D5;
+$red-darker: #ffc4d5;
 $red-text: #583c35;
-$red-sweet-serenade: #FFC4D5;
+$red-sweet-serenade: #ffc4d5;
 
 /// YELLOW
 $yellow: #f6bb2d;
@@ -81,7 +81,7 @@ $indigo: #5b63af;
 $indigo-lighter: #f5f5fa;
 $indigo-light: #b3bcf5;
 $indigo-dark: #102069;
-$indigo-darker: #1F2B37;
+$indigo-darker: #1f2b37;
 $indigo-text: #3e4155;
 
 // BLUE
@@ -91,11 +91,11 @@ $blue-light: #9bd1ff;
 $blue-dark: #3c5ad7;
 $blue-dark-btn: #1963e7;
 $blue-darken: #061249;
-$blue-darker: #1F2B37;
+$blue-darker: #1f2b37;
 $blue-darker-btn: #155ad7;
-$blue-text: #919EAB;
-$blue-sky: #EDF3F9;
-$bue-hover: #D1E2FF;
+$blue-text: #919eab;
+$blue-sky: #edf3f9;
+$bue-hover: #d1e2ff;
 
 // TEAL
 $teal: #47c1bf;
@@ -187,7 +187,7 @@ $colors: (
   "teal-light": $teal-light,
   "teal-dark": $teal-dark,
   "teal-darker": $teal-darker,
-  "teal-text": $teal-text
+  "teal-text": $teal-text,
 );
 
 $background: (
@@ -273,7 +273,7 @@ $background: (
   "bgn-teal-light": $teal-light,
   "bgn-teal-dark": $teal-dark,
   "bgn-teal-darker": $teal-darker,
-  "bgn-teal-text": $teal-text
+  "bgn-teal-text": $teal-text,
 );
 
 //// fonts
@@ -287,7 +287,7 @@ $fonts: (
   "regular": $regular,
   "medium": $medium,
   "semibold": $semibold,
-  "bold": $bold
+  "bold": $bold,
 );
 $fontSizes: (
   "font-42": 42px,
@@ -299,7 +299,7 @@ $fontSizes: (
   "font-14": 14px,
   "font-12": 12px,
   "font-11": 11px,
-  "font-10": 10px
+  "font-10": 10px,
 );
 $lineHeights: (
   "line-height-44": 44px,
@@ -311,7 +311,7 @@ $lineHeights: (
   "line-height-20": 20px,
   "line-height-16": 16px,
   "line-height-14": 14px,
-  "line-height-12": 12px
+  "line-height-12": 12px,
 );
 
 //// breakpoints
@@ -322,7 +322,7 @@ $devices: (
   "m": 768px,
   "l": 1024px,
   "xl": 1440px,
-  "xxl": 2560px
+  "xxl": 2560px,
 );
 
 // Mixins

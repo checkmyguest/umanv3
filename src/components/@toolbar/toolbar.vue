@@ -1,12 +1,13 @@
 <script lang="ts">
-import UmanBetaLogo from "../../assets/img/logo/logo_beta.svg";
-import IconUmanMenu from "../../assets/img/navbar/menu-btn.svg";
-import UmanSearch from "../../assets/img/toolbar/search.svg";
+import IconLogoBeta from "@/assets/img/logo/logo_beta.svg";
+import IconMenuBtn from "@/assets/img/navbar/menu-btn.svg";
+import IconSearch from "@/assets/img/toolbar/search.svg";
 export default {
   components: {
-    UmanBetaLogo,
-    IconUmanMenu,
-    UmanSearch,
+    IconLogoBeta,
+    IconMenuBtn
+  ,
+    IconSearch,
   },
 };
 </script>
@@ -16,12 +17,15 @@ export default {
     <div class="left-side">
       <div class="menu-btn toolbar-hover">
         <a class="cursor-pointer">
-          <IconUmanMenu />
+          <IconMenuBtn />
         </a>
       </div>
-      <router-link to="/" class="uman-logo">
+      <router-link
+        to="/"
+        class="uman-logo"
+      >
         <div class="logo">
-          <UmanBetaLogo />
+          <IconLogoBeta />
         </div>
       </router-link>
       <a class="go-vone ml-4 hover:underline">
@@ -30,10 +34,12 @@ export default {
     </div>
     <div class="right-side">
       <div class="searchbar toolbar-hover">
-        <UmanSearch id="search" />
+        <IconSearch id="search" />
       </div>
       <div class="profile-chart toolbar-hover">
-        <button class="actions-icon cmg-btn cmg-more-actions more-actions-nobg">KN</button>
+        <button class="actions-icon cmg-btn cmg-more-actions more-actions-nobg">
+          KN
+        </button>
       </div>
     </div>
   </div>
