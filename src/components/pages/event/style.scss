@@ -3,80 +3,15 @@
   padding: 0;
 }
 
-.event-page {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  header {
-    margin: 22px 0;
-    width: 97%;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    .container {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid $grey1;
-      .vue-container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 70%;
-        .vue {
-          width: 140px;
-          height: 40px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          button {
-            font-size: 12px;
-            font-weight: 500;
-            border: none;
-            border-radius: 5px;
-            width: 95%;
-            height: 75%;
-            transition: all 0.3s ease-out;
-            white-space: nowrap;
-            margin-bottom: 2px;
-          }
-        }
-        .active {
-          border-bottom: 2px solid $blue;
-          border-bottom-left-radius: 1px;
-          border-bottom-right-radius: 1px;
-          margin-bottom: -2px;
-          button{
-            background-color: $blue-lighter;
-            color: $blue;
-          }
-        }
-      }
-      .button-container {
-        width: 30%;
-        height: 100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-      }
+.page .reservation{
+  width: 10px;
+  height: 100%;
+  .test{
+    background-color: blueviolet !important;
+    width: 500px;
+    height: 200px;
+    h1{
+      font-size: 2px;
     }
-  }
-  button {
-    border: none;
-    border-radius: 5px;
-    width: 120px;
-    height: 30px;
-    background-color: transparent;
-    transition: all 0.3s ease-out;
-    white-space: nowrap;
-  }
-  button:hover {
-    background-color: $border1;
-    // box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: .2);
   }
 }

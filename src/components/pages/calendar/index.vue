@@ -1,34 +1,51 @@
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia';
+import { ref } from 'vue';
 import { Reservation } from '../../../core/@models/reservation';
 import { ReservationServiceData } from '../../../core/services/reservation-service';
+import { useReservationStore } from '../../../stores/fake-use-reservation';
 
-  const hello = "This is a message"
+  const storeReservation = useReservationStore();
+  const { reservation } = storeToRefs(storeReservation);
+  const reservationContainer: Reservation[] = [];
+  const hello = "This is a message";
+  const entree = ref('');
   const reservationServiceData = new ReservationServiceData();
-  const reservation: Reservation[] = [];
-  
-  function loadReservation(): Promise<Reservation[]>{
-    return reservationServiceData.getReservation().then((values)=>{
-      for (const value of values) {
-        reservation.push({
-          test1: value.test1,
-          test2: value.test2
-        })
-      }
-      return reservation;
-    });
+  function loadReservation(): Promise<void>{
+    return reservationServiceData.getReservation().then((result)=>{
+      storeReservation.createNewItem(result);
+      return;
+    })
   }
   Promise.all([
     loadReservation()
   ]);
-  
+  function envoieUnNom(){
+    reservationContainer.splice(0, reservationContainer.length);
+    reservationContainer.push({
+      test1: entree.value,
+      test2: 99
+    });
+    storeReservation.createNewItem(reservationContainer);
+  }
 </script>
+
 <template>
   <div>
     <h1>Calendar</h1>
     <p>{{ hello }}</p>
-    <button @click="loadReservation()">
+    <el-input
+      v-model="entree"
+      placeholder="Please input"
+    />
+    <button @click="envoieUnNom">
       Click Me
     </button>
-    <p>{{ reservation[0] }}</p>
+    <p
+      v-for="(item, index) in reservation"
+      :key="index"
+    >
+      {{ item }}
+    </p>
   </div>
 </template>

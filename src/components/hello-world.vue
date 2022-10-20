@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Item } from "../services/@models/fake-models";
-import { useMainStore } from "../services/store/fake-variable";
+import { Item } from "../stores/@models/fake-models";
+import { useMainStore } from "../stores/fake-use-variable";
 
 let itemContainer: Item = {
 id: "5",

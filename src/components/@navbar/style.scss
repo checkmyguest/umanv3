@@ -34,7 +34,6 @@
           border-color: $blue;
           svg{
             fill: $white;
-            margin-bottom: 1px;
           }
         }
         .router-class {
@@ -53,9 +52,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            .svg-class{
-              margin-right: 1px;
-              fill: $ink-lightest !important;
+            svg{
+                fill: $ink-lightest;
             }
           }
           span {
@@ -108,12 +106,6 @@
             svg {
               margin-left: 2px;
               fill: $blue !important;
-              g {
-                fill: $blue !important;
-              }
-              path {
-                fill: $blue !important;
-              }
             }
           }
           

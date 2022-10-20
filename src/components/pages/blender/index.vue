@@ -1,17 +1,33 @@
 <script setup lang="ts">
-import { useMainStore } from '../../../services/store/fake-variable';
+import { storeToRefs } from 'pinia';
+import { useReservationStore } from '../../../stores/fake-use-reservation';
+import { useMainStore } from '../../../stores/fake-use-variable';
 
-  const store = useMainStore()
+  const main = useMainStore();
+  const { items, test, cpt } = storeToRefs(main);
+  const store = useReservationStore();
+  const { reservation } = storeToRefs(store);
+
 </script>
 
 <template>
   <div>
     <h1>Blender</h1>
     <p
-      v-for="(item, index) in store.items"
+      v-for="(item, index) in items"
       :key="index"
     >
-      {{ item.name }}, {{ index }}
+      {{ item.proprio }}, {{ index }}
     </p>
+    <h1>C'est le compteur {{ cpt }}</h1>
+    <p
+      v-for="(item, index) in reservation"
+      :key="index"
+    >
+      {{ item }}
+    </p>
+    <button @click="main.addOne">
+      Click me
+    </button>
   </div>
 </template>

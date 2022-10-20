@@ -1,3 +1,38 @@
+<template>
+  <div class="navbar">
+    <div class="nav-container">
+      <ul>
+        <li>
+          <button
+            class="cmg-actions-plus cmg-btn cmg-more-actions"
+            @click.stop="menuPlusButton = !menuPlusButton"
+          >
+            <component :is="IconPlusIcon" />
+          </button>
+        </li>
+      </ul>
+      <ul>
+        <li 
+          v-for="(item, index) in items" 
+          :key="index"
+        >
+          <router-link 
+            :to="item.to" 
+            class="router-class"
+          >
+            <div id="pic">
+              <component :is="item.icon" />
+            </div>
+            <span>
+              {{ item.label }}
+            </span>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
 import IconCalendar from "@/assets/img/navbar/calendar.svg";
 import IconDepartureArrivals from "@/assets/img/navbar/departure-arrivals.svg";
@@ -6,6 +41,7 @@ import IconPlusIcon from "@/assets/img/navbar/plus-icon.svg";
 import IconPricing from "@/assets/img/navbar/pricing.svg";
 import IconReservation from "@/assets/img/navbar/reservation.svg";
 import IconTodo from "@/assets/img/navbar/todo.svg";
+import { ref } from "vue";
 
 interface Item {
   to: string;
@@ -15,6 +51,7 @@ interface Item {
   is_active: boolean;
 }
 
+const menuPlusButton = ref(false);
 let items: Item[] = [
   {
     to: "/event",
@@ -60,42 +97,5 @@ let items: Item[] = [
   },
 ];
 </script>
-
-<template>
-  <div class="navbar">
-    <div class="nav-container">
-      <ul>
-        <li>
-          <button
-            class="cmg-actions-plus cmg-btn cmg-more-actions"
-          >
-            <div>
-              <IconPlusIcon />
-            </div>
-          </button>
-        </li>
-      </ul>
-      <ul>
-        <li
-          v-for="(item, index) in items"
-          :key="index"
-        >
-          <router-link
-            v-cloak
-            :to="item.to"
-            class="router-class"
-          >
-            <div id="pic">
-              <component :is="item.icon" />
-            </div>
-            <span>
-              {{ item.label }}
-            </span>
-          </router-link>
-        </li>
-      </ul>
-    </div>
-  </div>
-</template>
 
 <style lang="scss" scoped src="./style.scss"></style>

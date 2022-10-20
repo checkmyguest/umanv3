@@ -3,6 +3,7 @@ import HelloWorldVue from "../components/hello-world.vue";
 import Blender from "../components/pages/blender/index.vue";
 import Calendar from "../components/pages/calendar/index.vue";
 import Event from "../components/pages/event/index.vue";
+// import EventTest from "../components/pages/event/test.vue";
 import Housing from "../components/pages/housing/index.vue";
 import Price from "../components/pages/price/index.vue";
 import Reservation from "../components/pages/reservation/index.vue";

@@ -5,13 +5,11 @@ import { IReservationData } from "../@models/reservation-database";
 
 @injectable()
 export class ReservationServiceData implements IReservationData{
-    public async setReservation(reservation: Reservation): Promise<void> { 
-        //api request
+    public getReservation(): Promise<Reservation[]> {
         throw new Error("Method not implemented.");
     }
-    public async getReservation(): Promise<Reservation[]> {
-        const reservation: Reservation[] = [];
-        reservation.push(new Reservation("Nguyen", 22));
-        return reservation;
+    public setReservation(reservation: Reservation): Promise<void> {
+        throw new Error("Method not implemented.");
     }
+   
 }
