@@ -5,9 +5,23 @@ export const useAdminStore = defineStore({
     state: () => ({
         datas: {
             accountManagers: "",
-            admins: []
+            admins: [],
         },
         vueActive: 0,
         initVue: false,
-    })
+        logStatus: false
+    }),
+    getters:{
+        getLogStatus(): boolean{
+            return this.logStatus;
+        }
+    },
+    actions: {
+        logIn(){
+            this.logStatus = true;
+        },
+        logOut(){
+            this.logStatus = false;
+        }
+    }
 });

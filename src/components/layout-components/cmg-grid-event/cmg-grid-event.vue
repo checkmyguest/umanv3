@@ -65,7 +65,7 @@
                 :row="row"
                 :index="i"
                 :grid-type="gridType"
-                :confirm="actionBtnConfirm"
+                :confirm="actionButtonConfirm"
               />
               <label class="cmg-checkbox-container">
                 <input
@@ -105,12 +105,15 @@
 <script setup lang="ts">
 import NoResults from "@/assets/img/no-results.svg";
 import Skeleton from "@/assets/img/skeleton.svg";
+import { useCommunStore } from "@/stores/commun";
 import { useEventStore } from "@/stores/event";
 import { computed } from "vue";
 import { EVENT_COLUMNS } from "../../../../constants";
+import { IEvents } from "../../../stores/event";
 import MoreActions from "./more-actions.vue";
 
 const eventStore = useEventStore();
+const communStore = useCommunStore();
 
 const properties = defineProps({
   gridType: {},
@@ -120,16 +123,16 @@ const properties = defineProps({
   actionBtnCol: { type: Function, required: true },
   isMainPage: { type: Boolean, required: true },
   setSort: { type: Function, required: true },
-  items: {},
+  items: { type: Object as () => IEvents[], required: true },
   pagination: { type: Function, required: true },
-  loading: { type: Boolean, required: true },
+  loading: { type: Boolean, required: true }
 });
 
 // DATA //
 let activeId: string | number;
 let masterCheck: boolean = false;
 let allSelected: boolean = false;
-let selectedIds: [];
+let selectedIds: number[];
 let scrollListenersSetup: boolean = false;
 let withColumns: string[] = [];
 let actionButtonConfirm: { state: boolean };
@@ -151,18 +154,6 @@ const showAction = computed(() => {
     properties.actionBtnCol.hasAction &&
     activeActionsButton.index;
 });
-
-function actionButtonCol() {
-  return {
-    hasAction: true,
-    actionBtnOptions: [
-      {
-        actionBtnValue: "Partager les accès",
-        actionBtnFunc: sendAccess,
-      },
-    ],
-  };
-}
 
 function showActionsButton(index: any) {
   if (activeActionsButton.locked) activeActionsButton.index = index;
@@ -193,7 +184,7 @@ function selectRow(id: number) {
     }
   }
   masterCheck = selectedIds.length > 0 ? true : false;
-  this.$store.commit("commun/setSelectedItems", selectedIds);
+  communStore.setSelectedItems(selectedIds);
 }
 function setWidthColumn(width: string) {
   if (withColumns.length <= properties.columns.length) {
@@ -208,15 +199,15 @@ function resetSort(type: any) {
   }
 }
 function toggleSort(type: any) {
-  const column = properties.columns.find((col) => col.key === type);
-  const direction = !column.sort
-    ? "ASC"
-    : (column.sort === "ASC"
-    ? "DESC"
-    : false);
-  properties.setSort(direction ? column.key : undefined, direction);
-  column.sort = direction;
-  resetSort(type);
+  // const column = properties.columns.find((col) => col.key === type);
+  // const direction = !column?.sort
+  //   ? "ASC"
+  //   : (column.sort === "ASC"
+  //   ? "DESC"
+  //   : false);
+  // properties.setSort(direction ? column?.key : undefined, direction);
+  // column?.sort = direction;
+  // resetSort(type);
 }
 </script>
 

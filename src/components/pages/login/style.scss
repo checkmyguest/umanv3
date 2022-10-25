@@ -1,0 +1,60 @@
+.page{
+    width: 100vw !important;
+    height: 100vh !important;
+    position: absolute;
+    top: 0 !important;
+    left: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeeef0;
+    .login-card{
+        max-width: 380px;
+        width: 33%;
+        height: auto;
+        background-color: white;
+        padding: 1.5rem !important;
+        border-radius: 0.25rem;
+        box-shadow: 0 1px 5px 1px lightgrey;
+        .content-wrapper{
+            width: 100%;
+            .logo{
+                height: 3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 150px;
+                    height: auto;
+                }
+            }
+            .email-block {
+                margin-top: 2rem;
+                label {
+                  font-weight: bold;
+                  margin-bottom: 0.5rem;
+                }
+              }
+              .login-input {
+                height: 32px;
+                width: calc(100% - 10px);
+                border-radius: 4px;
+                color: #596477;
+                font-size: 14px;
+                font-family: "URWGeometric Regular";
+                border: solid 1px lightgray !important;
+                padding-left: 10px;
+                margin-top: 0.5rem;
+              }
+              
+              .password-block {
+                margin-top: 1rem;
+                label {
+                  font-weight: bold;
+                  margin-bottom: 0.5rem;
+                }
+              }
+        }
+        
+    }
+}

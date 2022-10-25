@@ -84,7 +84,7 @@ export default {
       require: true,
     },
   },
-  data: function () {
+  data () {
     return {
       usePortal: false,
       defaultButtonClass: "tab flex flex-row justify-between items-center px-3",
@@ -102,34 +102,34 @@ export default {
     },
   },
   methods: {
-    closeDropdown() {
-      this.usePortal = false
-    },
-    editName() {
-      this.closeDropdown()
-      this.newName = this.name
-      this.isEditing = true
-      this.$nextTick(() => this.$refs["name-input"].focus())
-    },
-    renameView() {
-      if (!this.isEditing || this.name === this.newName) return
-      this.isEditing = false
-      this.onRename(this.newName)
-    },
-    deleteView() {
-      this.closeDropdown()
-      this.onDelete()
-    },
-    onTabClick(event) {
-      if (this.isEditing) return false
-      if (!this.isActive) return this.onPress()
-      const elementPosition = event.target.getBoundingClientRect()
-      this.position = {
-        x: elementPosition.left,
-        y: elementPosition.bottom,
-      }
-      this.usePortal = true
-    },
+    // closeDropdown() {
+    //   this.usePortal = false
+    // },
+    // editName() {
+    //   this.closeDropdown()
+    //   this.newName = this.name
+    //   this.isEditing = true
+    //   this.$nextTick(() => this.$refs["name-input"].focus())
+    // },
+    // renameView() {
+    //   if (!this.isEditing || this.name === this.newName) return
+    //   this.isEditing = false
+    //   this.onRename(this.newName)
+    // },
+    // deleteView() {
+    //   this.closeDropdown()
+    //   this.onDelete()
+    // },
+    // onTabClick(event: any) {
+    //   if (this.isEditing) return false
+    //   if (!this.isActive) return this.onPress()
+    //   const elementPosition = event.target.getBoundingClientRect()
+    //   this.position = {
+    //     x: elementPosition.left,
+    //     y: elementPosition.bottom,
+    //   }
+    //   this.usePortal = true
+    // },
   },
 }
 </script>

@@ -1,6 +1,10 @@
 <template>
-  <div class="navbar">
-    <div class="nav-container">
+  <div 
+    class="navbar"
+  >
+    <div 
+      class="nav-container"
+    >
       <ul>
         <li>
           <button
@@ -13,7 +17,7 @@
       </ul>
       <ul>
         <li 
-          v-for="(item, index) in items" 
+          v-for="(item, index) in items"
           :key="index"
         >
           <router-link 
@@ -41,6 +45,7 @@ import IconPlusIcon from "@/assets/img/navbar/plus-icon.svg";
 import IconPricing from "@/assets/img/navbar/pricing.svg";
 import IconReservation from "@/assets/img/navbar/reservation.svg";
 import IconTodo from "@/assets/img/navbar/todo.svg";
+import { useAdminStore } from "@/stores/admin";
 import { ref } from "vue";
 
 interface Item {
@@ -50,6 +55,8 @@ interface Item {
   name: string;
   is_active: boolean;
 }
+
+const adminStore = useAdminStore();
 
 const menuPlusButton = ref(false);
 let items: Item[] = [

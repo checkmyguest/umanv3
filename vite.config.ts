@@ -28,5 +28,8 @@ export default defineConfig({
     alias: [{ find: "@", replacement: "/src" },
     { find: "constants", replacement: "/constants.ts"}],
   },
+  define:{
+    'process.env': process.env
+  }
   // ...
 });

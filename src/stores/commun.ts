@@ -1,5 +1,20 @@
 import { defineStore } from "pinia";
 
+interface INotification{
+
+}
+
+export type CommunState = {
+  startTimer: unknown[],
+  endTimer: unknown[],
+  notification: unknown,
+  notifMsg: string,
+  selectedItems: number[],
+  start: unknown,
+  end: unknown,
+  confirmation: unknown
+};
+
 export const useCommunStore = defineStore({
   id: "communStore",
   state: () => ({
@@ -11,28 +26,28 @@ export const useCommunStore = defineStore({
     start: null,
     end: null,
     confirmation: null,
-  }),
+  } as CommunState),
   actions: {
-    START_TIMER(values: never) {
+    START_TIMER(values: unknown) {
       this.startTimer.push(values);
     },
-    END_TIMER(values: never) {
+    END_TIMER(values: unknown) {
       this.endTimer.push(values);
     },
-    showNotification(alert: never, message: string) {
+    showNotification(alert: unknown, message: string) {
       (this.notifMsg = message), (this.notification = alert);
     },
     hideNotification() {
       this.notification = null;
       this.notifMsg = "";
     },
-    showConfirmation(confirmation: never) {
+    showConfirmation(confirmation: unknown) {
       this.confirmation = confirmation;
     },
     hideConfirmation() {
       this.confirmation = null;
     },
-    setSelectedItems(values: never[]) {
+    setSelectedItems(values: number[]) {
       this.selectedItems = [...values];
     },
   },

@@ -26,7 +26,7 @@
       <div class="flex items-center justify-between">
         <span>{{
           !loading
-            ? `${pagination?.total} événement${items.length > 0 ? "s" : ""}`
+            ? `${pagination?.total} événement${items?.length > 0 ? "s" : ""}`
             : ""
         }}</span>
         <div class="flex items-center">
@@ -99,7 +99,7 @@
           </p>
         </td>
         <td :style="slotProps.setWidthColumn('220px')">
-          <PlatformItem
+          <ElFormItem
             :platform="slotProps.row.origin"
             :size="6"
           />
@@ -109,28 +109,28 @@
           :style="slotProps.setWidthColumn('200px')"
         >
           <InitialsName
-            v-if="slotProps.row.guest_name"
+            v-if="slotProps.row.guestName"
             :size="6"
-            :fullname="slotProps.row.guest_name"
+            :fullname="slotProps.row.guestName"
           />
         </td>
         <td :style="slotProps.setWidthColumn('90px')">
           <ColoredStatus
             v-if="!slotProps.row.reason"
-            :status="slotProps.row.front_statusIn"
+            :status="slotProps.row.fontStatusIn"
             :is-text-inside="true"
           />
         </td>
         <td :style="slotProps.setWidthColumn('90px')">
           <ColoredStatus
-            :status="slotProps.row.front_status"
+            :status="slotProps.row.fontStatusIn"
             :is-text-inside="true"
           />
         </td>
         <td :style="slotProps.setWidthColumn('220px')">
-          <p v-if="slotProps.row.front_housing_name">
+          <p v-if="slotProps.row.frontHousingName">
             {{
-              slotProps.row.front_housing_name.split("-").slice(0, 1).join("-")
+              slotProps.row.frontHousingName.split("-").slice(0, 1).join("-")
             }}
           </p>
         </td>
@@ -140,24 +140,24 @@
         >
           <router-link
             class="secondary max-w-xl whitespace-nowrap overflow-hidden hover:underline"
-            :title="slotProps.row.front_housing_name"
-            :to="`/housing/focus?hid=${slotProps.row.housing_id}`"
+            :title="slotProps.row.frontHousingName"
+            :to="`/housing/focus?hid=${slotProps.row.housingId}`"
           >
-            {{ slotProps.row.front_housing_name }}
+            {{ slotProps.row.frontHousingName }}
           </router-link>
           <p class="subtitle">
-            {{ slotProps.row.housing_id }}
+            {{ slotProps.row.housingId }}
           </p>
         </td>
         <td
           class="justify-between"
           :style="slotProps.setWidthColumn('200px')"
         >
-          <PlatformItem :platform="slotProps.row.reason" />
+          <ElFormItem :platform="slotProps.row.reason" />
         </td>
         <td
           :style="slotProps.setWidthColumn('250px')"
-          :title="slotProps.row.front_tagList"
+          :title="slotProps.row.frontTagList"
           class="p-0 items-start"
         >
           <div
@@ -181,7 +181,7 @@
                 :key="`tags-${i}`"
                 :value="tag.tag_id"
                 :class="{
-                  selected: slotProps.row.front_tagList.includes(tag.name),
+                  selected: slotProps.row.frontTagList.includes(tag.name),
                 }"
                 @click="
                   $multiSelect(`#multi-select-${slotProps.row.id}-${i}`),
@@ -202,7 +202,7 @@
           <p>
             {{
               $dateFns.format(
-                new Date(slotProps.row.ts_create),
+                new Date(slotProps.row.tsCreate),
                 "dd.MM.yyyy HH:mm"
               )
             }}
@@ -212,7 +212,7 @@
           <p>
             {{
               $dateFns.format(
-                new Date(slotProps.row.front_date_start),
+                new Date(slotProps.row.frontDateStart),
                 "dd.MM.yyyy"
               )
             }}
@@ -222,7 +222,7 @@
           <p>
             {{
               $dateFns.format(
-                new Date(slotProps.row.front_date_end),
+                new Date(slotProps.row.frontDateEnd),
                 "dd.MM.yyyy"
               )
             }}
@@ -230,7 +230,7 @@
         </td>
         <td :style="slotProps.setWidthColumn('120px')">
           <ColoredStatus
-            :status="slotProps.row.front_caution"
+            :status="slotProps.row.frontCaution"
             :is-text-inside="true"
           />
         </td>
@@ -238,7 +238,7 @@
           class="cell"
           :style="slotProps.setWidthColumn('200px')"
         >
-          <p>{{ slotProps.row.front_access_type }}</p>
+          <p>{{ slotProps.row.frontAccessType }}</p>
         </td>
         <td
           :style="slotProps.setWidthColumn('250px')"
@@ -246,14 +246,14 @@
         >
           <div
             v-if="
-              slotProps.row.nuki_token &&
+              slotProps.row.nukiToken &&
                 slotProps.row.ciType.ci_type_id === 'serrure_electronique'
             "
             :id="`nuki-${slotProps.row.id}`"
             :key="slotProps.row.id"
             class="flex justify-around cmg-btn tertiary-btn h-5 w-full"
             @click="
-              fetchInfoSmartlock(slotProps.row.housing_id, slotProps.row.id)
+              fetchInfoSmartlock(slotProps.row.housingId, slotProps.row.id)
             "
           >
             Voir l'état de la Nuki
@@ -265,7 +265,7 @@
         >
           <InitialsName
             v-for="(front_account_manager, i) in slotProps.row
-              .front_account_managers"
+              .frontAccountManagers"
             :key="i"
             :size="6"
             :fullname="front_account_manager"
@@ -276,7 +276,7 @@
           class="cell justify-end"
           :style="slotProps.setWidthColumn('100px')"
         >
-          <p>{{ $formatNbr(slotProps.row.front_totalAmount) }}</p>
+          <p>{{ $formatNbr(slotProps.row.frontTotalAmount) }}</p>
         </td>
       </CmgGridEvent>
       <div
@@ -339,9 +339,8 @@ import { useHousingStore } from "@/stores/housing";
 import { isEmpty } from "lodash";
 import { mapActions } from "pinia";
 import { EVENT_COLUMNS, EVENT_FILTERS } from "../../../../constants";
-import { IEvents } from "../../../stores/event";
+import { IEvents, IViews } from "../../../stores/event";
 import SvgIcon from "../../atoms/SvgIcon/index.vue";
-import { formatMaintenance, formatReservation } from "../../utils/helpers";
 
 interface IModal {
   addResa: boolean;
@@ -408,7 +407,7 @@ export default {
     pagination() {
       return this.eventStore.getPagination;
     },
-    views() {
+    views(): IViews[] {
       return this.eventStore.getViews;
     },
     activeView() {
@@ -420,13 +419,11 @@ export default {
       // eslint-disable-next-line unicorn/explicit-length-check
       return Object.keys(this.activeView.filters).length || "";
     },
-    items() {
+    items(): IEvents | null{
       const currentPagination = this.pagination;
-      if (!currentPagination?.currentPage) return [];
-      return (
-        this.eventStore.getPage(this.activeId, currentPagination.currentPage) ||
-        []
-      );
+      if (!currentPagination?.currentPage) return null;
+      const results = this.eventStore.getPage;
+      return results[this.activeId]?.[currentPagination.currentPage];
     },
     actionBtnCol() {
       return {
@@ -502,13 +499,24 @@ export default {
       // )
       console.log(event);
     },
+    actionButtonCol() {
+      return {
+        hasAction: true,
+        actionBtnOptions: [
+          {
+            actionBtnValue: "Partager les accès",
+            actionBtnFunc: this.sendAccess,
+          },
+        ],
+      };
+    },
     setSort(key: number) {
       const currentSort = this.activeView?.filters.sort
       if (!currentSort || currentSort.key !== key)
-        return this.upsertView({ ...this.activeView.filters, sort: { key, direction: "ASC" } })
+        return this.upsertView({ ...this.activeView?.filters, sort: { key, direction: "ASC" } }, this.activeView?.name);
       if (currentSort.direction === "ASC")
-        return this.upsertView({ ...this.activeView.filters, sort: { key, direction: "DESC" } })
-      return this.upsertView({ ...this.activeView.filters, sort: null })
+        return this.upsertView({ ...this.activeView?.filters, sort: { key, direction: "DESC" } }, this.activeView?.name);
+      return this.upsertView({ ...this.activeView?.filters, sort: null }, this.activeView?.name);
     },
     async onNextPage() {
       if (this.loading) return;
@@ -545,14 +553,14 @@ export default {
       //   this.getDefaultHeader()
       // );
       console.log("Delete View");
-      this.eventStore.deleteView(this.activeId);
-      this.$store.dispatch("commun/displayNotification", {
-        alert: "success",
-        msg: `La vue a bien été supprimée`,
-      });
-      this.activeId = null;
+      // this.eventStore.deleteView(this.activeId);
+      // this.$store.dispatch("commun/displayNotification", {
+      //   alert: "success",
+      //   msg: `La vue a bien été supprimée`,
+      // });
+      // this.activeId = null;
     },
-    async upsertView(filters: JSON, name: string) {
+    async upsertView(filters: JSON | null, name: string) {
       const view = this.activeId
         ? await this.updateView(filters, name)
         : await this.createView(filters);
@@ -568,153 +576,164 @@ export default {
     getDefaultHeader() {
       return { headers: { Authorization: `Bearer ${this.$cookies.get("token")}` } }
     },
-    async createView(filters: JSON) {
-      const response = await this.$axios.post(
-        `${process.env.apiUrl}/v2/view`,
-        { name: "Nouvelle vue", filters, position: this.views.length + 1 },
-        this.getDefaultHeader()
-      );
-      this.eventStore.addView(response.data);
+    async createView(filters: JSON | null) {
+      // const response = await this.$axios.post(
+      //   `${process.env.apiUrl}/v2/view`,
+      //   { name: "Nouvelle vue", filters, position: this.views.length + 1 },
+      //   this.getDefaultHeader()
+      // );
+      // this.eventStore.addView(response.data);
 
-      return response.data;
+      // return response.data;
+      console.log("Create View");
     },
-    async updateView(filters: JSON, name: string) {
-      const response = await this.$axios.put(
-        `${process.env.apiUrl}/v2/view/${this.activeId}`,
-        {
-          ...this.activeView,
-          ...(filters && { filters }),
-          ...(name && { name }),
-        },
-        this.getDefaultHeader()
-      );
-      this.eventStore.updateView(response.data);
-      return response.data;
+    async updateView(filters: JSON | null, name: string) {
+      // const response = await this.$axios.put(
+      //   `${process.env.apiUrl}/v2/view/${this.activeId}`,
+      //   {
+      //     ...this.activeView,
+      //     ...(filters && { filters }),
+      //     ...(name && { name }),
+      //   },
+      //   this.getDefaultHeader()
+      // );
+      // this.eventStore.updateView(response.data);
+      // return response.data;
+      console.log("Update View");
     },
     async fetchHousings() {
-      const response = await this.$axios.get(
-        `${process.env.apiUrl}/v1/housing?columns=housing_id;housing_name;nuki_smartlock_id;nuki_token&active=1`,
-        this.getDefaultHeader()
-      );
-      this.injectStore("housing/injectDatas", "housings", response.data);
+      // const response = await this.$axios.get(
+      //   `${process.env.apiUrl}/v1/housing?columns=housing_id;housing_name;nuki_smartlock_id;nuki_token&active=1`,
+      //   this.getDefaultHeader()
+      // );
+      // this.injectStore("housing/injectDatas", "housings", response.data);
+      console.log('fetchHousings');
       this.fetch.housings = true;
     },
     async fetchTags() {
-      const response = await this.$axios.get(
-        `${process.env.apiUrl}/v1/tag?active=1`,
-        this.getDefaultHeader()
-      );
-      this.injectStore("event/injectDatas", "tags", response.data);
-      this.fetch.tags = response.data;
+      // const response = await this.$axios.get(
+      //   `${process.env.apiUrl}/v1/tag?active=1`,
+      //   this.getDefaultHeader()
+      // );
+      // this.injectStore("event/injectDatas", "tags", response.data);
+      // this.fetch.tags = response.data;
+      console.log("Fetch tags");
     },
     async fetchCiTypes() {
-      const response = await this.$axios.get(
-        `${process.env.apiUrl}/v1/ci_type`,
-        this.getDefaultHeader()
-      );
-      this.injectStore("event/injectDatas", "ciTypes", response.data);
-      this.fetch.ciTypes = response.data;
+      // const response = await this.$axios.get(
+      //   `${process.env.apiUrl}/v1/ci_type`,
+      //   this.getDefaultHeader()
+      // );
+      // this.injectStore("event/injectDatas", "ciTypes", response.data);
+      // this.fetch.ciTypes = response.data;
+      console.log("Fetch CiTypes");
     },
     async fetchAdmins() {
-      const response = await this.$axios.get(
-        `${process.env.apiUrl}/v1/admin?active=1`,
-        this.getDefaultHeader()
-      );
-      this.injectStore("admin/injectDatas", "admins", response.data);
+      // const response = await this.$axios.get(
+      //   `${process.env.apiUrl}/v1/admin?active=1`,
+      //   this.getDefaultHeader()
+      // );
+      // this.injectStore("admin/injectDatas", "admins", response.data);
+      console.log("Fetch Admins");
       this.fetch.admins = true;
     },
     async fetchAccountManager() {
-      const response = await this.$axios.get(
-        `${process.env.apiUrl}/v1/housing_account_manager/list`,
-        this.getDefaultHeader()
-      );
-      this.injectStore("admin/injectDatas", "account_managers", response.data);
-      this.fetch.accountManagers = true;
+      // const response = await this.$axios.get(
+      //   `${process.env.apiUrl}/v1/housing_account_manager/list`,
+      //   this.getDefaultHeader()
+      // );
+      // this.injectStore("admin/injectDatas", "account_managers", response.data);
+      // this.fetch.accountManagers = true;
+      console.log("Fetch account manager");
     },
     async fetchViews() {
-      const response = await this.$axios.get(
-        `${process.env.apiUrl}/v2/view`,
-        this.getDefaultHeader()
-      );
-      this.eventStore.setView(response.data);
-      this.activeId = response.data[0] ? response.data[0].id : null;
-      this.$set(this.fetch, "views", true);
+      // const response = await this.$axios.get(
+      //   `${process.env.apiUrl}/v2/view`,
+      //   this.getDefaultHeader()
+      // );
+      // this.eventStore.setView(response.data);
+      // this.activeId = response.data[0] ? response.data[0].id : null;
+      // this.$set(this.fetch, "views", true);
+      console.log("Fetch views");
     },
     async fetchReservations() {
-      try {
-        const url = `${process.env.apiUrl}/v2/reservations/searches`;
-        const response = await this.$axios.post(
-          url,
-          {
-            columns: ["HOUSING_RESERVATION.*", "nuki_token"],
-            has_nuki: 1,
-            after: this.pagination?.cursor,
-            ...this.activeView?.filters,
-            ...this.getOrder,
-          },
-          this.getDefaultHeader()
-        );
-        this.$store.commit("event/injectPage", {
-          data: response.data.edges.map((reservation) =>
-            formatReservation(reservation, {
-              admins: this.admins,
-              accountManagers: this.accountManagers,
-            })
-          ),
-          viewId: this.activeId,
-          pagination: {
-            cursor: response.data.cursor,
-            ...response.data.pageInfos,
-            currentPage: (this.pagination?.currentPage || 0) + 1,
-          },
-        });
-      } catch (error) {
-        this.handleError(error);
-      }
+      // try {
+      //   const url = `${process.env.apiUrl}/v2/reservations/searches`;
+      //   const response = await this.$axios.post(
+      //     url,
+      //     {
+      //       columns: ["HOUSING_RESERVATION.*", "nuki_token"],
+      //       has_nuki: 1,
+      //       after: this.pagination?.cursor,
+      //       ...this.activeView?.filters,
+      //       ...this.getOrder,
+      //     },
+      //     this.getDefaultHeader()
+      //   );
+      //   this.$store.commit("event/injectPage", {
+      //     data: response.data.edges.map((reservation) =>
+      //       formatReservation(reservation, {
+      //         admins: this.admins,
+      //         accountManagers: this.accountManagers,
+      //       })
+      //     ),
+      //     viewId: this.activeId,
+      //     pagination: {
+      //       cursor: response.data.cursor,
+      //       ...response.data.pageInfos,
+      //       currentPage: (this.pagination?.currentPage || 0) + 1,
+      //     },
+      //   });
+      // } catch (error) {
+      //   this.handleError(error);
+      // }
+      console.log("Fetch reservations")
     },
     async fetchUnavailabilities() {
-      try {
-        const response = await this.$axios.post(
-          `${process.env.apiUrl}/v2/maintenances/searches`,
-          {
-            after: this.pagination?.cursor,
-            ...this.activeView?.filters,
-            ...this.getOrder,
-          },
-          this.getDefaultHeader()
-        );
-        this.$store.commit("event/injectPage", {
-          data: response.data.edges.map((maintenance) =>
-            formatMaintenance(maintenance, {
-              admins: this.admins,
-              accountManagers: this.accountManagers,
-            })
-          ),
-          viewId: this.activeId,
-          pagination: {
-            cursor: response.data.cursor,
-            ...response.data.pageInfos,
-            currentPage: (this.pagination?.currentPage || 0) + 1,
-          },
-        });
-      } catch (error) {
-        this.handleError(error);
-      }
+      // try {
+      //   const response = await this.$axios.post(
+      //     `${process.env.apiUrl}/v2/maintenances/searches`,
+      //     {
+      //       after: this.pagination?.cursor,
+      //       ...this.activeView?.filters,
+      //       ...this.getOrder,
+      //     },
+      //     this.getDefaultHeader()
+      //   );
+      //   this.$store.commit("event/injectPage", {
+      //     data: response.data.edges.map((maintenance) =>
+      //       formatMaintenance(maintenance, {
+      //         admins: this.admins,
+      //         accountManagers: this.accountManagers,
+      //       })
+      //     ),
+      //     viewId: this.activeId,
+      //     pagination: {
+      //       cursor: response.data.cursor,
+      //       ...response.data.pageInfos,
+      //       currentPage: (this.pagination?.currentPage || 0) + 1,
+      //     },
+      //   });
+      // } catch (error) {
+      //   this.handleError(error);
+      // }
+      console.log("Fetch unavailabilities");
     },
     async sendAccess(row: IEvents) {
-      try {
-        await this.$axios.get(
-          `${process.env.apiUrl}/v1/reservation/${row.id}/send-access-email`,
-          { type: "access" },
-          this.getDefaultHeader()
-        );
-        this.$store.dispatch("commun/displayNotification", {
-          alert: "success",
-          msg: "Le message a bien été envoyé",
-        });
-      } catch (error: string) {
-        this.handleError(error);
-      }
+      // try {
+      //   await this.$axios.get(
+      //     `${process.env.apiUrl}/v1/reservation/${row.id}/send-access-email`,
+      //     { type: "access" },
+      //     this.getDefaultHeader()
+      //   );
+      //   this.$store.dispatch("commun/displayNotification", {
+      //     alert: "success",
+      //     msg: "Le message a bien été envoyé",
+      //   });
+      // } catch (error: string) {
+      //   this.handleError(error);
+      // }
+      console.log("Send Acccess");
     },
     getConnectionName(serverState: number) {
       switch (serverState) {

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import router from "@/router";
+import { useAdminStore } from "@/stores/admin";
+import { ref } from 'vue';
+import ViewService from "../core/services/view-service";
 import { Item } from "../stores/@models/fake-models";
 import { useMainStore } from "../stores/fake-use-variable";
 
@@ -10,11 +14,25 @@ appartement: "",
 numero: 0
 };
 const store = useMainStore();
+const adminStore = useAdminStore();
 const message = "How are you ?";
-function update(){
-  store.createNewItem(itemContainer);
-  store.updateItem("5", itemContainer);
+
+const numero = ref(0);
+function numeroCount(){
+  adminStore.logOut();
+  localStorage.clear();
+  router.push("/login");
 }
+
+const viewServiceData = ViewService;
+
+if(!localStorage.getItem("token"))
+  router.push('/login');
+else{
+  localStorage.setItem('logStatus', "true");
+  adminStore.logIn();
+}
+
 </script>
 
 <template>
@@ -27,13 +45,14 @@ function update(){
       >
         {{ item.proprio }}, {{ index }}
       </p>
-      <button @click="update()">
-        Nouveau bouton
-      </button>
     </div>
+    <button @click="numeroCount()">
+      Nouveau !
+    </button>
     <router-link to="/test-router">
       Test Router
     </router-link>
+    <p>Voici un numéro : {{ numero }}</p>
   </div>
 </template>
 
