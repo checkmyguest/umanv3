@@ -1,7 +1,7 @@
 <template>
   <div
     class="backdrop"
-    @click="onClose"
+    @onClick="onClose"
   >
     <div
       class="modal"
@@ -20,13 +20,27 @@
           >Réinitialiser les filtres</a>
           <div class="flex flex-row px-2">
             <button
-              :class="[{ disabled: isUpdateDisabled }, 'cmg-btn cmg-btn-small secondary-btn mr-3']"
-              @click="upsertView(filterState)"
+              :class="[
+                { disabled: isUpdateDisabled },
+                'cmg-btn cmg-btn-small secondary-btn mr-3',
+              ]"
             >
-              {{ currentView ? "Modifier et appliquer la vue" : "Créer une vue" }}
+              <!-- <button
+              :class="[
+                { disabled: isUpdateDisabled },
+                'cmg-btn cmg-btn-small secondary-btn mr-3',
+              ]"
+              @click="upsertView?(filterState)"
+            > -->
+              {{
+                currentView ? "Modifier et appliquer la vue" : "Créer une vue"
+              }}
             </button>
             <button
-              :class="[{ disabled: isUpdateDisabled }, 'cmg-btn cmg-btn-small primary-btn mr-0']"
+              :class="[
+                { disabled: isUpdateDisabled },
+                'cmg-btn cmg-btn-small primary-btn mr-0',
+              ]"
             >
               Appliquer les filtres
             </button>
@@ -61,7 +75,7 @@
 
 <script lang="ts">
 import { reduce } from "lodash";
-import { EVENT_FILTERS } from "../../../../constants";
+import { IEventFilters } from "../../../../constants";
 import { cleanObject } from "../../utils/helpers.js";
 import FilterItem from "./filter-item.vue";
 
@@ -70,16 +84,16 @@ export default {
     FilterItem,
   },
   props: {
+    filters:{
+      type: Array<IEventFilters>,
+      require: true
+    },
     onClose: {
       type: Function,
       require: true,
     },
     position: {
       type: Object,
-      require: true,
-    },
-    filters: {
-      type: Array,
       require: true,
     },
     currentView: {
@@ -98,45 +112,57 @@ export default {
   data: function () {
     return {
       filterState: this.currentView?.filters || {},
-    }
+    };
   },
   computed: {
     isUpdateDisabled() {
-      const selectedFilters = Object.keys(this.filterState).length
-      return selectedFilters === 0
+      const selectedFilters = Object.keys(this.filterState).length;
+      return selectedFilters === 0;
     },
   },
   methods: {
     onChange(key: string | number, value: any, toReset: string | any[]) {
-      const filter = this.filters?.find((filter) => key === filter.key)
-      const currentValue = this.filterState[key]
+      const filter = this.filters?.find((filter) => key === filter.key);
+      const currentValue = this.filterState[key];
       if (!filter || toReset?.length) {
-        const reset = reduce(toReset, (result, e) => ({ ...result, [e]: undefined }), {})
-        const newState = cleanObject(Object.assign({}, this.filterState, reset, { [key]: value }))
-        this.filterState = newState
+        // eslint-disable-next-line unicorn/prevent-abbreviations
+        const reset = reduce(
+          toReset,
+          // eslint-disable-next-line unicorn/prevent-abbreviations
+          (result, e) => ({ ...result, [e]: undefined }),
+          {}
+        );
+        const newState = cleanObject(
+          Object.assign({}, this.filterState, reset, { [key]: value })
+        );
+        this.filterState = newState;
       }
-      if (!filter?.multi && !filter?.type !== "number") {
-        return this.$set(this.filterState, key, currentValue === value ? undefined : value)
+      if (!filter?.multi && !(filter?.type !== "number")) {
+        return this.filterState[key] = currentValue === value ? undefined : value
       }
-      if (!currentValue?.length) return this.$set(this.filterState, key, [value])
-      const index = currentValue?.indexOf(value)
+      if (!currentValue?.length)
+        return this.filterState[key] = value;
+      const index = currentValue?.indexOf(value);
       let updatedValue =
         index !== -1
           ? currentValue.filter((_: any, index_: any) => index_ !== index)
-          : [...this.filterState[key], value]
-      if (updatedValue.length === 0) return this.$delete(this.filterState, key)
-      return this.$set(this.filterState, key, updatedValue)
+          : [...this.filterState[key], value];
+      if (updatedValue.length === 0) 
+        return delete this.filterState[key];
+      return this.filterState[key] = updatedValue;
     },
-    isDisabled(filter: typeof EVENT_FILTERS) {
-      if (!filter.dependsOn) return false
-      const currentState = this.filterState[filter.dependsOn.key]
-      return currentState ? !filter.dependsOn.values.includes(currentState) : true
+    isDisabled(filter: IEventFilters) {
+      if (!filter.dependsOn) return false;
+      const currentState = this.filterState[filter.dependsOn.key];
+      return currentState
+        ? !filter.dependsOn.values.includes(currentState)
+        : true;
     },
     resetState() {
-      this.filterState = {}
+      this.filterState = {};
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

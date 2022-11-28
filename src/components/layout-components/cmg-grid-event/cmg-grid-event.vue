@@ -2,9 +2,10 @@
 <template>
   <div class="cmg-grid w-full">
     <div
-      v-if="!loading && items.length > 0"
+      v-if="items.length > 0 && !loading"
       class="relative overflow-auto table-wrap"
       :style="tableWrapContainerStyle"
+      :class="[nextPageLoading && 'opacity-70 pointer-events-none']"
     >
       <table class="w-full">
         <thead class="sticky">
@@ -22,11 +23,7 @@
                 >
                 <span
                   class="cmg-checkbox-checkmark"
-                  :class="{
-                    notAll:
-                      selectedIds.length > 0 &&
-                      selectedIds.length !== items.length,
-                  }"
+                  :class="{ notAll: selectedIds.length > 0 && selectedIds.length !== items.length }"
                 />
               </label>
             </th>
@@ -35,97 +32,74 @@
               :key="i"
               :class="{
                 'sticky-col': col.sticky,
-                hidden: col.hidden,
-                'pointer-events-none': col.noSort,
+                'pointer-events-none': !col.sort,
               }"
-              :sorted="col.sort"
-              :sortable="col.sort"
+              :sorted="col.key === order?.orderByColumn ? order?.orderBy : null"
               :style="withColumns[i]"
-              @click="toggleSort(col.key)"
+              @click="setSort(col.key)"
             >
               {{ col.label }}
             </th>
           </tr>
         </thead>
-        <tbody class="overflow-auto">
-          <tr
-            v-for="(row, i) in items"
-            :key="i"
-            :class="{ selected: selectedIds.includes(row.id) }"
-            @mouseleave="actionBtnCol && hideActionsBtn"
-            @mouseenter="actionBtnCol && showActionsBtn(i)"
-          >
-            <td
-              v-if="checkbox"
-              class="checkbox sticky-col"
-            >
-              <MoreActions
-                v-show="actionBtnCol && showAction(i)"
-                :action-btn-col="actionBtnCol"
-                :row="row"
-                :index="i"
-                :grid-type="gridType"
-                :confirm="actionButtonConfirm"
-              />
-              <label class="cmg-checkbox-container">
-                <input
-                  :data-id="row.id"
-                  type="checkbox"
-                  :checked="selectedIds.includes(row.id)"
-                  @click="selectRow(row.id)"
-                >
-                <span class="cmg-checkbox-checkmark" />
-              </label>
-            </td>
-            <slot
-              :row="row"
-              :set-width-column="setWidthColumn"
-              :index="i"
-            />
-          </tr>
-        </tbody>
+        <slot
+          :select-row="selectRow"
+          :items="items"
+          :checkbox="checkbox"
+          :selected-ids="selectedIds"
+          :grid-type="gridType"
+          :set-width-column="setWidthColumn"
+        />
       </table>
     </div>
     <div
       v-if="loading && items.length === 0"
       class="grid-skeleton"
     >
-      <Skeleton />
+      <component :is="Skeleton" />
     </div>
     <div
       v-if="!loading && items.length === 0 && gridType === 'page' && isMainPage"
       class="no-results-container"
     >
-      <NoResults class="mb-6" />
+      <component
+        :is="NoResult"
+        class="mb-6"
+      />
       <p>Utilisez les filtres pour créer une vue personnalisée.</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import NoResults from "@/assets/img/no-results.svg";
+import NoResult from "@/assets/img/no-result.svg";
 import Skeleton from "@/assets/img/skeleton.svg";
 import { useCommunStore } from "@/stores/commun";
 import { useEventStore } from "@/stores/event";
-import { computed } from "vue";
+import { computed, PropType } from "vue";
 import { EVENT_COLUMNS } from "../../../../constants";
-import { IEvents } from "../../../stores/event";
-import MoreActions from "./more-actions.vue";
+import { IEvents, IPagination } from "../../../stores/event";
+
+export interface IOrder{
+  orderByColumn: string,
+  orderBy: string
+}
 
 const eventStore = useEventStore();
 const communStore = useCommunStore();
 
 const properties = defineProps({
-  gridType: {},
-  columns: { type: Object as () => typeof EVENT_COLUMNS, required: true },
+  gridType: { type: String},
+  columns: { type: Object as PropType<typeof EVENT_COLUMNS>, required: true },
   checkbox: { type: Boolean, required: true },
   stickyCol: { type: Boolean, required: true },
-  actionBtnCol: { type: Function, required: true },
   isMainPage: { type: Boolean, required: true },
   setSort: { type: Function, required: true },
-  items: { type: Object as () => IEvents[], required: true },
-  pagination: { type: Function, required: true },
-  loading: { type: Boolean, required: true }
+  items: { type: Object as PropType<IEvents[]> | null, required: true },
+  pagination: { type: Object as () => IPagination, required: true },
+  loading: { type: Boolean, required: true },
+  nextPageLoading: { type: Boolean, required: true },
+  order: { type: Object as PropType<IOrder> | null, required: true }
 });
 
 // DATA //
@@ -140,6 +114,7 @@ let activeActionsButton: {
   index: undefined;
   locked: boolean;
 };
+let nextPageLoading: boolean = false;
 
 // COMPUTED //
 const tableWrapContainerStyle = computed(() => {
@@ -147,37 +122,44 @@ const tableWrapContainerStyle = computed(() => {
     ? "calc(100vh - 300px)"
     : "calc(100vh - 350px)";
 });
-const showAction = computed(() => {
-  return (index: any) =>
-    properties.gridType === "page" &&
-    properties.actionBtnCol &&
-    properties.actionBtnCol.hasAction &&
-    activeActionsButton.index;
-});
+
+// const showAction = computed(() => {
+//   return (index: any) =>
+//     properties.gridType === "page" &&
+//     properties.actionBtnCol &&
+//     properties.actionBtnCol.hasAction &&
+//     activeActionsButton.index;
+// });
+
+
+function actionButtonCol(): boolean{
+  console.log('action');
+  return false;
+}
 
 function showActionsButton(index: any) {
   if (activeActionsButton.locked) activeActionsButton.index = index;
 }
-function hideActionsButton() {
-  if (activeActionsButton.locked) {
-    activeActionsButton.index = undefined;
-    this.$closeDropdown();
-  }
-}
+// function hideActionsButton() {
+//   if (activeActionsButton.locked) {
+//     activeActionsButton.index = undefined;
+//     this.$closeDropdown();
+//   }
+// }
 function sortOptions(options: any) {
   return options;
 }
 function selectRow(id: number) {
   if (id === -1) {
-    if (selectedIds.length === properties.items.length)
+    if (selectedIds.length === properties.items!.length)
       return (selectedIds = []);
     if (selectedIds.length > 0) return (selectedIds = []);
-    return (selectedIds = properties.items.map((row: any) => row.id));
+    return (selectedIds = properties.items!.map((row: any) => row.id));
   } else {
     const index = selectedIds.indexOf(id);
     if (index >= 0) selectedIds.splice(index, 1);
     else {
-      properties.items.map((row: any) => {
+      properties.items!.map((row: any) => {
         if (row.id === id || row.mission_id === id || row.issue_id === id)
           return selectedIds.push(id);
       });

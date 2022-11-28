@@ -34,8 +34,9 @@ const adminStore = useAdminStore();
     position: absolute;
     top: $toolbar-height;
     left: $navbar-width;
-    width: calc(100vw - $navbar-width);
+    max-width: calc(100vw - $navbar-width);
     height: calc(100vh - $toolbar-height);
+    overflow: hidden !important;
   }
 }
 </style>

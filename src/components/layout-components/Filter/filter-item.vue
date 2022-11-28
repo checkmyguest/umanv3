@@ -8,21 +8,21 @@
         :value="getDateValue(filter.key)"
         size="small"
         :placeholder="filter.label"
-        :on-change="(value) => onChange(filter.key, value, [before, after])"
+        :on-change="(value: any) => onChange(filter.key, value, [before, after])"
       />
       <DatePicker
         v-if="filter.interval"
         :value="getDateValue(after)"
         size="small"
         placeholder="> Inférieur"
-        :on-change="(value) => onChange(after, value, [filter.key])"
+        :on-change="(value: any) => onChange(after, value, [filter.key])"
       />
       <DatePicker
         v-if="filter.interval"
         :value="getDateValue(before)"
         size="small"
         placeholder="< Supérieur"
-        :on-change="(value) => onChange(before, value, [filter.key])"
+        :on-change="(value: any) => onChange(before, value, [filter.key])"
       />
     </div>
     <div
@@ -79,54 +79,57 @@
         class="cmg-input small-input"
         type="number"
         :placeholder="filter.label"
-        :value="state[filter.key]"
-        @input="(e) => debouncedOnChange(filter.key, parseInt(e.target.value), [after, before])"
+        :value="state![filter.key]"
+        @input="(e) => debouncedOnChange(filter.key, parseInt(e.target!.value), [after, before])"
       >
       <input
         v-if="filter.interval"
-        :value="state[after]"
+        :value="state![after]"
         class="cmg-input small-input"
         type="number"
         placeholder="> Inférieur"
-        @input="(e) => debouncedOnChange(after, parseInt(e.target.value), [filter.key])"
+        @input="(e) => debouncedOnChange(after, parseInt(e.target!.value), [filter.key])"
       >
       <input
         v-if="filter.interval"
-        :value="state[before]"
+        :value="state![before]"
         class="cmg-input small-input"
         type="number"
         placeholder="< Supérieur"
-        @input="(e) => debouncedOnChange(before, parseInt(e.target.value), [filter.key])"
+        @input="(e) => debouncedOnChange(before, parseInt(e.target!.value), [filter.key])"
       >
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import ColoredStatus from "@/components/global/colored-status.vue"
+import InitialsName from "@/components/global/initials-name.vue"
+import PlatformItem from "@/components/global/platform-item.vue"
+import DatePicker from "@/components/table/cells/global/date-picker.vue"
 import debounce from "lodash/debounce"
 import isEqual from "lodash/isEqual"
-import { DATE_PARAMS } from "../../../../constants"
-import ColoredStatus from "../../global/colored-status.vue"
-import InitialsName from "../../global/initials-name.vue"
-import PlatformItem from "../../global/platform-item.vue"
-import DatePicker from "../../table/cells/global/date-picker.vue"
+import { PropType } from "vue"
+import { DATE_PARAMS, IEventFilters } from "../../../../constants"
 
 export default {
   components: { DatePicker, PlatformItem, ColoredStatus, InitialsName },
   props: {
     filter: {
-      type: Object,
+      type: Object as PropType<IEventFilters>,
+      required: true
     },
     onChange: {
       type: Function,
+      require: true
     },
     state: {
-      type: Object,
+      type: Object
     },
   },
   computed: {
     selected() {
-      return (filter, option) => {
+      return (filter: IEventFilters, option: any) => {
         if (!this.state[filter.key]) return false
         // FIXME: Find a better way to handle this edge case
         if (filter.key === "building_name") {

@@ -11,7 +11,9 @@
             class="cmg-actions-plus cmg-btn cmg-more-actions"
             @click.stop="menuPlusButton = !menuPlusButton"
           >
-            <component :is="IconPlusIcon" />
+            <span class="icon">
+              <component :is="IconPlusIcon" />
+            </span>
           </button>
         </li>
       </ul>

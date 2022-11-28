@@ -26,11 +26,13 @@ function numeroCount(){
 
 const viewServiceData = ViewService;
 
+// if logged in, redirect to event page, if not, redirect to login page
 if(!localStorage.getItem("token"))
   router.push('/login');
 else{
   localStorage.setItem('logStatus', "true");
   adminStore.logIn();
+  router.push('/event');
 }
 
 </script>

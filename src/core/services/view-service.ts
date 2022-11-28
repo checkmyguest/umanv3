@@ -1,14 +1,14 @@
 import http from "@/http-common";
+import { IViews } from "@/stores/event";
 import { injectable } from "inversify";
-import { View } from "../@models/view";
 import { IViewData, Type } from "../@models/view-database";
 
 @injectable()
 export class ViewServiceData implements IViewData{
-    public getView(): Promise<View[]> {
-        return http.get("/v2/view");
+    public getView(type: string): Promise<any[]> {
+        return http.get(`/v2/view?type=${type}`);
     }
-    public postView(position: number, filters: JSON, name: string, type: Type): Promise<void> {
+    public postView(position: number, filters: JSON, name: string, type: Type): Promise<IViews> {
         const data = {
             position,
             filters,
@@ -17,7 +17,7 @@ export class ViewServiceData implements IViewData{
         }
         return http.post("/v2/view", data);
     }
-    public putView(id: number): Promise<View[]> {
+    public putView(id: number): Promise<IViews> {
         return http.put(`/v2/view/${id}`);
     }
     public deleteView(id: number): Promise<void> {

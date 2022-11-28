@@ -1,4 +1,4 @@
-import { View } from "./view";
+import { IViews } from "@/stores/event";
 
 export enum Type{
     HOUSING = "HOUSING",
@@ -8,14 +8,14 @@ export enum Type{
 }
 
 export interface IViewData{
-    getView(): Promise<View[]>;
+    getView(type: string): Promise<any[]>;
     postView(
         position: number,
         filters: JSON,
         name: string,
         type: Type
-    ): Promise<void>;
-    putView(id: number): Promise<View[]>;
+    ): Promise<IViews>;
+    putView(id: number): Promise<IViews>;
     deleteView(id: number): Promise<void>;
     postViewChangeOrder(id: number): Promise<void>;
 }

@@ -1,14 +1,13 @@
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
-  <div class="flex justify-between items-center border-b mb-8">
+  <div class="tablist-container">
     <draggable
       class="list-group"
       :list="items"
       v-bind="dragOptions"
-      tag="transitionGroup"
       item-key="id"
     >
-      <template #item="{items}">
+      <template #item="{ items }">
         <li
           v-for="(element, index) in items"
           :key="index"
@@ -25,12 +24,12 @@
         </li>
       </template>
     </draggable>
-    <div class="border-l px-6">
+    <div class="btn-container">
       <button
-        v-click="newView"
-        class="cmg-btn plain-icon-btn h-8 whitespace-nowrap"
+        class="cmg-btn plain-icon-btn vue-btn"
+        @onClick="newView"
       >
-        <span class="icon-left font-black text-lg mr-1">+</span>
+        <span class="icon-left">+</span>
         Nouvelle vue
       </button>
     </div>
@@ -79,12 +78,65 @@ export default {
         group: "description",
         disabled: false,
       },
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
+.tablist-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px rgba(229, 231, 235);
+  margin-bottom: 2rem;
+  .list-group {
+    min-height: 20px;
+    max-width: 70vw;
+    min-width: 75vw;
+    overflow-x: auto;
+    .list-group-item {
+      cursor: move;
+      padding-bottom: 3px;
+      margin-right: 8px;
+      i {
+        cursor: pointer;
+      }
+    }
+    .list-group-item.active-tab {
+      border-bottom: 2px solid $blue;
+    }
+    span {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .btn-container {
+    border-left: solid 1px rgba(229, 231, 235);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    .vue-btn {
+      height: 2rem;
+      white-space: nowrap;
+      font-size: 14px;
+      span.icon-left {
+        color: black;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        margin-right: 0.25rem;
+        svg,
+        img {
+          height: 16px;
+          width: 14px;
+          margin-right: 8px;
+          path {
+            fill: #000;
+          }
+        }
+      }
+    }
+  }
+}
 .flip-list-move {
   transition: transform 0.1s;
 }
@@ -94,26 +146,5 @@ export default {
 .ghost {
   opacity: 0.5;
   background: #c8ebfb;
-}
-.list-group {
-  min-height: 20px;
-  max-width: 70vw;
-  min-width: 75vw;
-  overflow-x: auto;
-  .list-group-item {
-    cursor: move;
-    padding-bottom: 3px;
-    margin-right: 8px;
-    i {
-      cursor: pointer;
-    }
-  }
-  .list-group-item.active-tab {
-    border-bottom: 2px solid $blue;
-  }
-  span {
-    display: flex;
-    flex-direction: row;
-  }
 }
 </style>

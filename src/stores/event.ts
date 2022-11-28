@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { EVENT_FILTERS } from "../../constants";
 
 interface Tags{
   tag_id: number,
@@ -38,7 +39,7 @@ export interface IDatas {
 
 export interface IViews {
   id: number;
-  filters: JSON;
+  filters: typeof EVENT_FILTERS;
   position: number;
   name: string;
 }

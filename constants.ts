@@ -373,7 +373,29 @@ const CHECKIN_TYPE = [
   { label: "Serrure électronique", value: "serrure_electronique" },
 ]
 
-export const EVENT_FILTERS = [
+interface IOptions{
+  label: string,
+  value: string | number
+}
+
+export interface IEventFilters{
+  key: string;
+  label: string;
+  type: string;
+  search?: boolean;
+  multi?: boolean;
+  icon?: string | boolean;
+  options?: IOptions[];
+  dependsOn?:{
+    key: string,
+    values: string[],
+  };
+  external?: boolean;
+  interval?: boolean;
+  placeholder?: string
+}
+
+export const EVENT_FILTERS: Array<IEventFilters>= [
   {
     key: "eventType",
     label: "Type Événements",

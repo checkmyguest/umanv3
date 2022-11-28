@@ -5,8 +5,7 @@ import IconSearch from "@/assets/img/toolbar/search.svg";
 export default {
   components: {
     IconLogoBeta,
-    IconMenuBtn
-  ,
+    IconMenuBtn,
     IconSearch,
   },
 };

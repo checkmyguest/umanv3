@@ -1,0 +1,307 @@
+// @import "./layout-comp-styles/buttons";
+@import "./layout-comp-styles/inputs";
+@import "./layout-comp-styles/alerts";
+@import "./layout-comp-styles/typos";
+
+@font-face {
+  font-family: "URWGeometric Light";
+  src: url("../fonts/URWGeometric/URWGeometric-Light.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-Light.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-Light.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-Light.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-Light.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-Light.svg") format("svg");
+}
+@font-face {
+  font-family: "URWGeometric Regular";
+  src: url("../fonts/URWGeometric/URWGeometric-Regular.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-Regular.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-Regular.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-Regular.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-Regular.svg") format("svg");
+}
+@font-face {
+  font-family: "URWGeometric Medium";
+  src: url("../fonts/URWGeometric/URWGeometric-Medium.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-Medium.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-Medium.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-Medium.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-Medium.svg") format("svg");
+}
+@font-face {
+  font-family: "URWGeometric SemiBold";
+  src: url("../fonts/URWGeometric/URWGeometric-SemiBold.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-SemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-SemiBold.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-SemiBold.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-SemiBold.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-SemiBold.svg") format("svg");
+}
+@font-face {
+  font-family: "URWGeometric Bold";
+  src: url("../fonts/URWGeometric/URWGeometric-Bold.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-Bold.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-Bold.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-Bold.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-Bold.svg") format("svg");
+}
+
+//// SF Pro Rounded
+@font-face {
+  font-family: "SF-Pro-Rounded-Medium";
+  src: url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.eot");
+  src: url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.woff2") format("woff2"),
+    url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.woff") format("woff"),
+    url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.ttf") format("truetype"),
+    url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.svg") format("svg");
+}
+//// SF Pro Rounded
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Medium.eot");
+  src: url("../fonts/Ubuntu/Ubuntu-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/Ubuntu/Ubuntu-Medium.woff2") format("woff2"),
+    url("../fonts/Ubuntu/Ubuntu-Medium.woff") format("woff"),
+    url("../fonts/Ubuntu/Ubuntu-Medium.ttf") format("truetype"),
+    url("../fonts/Ubuntu/Ubuntu-Medium.svg") format("svg");
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  color: $primary;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: $regular !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cmg-btn {
+  padding: 0 14px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: 0.1);
+  transition: 0.2s;
+  padding-bottom: 3px !important;
+  outline: none;
+  display: flex;
+  align-items: center;
+  border: 1px solid $white;
+  font-family: $regular !important;
+  position: relative;
+  &.cmg-more-actions {
+    background-color: $white;
+    border-color: $white;
+    width: 22px;
+    height: 22px;
+    justify-content: center;
+    padding: 0;
+    margin-left: 1px;
+    &.vertical {
+      svg,
+      img {
+        transform: rotate(90deg);
+      }
+    }
+    &:hover {
+      background-color: $sky-lighter;
+      border-color: $sky-lighter;
+    }
+    &.disabled {
+      color: $sky-dark;
+    }
+
+    &.more-actions-nobg {
+      box-shadow: none;
+    }
+  }
+  span.arrow-actions {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    margin-left: 8px;
+    padding: 8px 8px 7px;
+    svg,
+    img {
+      // margin-top: 3px;
+      // width: 8px;
+      // height: 6px;
+      path {
+        fill: #000;
+      }
+    }
+  }
+  &.primary-btn,
+  &.primary-icon-btn,
+  &.primary-actions-btn {
+    background-color: $blue;
+    border-color: $blue;
+    color: $white;
+    &:hover {
+      background-color: $blue-dark-btn;
+      border-color: $blue-dark-btn;
+    }
+    &:focus {
+      background-color: $blue-darker-btn;
+      border-color: $blue-darker-btn;
+    }
+    &:active {
+      background-color: $blue;
+      border-color: $blue-darker-btn;
+    }
+    &.disabled {
+      background-color: rgba($color: $blue, $alpha: 0.5);
+      color: $white;
+    }
+    span.icon-left {
+      svg,
+      img {
+        path {
+          fill: $white;
+        }
+      }
+    }
+    span.arrow-actions {
+      svg,
+      img {
+        path {
+          fill: $white;
+        }
+      }
+    }
+  }
+  &.primary-icon-btn {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    svg,
+    img {
+      height: 16px;
+      width: 14px;
+      margin-right: 8px;
+      path {
+        fill: $white;
+      }
+    }
+  }
+  &.primary-actions-btn {
+    padding-left: 10px;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+  &.plain-btn,
+  &.plain-icon-btn,
+  &.plain-actions-btn {
+    background-color: $white;
+    border: 0;
+    box-shadow: none;
+    padding-bottom: 2px;
+    &:hover {
+      background-color: $sky-lighter;
+    }
+    &:focus {
+      color: $blue;
+      background-color: $blue-lighter;
+      span.icon-left {
+        svg,
+        img {
+          path {
+            fill: $blue;
+          }
+        }
+      }
+    }
+    &:active {
+      color: #000;
+      background-color: $sky-lighter;
+      span.icon-left {
+        svg,
+        img {
+          path {
+            fill: #000;
+          }
+        }
+      }
+    }
+    &.disabled {
+      color: $sky-dark;
+      background-color: $sky-lighter;
+    }
+  }
+  &.plain-icon-btn {
+    padding-left: 10px;
+    svg,
+    img {
+      height: 16px;
+      width: 14px;
+      margin-right: 8px;
+    }
+
+    &:focus {
+      svg,
+      img {
+        path {
+          fill: $blue;
+        }
+      }
+    }
+    &:active {
+      svg,
+      img {
+        path {
+          fill: #000;
+        }
+      }
+    }
+  }
+  &.plain-actions-btn {
+    margin-left: 10px;
+    padding-right: 0;
+    padding-left: 0;
+    span.arrow-actions {
+      border-left: 1px solid transparent;
+    }
+    &:hover {
+      // background: $blue-light!important;
+      span.arrow-actions {
+        border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
+      }
+    }
+    &:focus {
+      span.arrow-actions {
+        border-left: 1px solid rgba($color: $blue, $alpha: 0.1);
+        svg,
+        img {
+          path {
+            fill: $blue;
+          }
+        }
+      }
+    }
+    &:active {
+      span.arrow-actions {
+        border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
+        svg,
+        img {
+          path {
+            fill: #000;
+          }
+        }
+      }
+    }
+  }
+}

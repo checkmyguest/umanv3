@@ -381,7 +381,7 @@
   }
 
   // MORE ACTIONS BTN
-  // &.cmg-more-actions {
+  &.cmg-more-actions {
     background-color: $white;
     border-color: $white;
     width: 22px;
@@ -389,45 +389,45 @@
     justify-content: center;
     padding: 0;
     margin-left: 1px;
-  //   &.vertical {
-  //     svg,
-  //     img {
-  //       transform: rotate(90deg);
-  //     }
-  //   }
-  //   &:hover {
-  //     background-color: $sky-lighter;
-  //     border-color: $sky-lighter;
-  //   }
-  //   &:focus {
-  //     background-color: $blue-lighter;
-  //     color: $blue;
-  //     border-color: $blue-lighter;
-  //     svg,
-  //     img {
-  //       path {
-  //         fill: $blue;
-  //       }
-  //     }
-  //   }
-  //   &:active {
-  //     background-color: $white;
-  //     border-color: $sky-lighter;
-  //     svg,
-  //     img {
-  //       path {
-  //         fill: #000;
-  //       }
-  //     }
-  //   }
-  //   &.disabled {
-  //     color: $sky-dark;
-  //   }
+    &.vertical {
+      svg,
+      img {
+        transform: rotate(90deg);
+      }
+    }
+    &:hover {
+      background-color: $sky-lighter;
+      border-color: $sky-lighter;
+    }
+    &:focus {
+      background-color: $blue-lighter;
+      color: $blue;
+      border-color: $blue-lighter;
+      svg,
+      img {
+        path {
+          fill: $blue;
+        }
+      }
+    }
+    &:active {
+      background-color: $white;
+      border-color: $sky-lighter;
+      svg,
+      img {
+        path {
+          fill: #000;
+        }
+      }
+    }
+    &.disabled {
+      color: $sky-dark;
+    }
 
-  //   &.more-actions-nobg {
-  //     box-shadow: none;
-  //   }
-  // }
+    &.more-actions-nobg {
+      box-shadow: none;
+    }
+  }
 }
 
 // DROPDOWN LIST

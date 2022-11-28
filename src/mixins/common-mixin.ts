@@ -1,5 +1,6 @@
-import { default as BLENDER_CATEGORIES, default as HOURS } from "../../constants";
-
+import router from "@/router";
+import { ElNotification } from "element-plus";
+import HOURS, { default as BLENDER_CATEGORIES } from "../../constants";
 export default {
     data() {
         return {
@@ -38,20 +39,20 @@ export default {
                     let key = element[attribute_key].split('-').slice(0, sliceValue).join('-')
                     key = `Tous les ${key}`
                     const oldParent = parents.find(b => Object.keys(b)[0] === key)
-                    const parentIndex = parents.indexOf(oldParent)
+                    const parentIndex = parents.indexOf(oldParent!)
                     if (parentIndex === -1) {
                         parents.push({
                             [key]: element[attribute_value]
                         })
                     }
                     else {
-                        parents[parentIndex][key] = `${oldParent[key]},${element[attribute_value]}`
+                        parents[parentIndex][key] = `${oldParent![key]},${element[attribute_value]}`
                     }
                 }
             }
 
             switch (type) {
-                case 'all': { return parents.concat(childs)
+                case 'all': { return [...parents, ...childs]
                 }
                 case 'parents': { return parents
                 }
@@ -67,7 +68,11 @@ export default {
             try {
                 document.execCommand('copy')
                 textArea.remove()
-                this.$store.dispatch('commun/displayNotification', {alert: 'success', msg: 'Copié !'})
+                ElNotification({
+                    title: "Copié !",
+                    message: "Copié !",
+                    type: "success"
+                })
             } catch (error) {
                 console.log('copyToClipboard error:', error)
                 textArea.remove()
@@ -86,5 +91,10 @@ export default {
             if (['mp4', 'avi', 'mov', 'flv', 'wmv'].includes(extension)) return 'video'
             if (['pdf'].includes(extension)) return 'pdf'
         },
+        handleError(error: any) {
+            const type = JSON.parse(JSON.stringify(error)).message
+            if (type?.includes("401")) return router.push("/login")
+            console.log("unhandled err:", error)
+          },
     }
 }
