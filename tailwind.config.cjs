@@ -5,12 +5,6 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,vue}",
   ],
   theme: {
-    colors:{
-      'blue': '#196DFD',
-      'red': '#FF0055',
-      'white': '#FFFFFF',
-      'black': '#000000'
-    },
     fontFamily:{
       'medium': 'URWGeometric Medium',
     },
@@ -26,6 +20,12 @@ module.exports = {
       },
       borderRadius: {
         'cmg': '4px'
+      },
+      colors:{
+        'blue': '#196DFD',
+        'red': '#FF0055',
+        'white': '#FFFFFF',
+        'black': '#000000'
       }
     },
   },
