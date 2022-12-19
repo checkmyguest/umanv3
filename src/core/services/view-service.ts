@@ -26,6 +26,14 @@ export class ViewServiceData implements IViewData{
     public postViewChangeOrder(id: number): Promise<void> {
         return http.delete(`/v2/view/${id}/change-order`);
     }
+
+    public getReservation(id: number): Promise<any> {
+        return http.get(`/v1/reservations/${id}`);
+    }
+
+    public getMaintenance(id: number): Promise<any> {
+        return http.get(`/v1/maintenances/${id}`);
+    }
 }
 
 export default new ViewServiceData();

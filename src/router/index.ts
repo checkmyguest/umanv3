@@ -1,7 +1,11 @@
 import HelloWorldVue from "@/components/hello-world.vue";
 import Blender from "@/components/pages/blender/index.vue";
 import Calendar from "@/components/pages/calendar/index.vue";
+
+// Event
 import Event from "@/components/pages/event/index.vue";
+import EventFocus from "@/components/pages/event/focus/index.vue";
+
 import Housing from "@/components/pages/housing/index.vue";
 import Login from "@/components/pages/login/login.vue";
 import Price from "@/components/pages/price/index.vue";
@@ -13,6 +17,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/", name: "Home", component: HelloWorldVue },
   { path: "/login", name: "Login", component: Login},
   { path: "/event", name: "Event", component: Event },
+  { path: "/event/:id", name: "EventFocus", component: EventFocus },
   { path: "/blender", name: "Blender", component: Blender },
   { path: "/housing", name: "Housing", component: Housing },
   { path: "/calendar", name: "Calendar", component: Calendar },
