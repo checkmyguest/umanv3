@@ -1,7 +1,9 @@
 import http from "@/http-common";
 import { IViews } from "@/stores/event";
 import { injectable } from "inversify";
-import { IViewData, Type } from "../@models/view-database";
+import { IViewData, Swapi, Type } from "../@models/view-database";
+import axios, { AxiosResponse } from "axios";
+
 
 @injectable()
 export class ViewServiceData implements IViewData{
@@ -26,13 +28,19 @@ export class ViewServiceData implements IViewData{
     public postViewChangeOrder(id: number): Promise<void> {
         return http.delete(`/v2/view/${id}/change-order`);
     }
-
     public getReservation(id: number): Promise<any> {
         return http.get(`/v1/reservations/${id}`);
     }
-
     public getMaintenance(id: number): Promise<any> {
         return http.get(`/v1/maintenances/${id}`);
+    }
+
+
+
+
+
+    public getSwapi(): Promise<AxiosResponse<Swapi>> {
+        return axios.get(`https://swapi.dev/api/planets/1/`);
     }
 }
 
