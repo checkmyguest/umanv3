@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import router from "@/router";
 import { useAdminStore } from "@/stores/admin";
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import { RouterLink } from "vue-router";
 import ViewService from "../core/services/view-service";
 import { Item } from "../stores/@models/fake-models";
 import { useMainStore } from "../stores/fake-use-variable";
@@ -35,6 +36,9 @@ else{
   router.push('/event');
 }
 
+onMounted(() => {
+  console.log("HELLO WORLD")
+})
 </script>
 
 <template>

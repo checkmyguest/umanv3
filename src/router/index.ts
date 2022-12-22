@@ -12,14 +12,32 @@ import Price from "@/components/pages/price/index.vue";
 import Reservation from "@/components/pages/reservation/_id.vue";
 import Maintenance from "@/components/pages/maintenance/_id.vue";
 import TestRouter from "@/components/test-router/test-router.vue";
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw, RouteLocationNormalized } from "vue-router";
+
+// flows
+import { EventFlow } from "@/core/flows/EventFlow";
+import { EventFocusFlow } from "@/core/flows/EventFocusFlow";
 
 const routes: Array<RouteRecordRaw> = [
-  { path: "/", name: "Home", component: HelloWorldVue },
-  { path: "/login", name: "Login", component: Login},
-  { path: "/event", name: "Event", component: Event },
-  { path: "/event/:id", name: "EventFocus", component: EventFocus },
+  {
+    path: "/",
+    name: "Event",
+    component: Event,
+    beforeEnter: (_, __) => {
+      EventFlow()
+    }
+  },
+  {
+    path: "/event/:id",
+    name: "EventFocus",
+    component: EventFocus,
+    beforeEnter: (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
+      const id: string | string[] = to.params.id;
+      EventFocusFlow(id)
+    }
+  },
   { path: "/blender", name: "Blender", component: Blender },
+  { path: "/login", name: "Login", component: Login},
   { path: "/housing", name: "Housing", component: Housing },
   { path: "/calendar", name: "Calendar", component: Calendar },
   { path: "/price", name: "Price", component: Price },
@@ -35,3 +53,5 @@ const router = createRouter({
 
 
 export default router;
+
+

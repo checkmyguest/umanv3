@@ -9,7 +9,8 @@ export const useAdminStore = defineStore({
         },
         vueActive: 0,
         initVue: false,
-        logStatus: false
+        logStatus: false,
+        allAdmins: [],
     }),
     getters:{
         getLogStatus(): boolean{
@@ -22,6 +23,9 @@ export const useAdminStore = defineStore({
         },
         logOut(){
             this.logStatus = false;
-        }
+        },
+        setAllAdmins(admins: any){
+            this.allAdmins = admins;
+        },
     }
 });

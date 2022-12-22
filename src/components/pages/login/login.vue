@@ -64,7 +64,7 @@ import { useAdminStore } from "@/stores/admin";
 import axios from "axios";
 import { ElNotification } from "element-plus";
 import jwtDecode from "jwt-decode";
-import type { Ref } from "vue";
+import { Ref, onMounted } from "vue";
 import { ref } from "vue";
 
 const adminStore = useAdminStore();
@@ -96,8 +96,8 @@ const notification = (message: string) => {
   });
 };
 
-function getTokenUman() {
-  axios
+async function getTokenUman() {
+  await axios
     .post(`${url}/v1/login-admin`, {
       mail: email.value,
       password: password.value,
@@ -115,14 +115,15 @@ function getTokenUman() {
       }
     });
 }
-function getJWTInfo() {
-  const token: string | null = localStorage.getItem("token");
+
+async function getJWTInfo() {
+  const token: string | null = localStorage.token;
   if (typeof token !== "string") return null;
   const code = jwtDecode<Token>(token);
-  axios
+  await axios
     .get(`${url}/v1/admin/${code.entity_id}`, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.token}`,
       },
     })
     .then(async (result) => {
@@ -149,16 +150,20 @@ function getJWTInfo() {
 function logoutAndRedirectToV1() {
   localStorage.removeItem("token");
 
-  setTimeout(() => {
-    window.location.assign("https://uman.cmg.ovh/");
-  }, 2000);
+  // ? à quoi ça sert ?
+  // setTimeout(() => {
+  //   window.location.assign("https://uman.cmg.ovh/");
+  // }, 2000);
 }
 
 function changeAdminState(): Promise<boolean> {
   adminStore.logIn();
-  
   return Promise.resolve(true);
 }
+
+onMounted(() => {
+  console.log("LOGIN")
+})
 </script>
 
 <style lang="scss" src="./style.scss" scoped></style>

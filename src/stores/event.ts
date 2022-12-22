@@ -62,6 +62,7 @@ export type EventState = {
   pagination: IPagination;
   billingAmounts: Array<any>;
   formatedBillingAmounts: Array<any>;
+  currentResa: Object;
 };
 
 export const useEventStore = defineStore({
@@ -78,6 +79,7 @@ export const useEventStore = defineStore({
       pagination: {},
       billingAmounts: {},
       formatedBillingAmounts: {},
+      currentResa: {},
     } as EventState),
   getters: {
     getPage(): IEvents[][]{
@@ -120,6 +122,10 @@ export const useEventStore = defineStore({
     },
     deleteView(id: number) {
       this.views = this.views.filter((view: IViews) => view.id !== id);
+    },
+    setCurrentResa(data: Array<Object>) {
+      console.log('setCurrentResa', data)
+      this.currentResa = data;
     },
   },
 });

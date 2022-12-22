@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
-import Navbar from "./components/@navbar/Navbar.vue";
-import Toolbar from "./components/@toolbar/Toolbar.vue";
+import Toolbar from "./components/@toolbar/toolbar.vue";
+import Navbar from "./components/@navbar/navbar.vue";
 import { useAdminStore } from "./stores/admin";
 document.title = "UmanV3";
 
@@ -11,8 +11,8 @@ const adminStore = useAdminStore();
 
 <template>
   <div id="app">
-    <toolbar v-if="adminStore.logStatus" />
-    <navbar v-if="adminStore.logStatus" />
+    <Toolbar v-if="adminStore.logStatus" />
+    <Navbar v-if="adminStore.logStatus" />
     <router-view class="router-view-class" />
   </div>
 </template>
