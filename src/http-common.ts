@@ -13,8 +13,17 @@ http.interceptors.response.use(
     (res) => res.data,
     (err) => {
       if (err.response.status === 401) {
-        if (localStorage.token) upadateToken()
-        else router.push("/login")
+        const axiosToken = axios.defaults.headers.common['Authorization'];
+        console.log("axiosToken", axiosToken)
+        console.log("localStorage.token", localStorage.token)
+
+        if ((!axiosToken || err.response.data.error === "UnauthorizedError") && localStorage.token) {
+          console.log("interceptor IF")
+          upadateToken()
+        } else if (!localStorage.token) {
+          console.log("interceptor ELSE IF")
+          router.push("/login");
+        } else console.log("interceptor ELSE", err.response.data)
         return Promise.reject(err.response.data);
       }
   
@@ -23,7 +32,7 @@ http.interceptors.response.use(
         return Promise.reject(err.request);
       }
   
-      console.error("err", err.message)
+      console.error("err", err.message);
       return Promise.reject(err.message);
     }
   );

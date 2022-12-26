@@ -63,6 +63,7 @@ export type EventState = {
   billingAmounts: Array<any>;
   formatedBillingAmounts: Array<any>;
   currentResa: Object;
+  allTags:  Array<any>;
 };
 
 export const useEventStore = defineStore({
@@ -80,6 +81,7 @@ export const useEventStore = defineStore({
       billingAmounts: {},
       formatedBillingAmounts: {},
       currentResa: {},
+      allTags: [{}],
     } as EventState),
   getters: {
     getPage(): IEvents[][]{
@@ -123,9 +125,15 @@ export const useEventStore = defineStore({
     deleteView(id: number) {
       this.views = this.views.filter((view: IViews) => view.id !== id);
     },
-    setCurrentResa(data: Array<Object>) {
+
+
+
+    setCurrentResa(data: Object) {
       console.log('setCurrentResa', data)
       this.currentResa = data;
+    },
+    setAllTags(data: Array<Object>) {
+      this.allTags = data;
     },
   },
 });

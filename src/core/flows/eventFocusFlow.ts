@@ -4,26 +4,42 @@ import { useEventStore } from "../../stores/event";
 export function EventFocusFlow(rId: string | string[] ){
     console.log("EventFocusFlow")
     getResa(rId)
+    getTags()
 }
 
-function getResa(id: any){
+function getResa(id: any) {
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getResaById(id)
     .then(res => {
         console.log("getResaById", res)
         useEventStore().setCurrentResa(res);
-      })
-      .catch((error) => {
+    })
+    .catch((error) => {
         return error.response?.status
-      })
-  }
+    })
+}
+  
+function getTags() {
+    console.log("getTags", useEventStore().allTags.length)
+    if(useEventStore().allTags.length > 0) return;
+    console.log("getTags ELSE")
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getTags()
+    .then(res => {
+        console.log("getTags", res)
+        useEventStore().setAllTags(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
   
 
 
 
-
-    // LEFT
-        // https://api.cmg.ovh:3000/v2/reservations/434007
+  // LEFT
+  // https://api.cmg.ovh:3000/v2/reservations/434007
+  // https://api.cmg.ovh:3000/v1/tag
 
 
         // ?? https://api.cmg.ovh:3000/v1/reservation/tags?reservation_id=434007

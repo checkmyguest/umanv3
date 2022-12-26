@@ -27,12 +27,13 @@ pinia.use((context) => {
   );
 
   if (fromStorage) {
+    console.log("fromStorage", fromStorage)
     context.store.$patch(fromStorage);
   }
 
-  context.store.$subscribe((mutation, state) => {
-    window.localStorage.setItem(storeId, serilizer.serialize(state));
-  });
+  // context.store.$subscribe((mutation, state) => {
+  //   window.localStorage.setItem(storeId, serilizer.serialize(state));
+  // });
 });
 
 const app = createApp(App);

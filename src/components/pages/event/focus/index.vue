@@ -1,5 +1,8 @@
 <template>
-    <h1>EVENT FOCUS</h1>
+    <div>
+        <h1>EVENT FOCUS</h1>
+        <router-link to="/">GO HOME</router-link>
+    </div>
 </template>
 
 <script lang="ts">

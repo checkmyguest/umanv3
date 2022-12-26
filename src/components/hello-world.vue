@@ -8,11 +8,11 @@ import { Item } from "../stores/@models/fake-models";
 import { useMainStore } from "../stores/fake-use-variable";
 
 let itemContainer: Item = {
-id: "5",
-createdAt: new Date(),
-proprio: "",
-appartement: "",
-numero: 0
+  id: "5",
+  createdAt: new Date(),
+  proprio: "",
+  appartement: "",
+  numero: 0
 };
 const store = useMainStore();
 const adminStore = useAdminStore();
@@ -28,7 +28,7 @@ function numeroCount(){
 const viewServiceData = ViewService;
 
 // if logged in, redirect to event page, if not, redirect to login page
-if(!localStorage.getItem("token"))
+if(!localStorage.token)
   router.push('/login');
 else{
   localStorage.setItem('logStatus', "true");

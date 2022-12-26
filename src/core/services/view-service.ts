@@ -36,8 +36,17 @@ export class ViewServiceData implements IViewData{
     public getAdmin(): Promise<any> {
         return http.get(`/v1/admin?active=1`)
     }
+    
+
+    // WIP
+    public getAdminById(id: string): Promise<any> {
+        return http.get(`/v1/admin/${id}`)
+    }
     public getResaById(id: number): Promise<any> {
         return http.get(`/v2/reservations/${id}`)
+    }
+    public getTags(): Promise<any> {
+        return http.get(`/v1/tag`)
     }
 }
 

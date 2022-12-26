@@ -66,6 +66,8 @@ import { ElNotification } from "element-plus";
 import jwtDecode from "jwt-decode";
 import { Ref, onMounted } from "vue";
 import { ref } from "vue";
+import { ViewServiceData } from "@/core/services/view-service";
+
 
 const adminStore = useAdminStore();
 
@@ -120,14 +122,11 @@ async function getJWTInfo() {
   const token: string | null = localStorage.token;
   if (typeof token !== "string") return null;
   const code = jwtDecode<Token>(token);
-  await axios
-    .get(`${url}/v1/admin/${code.entity_id}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
+  const viewServiceData = new ViewServiceData()
+  viewServiceData.getAdminById(code.entity_id)
     .then(async (result) => {
-    if (
+      console.log("hello", result)
+     if (
         [9, 14].includes(result.data.admin_type_id) ||
         [37, 66, 26, 29, 124, 128, 79].includes(result.data.admin_id)
       ) {
@@ -139,9 +138,11 @@ async function getJWTInfo() {
         logoutAndRedirectToV1();
       }
     })
-    .catch((error) => {
-      const type = JSON.parse(JSON.stringify(error)).message;
-      if (type?.includes("401")) {
+    .catch(({error}) => {
+      console.log("yop yop", error)
+      if (error === "UnauthorizedError" && localStorage.token) {
+        getJWTInfo();
+      } else if (error === "UnauthorizedError") {
         router.push("/login");
       }
     });
