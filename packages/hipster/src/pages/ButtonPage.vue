@@ -4,17 +4,17 @@ import { ElNotification } from "element-plus";
 
 const notification = () => {
   ElNotification({
-    title: 'Title',
+    title: "Title",
     message: "Test button",
-  })
-}
+  });
+};
 </script>
 
 <template>
   <div class="playground">
     <div class="btn-container">
       <div class="card">
-        <ButtonVue text="Primary" type="primary" @click="notification()"/>
+        <ButtonVue text="Primary" type="primary" @click="notification()" />
         <ButtonVue
           text="Primary"
           :disabled="true"
@@ -24,44 +24,25 @@ const notification = () => {
       </div>
       <div class="card">
         <ButtonVue icon="ArrowDown" type="secondary" />
-        <ButtonVue
-          text="Secondary"
-          :disabled="true"
-          type="secondary"
-        />
+        <ButtonVue text="Secondary" :disabled="true" type="secondary" />
       </div>
       <div class="card">
         <ButtonVue text="Tertiary" type="tertiary" />
-        <ButtonVue
-          text="Tertiary"
-          :disabled="true"
-          type="tertiary"
-        />
+        <ButtonVue text="Tertiary" :disabled="true" type="tertiary" />
       </div>
       <div class="card">
-        <ButtonVue
-          text="Plain Button"
-          type="plain-button"
-        />
-        <ButtonVue
-          text="Plain Button"
-          :disabled="true"
-          type="plain-button"
-        />
+        <ButtonVue text="Plain Button" type="plain-button" />
+        <ButtonVue text="Plain Button" :disabled="true" type="plain-button" />
       </div>
       <div class="card">
         <ButtonVue text="Destructive" type="destructive" />
-        <ButtonVue
-          text="Destructive"
-          :disabled="true"
-          type="destructive"
-        />
+        <ButtonVue text="Destructive" :disabled="true" type="destructive" />
       </div>
     </div>
-  <!--LOADING-->
+    <!--LOADING-->
     <div class="btn-container">
       <div class="card">
-        <ButtonVue text="Primary" type="primary" iconLeft="Filter"/>
+        <ButtonVue text="Primary" type="primary" iconLeft="Filter" />
         <ButtonVue
           text="Primary"
           :disabled="true"
@@ -70,7 +51,7 @@ const notification = () => {
         />
       </div>
       <div class="card">
-        <ButtonVue text="Secondary" type="secondary" iconLeft="Filter"/>
+        <ButtonVue text="Secondary" type="secondary" iconLeft="Filter" />
         <ButtonVue
           text="Secondary"
           :disabled="true"
@@ -79,7 +60,7 @@ const notification = () => {
         />
       </div>
       <div class="card">
-        <ButtonVue text="Tertiary" type="tertiary" iconLeft="Filter"/>
+        <ButtonVue text="Tertiary" type="tertiary" iconLeft="Filter" />
         <ButtonVue
           text="Tertiary"
           :disabled="true"
@@ -88,11 +69,7 @@ const notification = () => {
         />
       </div>
       <div class="card">
-        <ButtonVue
-          text="Plain Button"
-          type="plain-button"
-          iconLeft="Filter"
-        />
+        <ButtonVue text="Plain Button" type="plain-button" iconLeft="Filter" />
         <ButtonVue
           text="Plain Button"
           :disabled="true"
@@ -101,7 +78,7 @@ const notification = () => {
         />
       </div>
       <div class="card">
-        <ButtonVue text="Destructive" type="destructive" iconLeft="Filter"/>
+        <ButtonVue text="Destructive" type="destructive" iconLeft="Filter" />
         <ButtonVue
           text="Destructive"
           :disabled="true"
@@ -114,7 +91,7 @@ const notification = () => {
 </template>
 
 <style scoped>
-.playground{
+.playground {
   @apply flex-row;
 }
 </style>

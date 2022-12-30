@@ -66,9 +66,7 @@ let items: Item[] = [
     <div class="nav-container">
       <ul>
         <li>
-          <button
-            class="cmg-actions-plus cmg-btn cmg-more-actions"
-          >
+          <button class="cmg-actions-plus cmg-btn cmg-more-actions">
             <div>
               <IconPlusIcon />
             </div>
@@ -76,15 +74,8 @@ let items: Item[] = [
         </li>
       </ul>
       <ul>
-        <li
-          v-for="(item, index) in items"
-          :key="index"
-        >
-          <router-link
-            v-cloak
-            :to="item.to"
-            class="router-class"
-          >
+        <li v-for="(item, index) in items" :key="index">
+          <router-link v-cloak :to="item.to" class="router-class">
             <div id="pic">
               <component :is="item.icon" />
             </div>

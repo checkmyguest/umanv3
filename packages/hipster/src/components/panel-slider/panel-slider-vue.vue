@@ -12,7 +12,7 @@ export default {
     changeState() {
       if (this.direction === "left") this.direction = "right";
       else this.direction = "left";
-      this.$emit('slide');
+      this.$emit("slide");
     },
   },
 };
@@ -39,7 +39,7 @@ export default {
       }
     }
     svg {
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       transform: rotate(-90deg);
       margin-right: 3px;
     }
@@ -54,7 +54,7 @@ export default {
       }
     }
     svg {
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       transform: rotate(90deg);
       margin-left: 3px;
     }
@@ -67,7 +67,7 @@ export default {
   border-radius: 4px;
   border: 1px solid #cccfdb;
   transition: width 0.3s ease-in-out;
-  &:hover{
+  &:hover {
     width: 34px;
   }
 }

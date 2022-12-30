@@ -5,5 +5,5 @@
 </template>
 
 <script lang="ts" setup>
-  import Button from "hipster/src/components/button/button-vue.vue";
+import Button from "hipster/src/components/button/button-vue.vue";
 </script>

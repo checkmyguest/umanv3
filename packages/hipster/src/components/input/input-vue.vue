@@ -39,18 +39,18 @@ export default {
     },
     label: {
       type: String,
-      required: false
+      required: false,
     },
     error: {
       type: Boolean,
-      required: false
-    }
+      required: false,
+    },
   },
   components: { SvgIcon },
   methods: {
     clearInput() {
       this.text = "";
-    }
+    },
   },
 };
 </script>
@@ -83,7 +83,7 @@ export default {
       <SvgIcon class="icon-clear price" v-if="price" name="Euro" />
     </div>
     <div class="error" v-if="error">
-      <SvgIcon class="error-icon" name="Danger circled"/>
+      <SvgIcon class="error-icon" name="Danger circled" />
       <label> Error handling</label>
     </div>
   </div>
@@ -94,11 +94,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  .error{
+  .error {
     display: flex;
     justify-content: flex-start;
     color: #ff0055;
-    svg{
+    svg {
       width: 12px;
       height: auto;
       fill: #ff0055;
@@ -113,7 +113,7 @@ export default {
     font-size: 14px;
     color: black;
   }
-  .label-error{
+  .label-error {
     font-size: 12px;
     color: #ff0055 !important;
   }
@@ -166,7 +166,7 @@ export default {
       &::placeholder {
         color: #596477;
       }
-      &:hover{
+      &:hover {
         border: 1px solid #196dfd;
       }
       &:focus {

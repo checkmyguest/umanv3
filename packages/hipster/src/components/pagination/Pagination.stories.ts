@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from '@storybook/vue3';
-import PaginationVue from './pagination-vue.vue';
+import { Meta, StoryFn } from "@storybook/vue3";
+import PaginationVue from "./pagination-vue.vue";
 
-export default{
-  title: 'Pagination',
+export default {
+  title: "Pagination",
   component: PaginationVue,
 } as Meta<typeof PaginationVue>;
 

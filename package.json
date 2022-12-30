@@ -12,6 +12,10 @@
   ],
   "packageManager": "yarn@3.3.1",
   "dependencies": {
-    "node-gyp": "^9.3.1"
+    "node-gyp": "^9.3.1",
+    "prettier": "^2.8.1"
+  },
+  "scripts": {
+    "format": "prettier --write ."
   }
 }

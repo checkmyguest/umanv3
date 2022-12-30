@@ -286,9 +286,9 @@ export default {
     { id: 23, hour: ["22:00:00", "22:15:00", "22:30:00", "22:45:00"] },
     { id: 24, hour: ["23:00:00", "23:15:00", "23:30:00", "23:45:00"] },
   ],
-}
+};
 
-export const GCP_PUBLIC_FOLDER = "https://storage.googleapis.com/files-cmg"
+export const GCP_PUBLIC_FOLDER = "https://storage.googleapis.com/files-cmg";
 export const PLATFORM_CAUTION = [
   "Booking.com",
   "Expedia",
@@ -299,7 +299,7 @@ export const PLATFORM_CAUTION = [
   "direct",
   "veepee.smily.com",
   "Vrbo",
-]
+];
 
 export const DATE_PARAMS = [
   { value: "last_month", label: "Le mois dernier" },
@@ -310,12 +310,12 @@ export const DATE_PARAMS = [
   { value: "after_tomorrow", label: "Après-demain" },
   { value: "current_month", label: "Ce mois-ci" },
   { value: "next_month", label: "Le prochain mois" },
-]
+];
 
 const EVENT_TYPE = [
   { value: "reservations", label: "Réservation" },
   { value: "maintenances", label: "Indisponibilité" },
-]
+];
 
 export const RESERVATION_ORIGINS = [
   { label: "Abritel", value: "Abritel.fr" },
@@ -332,58 +332,84 @@ export const RESERVATION_ORIGINS = [
   { label: "Travel", value: "travel.checkmyguest.fr" },
   { label: "Veepee", value: "veepee.smily.com" },
   { label: "Work", value: "work.checkmyguest.fr" },
-]
+];
 
 const UNAVAILABILITIES_REASONS = [
   { label: "Propriétaire", value: "owner" },
   { label: "Maintenance", value: "cleaning" },
   { label: "Ménage", value: "maintenance" },
   { label: "Autre", value: "other" },
-]
+];
 
 export const EVENT_STATUS = [
   { label: "Réservée", value: "Booked" },
   { label: "Tentative", value: "Tentative" },
   { label: "Annulée", value: "Canceled" },
-]
+];
 
 const PROGRESSIONS = [
   { label: "En cours", value: "inProgress" },
   { label: "Terminée", value: "past" },
   { label: "À venir", value: "incoming" },
-]
+];
 
 const REGIONS = [
   { label: "Normandie", value: "50;14;61;27;76" },
   { label: "PACA", value: "05;06;04;84;13;83" },
-]
+];
 
 export const CAUTIONS = [
   { label: "Réglée", value: "DONE" },
   { label: "Non réglée", value: "NOT_DONE" },
   { label: "Non demandée", value: "NOT_ASKED" },
   { label: "Gérée en externe", value: "EXTERNAL" },
-]
+];
 
 export const GUEST_PROFILE_OPTIONS = [
   { label: "Automatique", value: "AUTO" },
   { label: "Non renseigné", value: "NOT_DONE" },
   { label: "À vérifier", value: "TO_VERIFY" },
   { label: "Vérifié", value: "VERIFIED" },
-]
+];
 
 export const STATE_COLOR = [
-  { class: "bg-orange-light", values: ['En cours', 'Working'] },
-  { class: "bg-sky", values: ['Non demandée', 'Terminée'] },
-  { class: "border bg-sky", values: ['Expiré'] },
-  { class: "bg-yellow-bgn", values: ['Todo', 'À faire', 'À vérifier', 'À venir', 'En attente'] },
-  { class: "bg-red-light", values: ['Stuck', 'Bloqué', 'Echoué', 'Non réglée', 'Fermé', 'Non renseigné'] },
-  { class: "bg-sky", values: ['Annulée', 'Done', 'Terminé'] },
-  { class: "bg-purple-light", values: ['Toutes', 'Unsolved', 'Non résolu', 'Tentative'] },
-  { class: "bg-green-light", values: ['Réservée', 'Encaissé', 'Réglée', 'Ouvert', 'Définitif', 'Vérifié'] },
-  { class: "bg-grey1", values: ['Archivé', 'Archived'] },
-  { class: "bg-red-darker", values: ['Prévisionnel'] }
-]
+  { class: "bg-orange-light", values: ["En cours", "Working"] },
+  { class: "bg-sky", values: ["Non demandée", "Terminée"] },
+  { class: "border bg-sky", values: ["Expiré"] },
+  {
+    class: "bg-yellow-bgn",
+    values: ["Todo", "À faire", "À vérifier", "À venir", "En attente"],
+  },
+  {
+    class: "bg-red-light",
+    values: [
+      "Stuck",
+      "Bloqué",
+      "Echoué",
+      "Non réglée",
+      "Fermé",
+      "Non renseigné",
+    ],
+  },
+  { class: "bg-sky", values: ["Annulée", "Done", "Terminé"] },
+  {
+    class: "bg-purple-light",
+    values: ["Toutes", "Unsolved", "Non résolu", "Tentative"],
+  },
+  {
+    class: "bg-green-light",
+    values: [
+      "Réservée",
+      "Encaissé",
+      "Réglée",
+      "Ouvert",
+      "Définitif",
+      "Vérifié",
+    ],
+  },
+  { class: "bg-grey1", values: ["Archivé", "Archived"] },
+  { class: "bg-red-darker", values: ["Prévisionnel"] },
+];
 
 const CHECKIN_TYPE = [
   { label: "Boîte à clés", value: "bac" },
@@ -393,14 +419,14 @@ const CHECKIN_TYPE = [
   { label: "KeyCafe", value: "key_cafe" },
   { label: "KeyNest", value: "key_nest" },
   { label: "Serrure électronique", value: "serrure_electronique" },
-]
+];
 
-interface IOptions{
-  label: string,
-  value: string | number
+interface IOptions {
+  label: string;
+  value: string | number;
 }
 
-export interface IEventFilters{
+export interface IEventFilters {
   key: string;
   label: string;
   type: string;
@@ -408,16 +434,16 @@ export interface IEventFilters{
   multi?: boolean;
   icon?: string | boolean;
   options?: IOptions[];
-  dependsOn?:{
-    key: string,
-    values: string[],
+  dependsOn?: {
+    key: string;
+    values: string[];
   };
   external?: boolean;
   interval?: boolean;
-  placeholder?: string
+  placeholder?: string;
 }
 
-export const EVENT_FILTERS: Array<IEventFilters>= [
+export const EVENT_FILTERS: Array<IEventFilters> = [
   {
     key: "eventType",
     label: "Type Événements",
@@ -608,7 +634,7 @@ export const EVENT_FILTERS: Array<IEventFilters>= [
       values: ["reservations", "maintenances"],
     },
   },
-]
+];
 
 export const EVENT_COLUMNS = [
   {
@@ -701,5 +727,5 @@ export const EVENT_COLUMNS = [
     label: "montant",
     key: "final_price",
     sort: true,
-  }
-]
+  },
+];

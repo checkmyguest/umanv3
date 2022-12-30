@@ -1,55 +1,60 @@
 <script setup lang="ts">
-import { ITagOptions, ITagsEvent } from '@/constants/tags/tags';
-import { onMounted, PropType, Ref, ref } from 'vue';
-import CheckboxVue from '../checkbox/checkbox-vue.vue';
+import { ITagOptions, ITagsEvent } from "@/constants/tags/tags";
+import { onMounted, PropType, Ref, ref } from "vue";
+import CheckboxVue from "../checkbox/checkbox-vue.vue";
 
 const props = defineProps({
   tagsContainer: {
     type: Object as PropType<ITagOptions[]>,
-    required: true
+    required: true,
   },
   tagsReservation: {
     type: Object as PropType<ITagsEvent[]>,
-    required: true
+    required: true,
   },
   reservationId: {
     type: Number,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const options: Ref<ITagOptions[]> = ref([]);
 const values: Ref<ITagsEvent[]> = ref([]);
 
-onMounted(()=>{
-  props.tagsContainer!.forEach((tag)=>{
-    if(tag.active){
+onMounted(() => {
+  props.tagsContainer!.forEach((tag) => {
+    if (tag.active) {
       options.value.push({
-        tag_id: tag.tag_id+props.reservationId,
+        tag_id: tag.tag_id + props.reservationId,
         name: tag.name,
         active: tag.active,
-        checked: false
+        checked: false,
       });
     }
   });
-  props.tagsReservation.forEach((tag)=>{
+  props.tagsReservation.forEach((tag) => {
     values.value.push({
-      tag_id: tag.tag_id+props.reservationId,
+      tag_id: tag.tag_id + props.reservationId,
       name: tag.name,
-      reservation_id: tag.reservation_id
+      reservation_id: tag.reservation_id,
     });
-    options.value.filter((option)=> option.name === tag.name).forEach((option)=> option.checked = true); 
+    options.value
+      .filter((option) => option.name === tag.name)
+      .forEach((option) => (option.checked = true));
   });
 });
 
-function getValue(checked: boolean, id: string){
-  options.value.find((option)=> option.tag_id === parseInt(id))!.checked = checked;
-  const check = options.value.filter((option)=> option.tag_id === parseInt(id));
+function getValue(checked: boolean, id: string) {
+  options.value.find((option) => option.tag_id === parseInt(id))!.checked =
+    checked;
+  const check = options.value.filter(
+    (option) => option.tag_id === parseInt(id)
+  );
   values.value.push({
-    tag_id: check[0].tag_id-props.reservationId,
+    tag_id: check[0].tag_id - props.reservationId,
     name: check[0].name,
-    reservation_id: props.reservationId
-  })
+    reservation_id: props.reservationId,
+  });
 }
 </script>
 
@@ -76,20 +81,26 @@ function getValue(checked: boolean, id: string){
         :label="item.name"
         :value="item.checked!"
       >
-        <CheckboxVue class="checkbox" :getValue="getValue" :id="(item.tag_id.toString())" v-model="item.checked" :label="item.name"/>
+        <CheckboxVue
+          class="checkbox"
+          :getValue="getValue"
+          :id="item.tag_id.toString()"
+          v-model="item.checked"
+          :label="item.name"
+        />
       </el-option>
     </el-select>
   </div>
 </template>
 
 <style lang="scss">
-*{
+* {
   padding: 0;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
-.container{
+.container {
   @apply flex items-center justify-center;
   color: black;
   overflow-x: scroll;
@@ -97,41 +108,41 @@ function getValue(checked: boolean, id: string){
   max-width: 250px;
   height: 32px;
   position: relative;
-  .tag-container{
+  .tag-container {
     @apply absolute flex items-center top-0 left-0 w-full h-full px-3;
     overflow-x: scroll;
   }
 }
 .tag-custom {
-      @apply flex items-center justify-center text-xs text-blue font-medium;
-      weight: auto;
-      height: 18px;
-      background: #e8f0ff;
-      border: 0.5px solid #196dfd;
-      border-radius: 9px;
-      padding: 0 4px;
-      padding-bottom: 2px;
-      margin-right: 8px;
-      margin-top: 2px;
-      white-space: nowrap;
-    }
+  @apply flex items-center justify-center text-xs text-blue font-medium;
+  weight: auto;
+  height: 18px;
+  background: #e8f0ff;
+  border: 0.5px solid #196dfd;
+  border-radius: 9px;
+  padding: 0 4px;
+  padding-bottom: 2px;
+  margin-right: 8px;
+  margin-top: 2px;
+  white-space: nowrap;
+}
 
-.checkbox{
+.checkbox {
   padding-bottom: 4px;
-  label{
+  label {
     width: 100% !important;
   }
 }
 
-.el-select-dropdown{
+.el-select-dropdown {
   padding: 8px 12px;
 }
 
-.el-select-dropdown__list{
+.el-select-dropdown__list {
   margin: 0 !important;
 }
 
-.el-select-dropdown__item{
+.el-select-dropdown__item {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -139,38 +150,37 @@ function getValue(checked: boolean, id: string){
   padding-left: 8px !important;
   height: 30px !important;
   border-radius: 4px !important;
-  label{
+  label {
     margin-top: 6px !important;
   }
 }
 
-.selected{
-  background-color: #E8F0FF !important;
+.selected {
+  background-color: #e8f0ff !important;
 }
 
-.selected::after{
+.selected::after {
   display: none;
 }
 
-.el-popper{
+.el-popper {
   width: 240px !important;
   box-shadow: 0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2) !important;
   border-radius: 4px !important;
   border: none !important;
 }
 
-.el-input__wrapper{
+.el-input__wrapper {
   max-width: 300px;
   width: 100%;
   opacity: 0;
 }
 
-.el-tag{
+.el-tag {
   opacity: 0;
 }
 
-.el-popper__arrow{
+.el-popper__arrow {
   display: none;
 }
-
 </style>

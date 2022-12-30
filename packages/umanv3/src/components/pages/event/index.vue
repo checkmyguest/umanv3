@@ -5,14 +5,10 @@
       <div class="container">
         <div class="vue-container">
           <div class="vue active">
-            <button>
-              Nouvelle Vue
-            </button>
+            <button>Nouvelle Vue</button>
           </div>
           <div class="vue">
-            <button>
-              Nouvelle Vue
-            </button>
+            <button>Nouvelle Vue</button>
           </div>
         </div>
         <div class="button-container">

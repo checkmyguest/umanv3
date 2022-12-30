@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template id="#app">
   <header>
@@ -10,7 +9,9 @@
       <RouterLink class="router-link" to="/button">Button</RouterLink>
       <RouterLink class="router-link" to="/dropdown">Dropdown</RouterLink>
       <RouterLink class="router-link" to="/input">Input</RouterLink>
-      <RouterLink class="router-link" to="/inputSearch">Input Search</RouterLink>
+      <RouterLink class="router-link" to="/inputSearch"
+        >Input Search</RouterLink
+      >
       <RouterLink class="router-link" to="/pagination">Pagination</RouterLink>
       <RouterLink class="router-link" to="/select">Select</RouterLink>
       <!-- <RouterLink class="router-link" to="/input-phone">Input Phone</RouterLink> -->
@@ -21,41 +22,41 @@
     <div v-if="$route.path.includes('table')" class="table-components">
       <RouterLink class="router-link" to="/table/cell">Cell</RouterLink>
     </div>
-    <RouterView class="router-view"/>
+    <RouterView class="router-view" />
   </main>
 </template>
 
 <style scoped lang="scss">
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-#app{
+#app {
   margin: 0;
   padding: 0;
   top: 0;
   left: 0;
 }
-header{
+header {
   height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-main{
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .link-container{
+  .link-container {
     margin: 20px 0px;
   }
-  .table-components{
+  .table-components {
     margin: 20px 0px;
   }
 }
-.router-link{
+.router-link {
   padding: 5px 10px;
   margin: 10px;
   border-radius: 4px;
@@ -63,13 +64,13 @@ main{
   background-color: white;
   transition: all 0.2s ease-in-out;
 }
-.router-link-active{
+.router-link-active {
   padding: 6px 14px;
   color: white;
-  background-color: #196DFD;
+  background-color: #196dfd;
   transition: all 0.2s ease-in-out;
 }
-.router-view{
+.router-view {
   border-radius: 4px;
   display: flex;
   justify-content: center;

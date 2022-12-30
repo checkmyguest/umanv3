@@ -5,8 +5,7 @@ import IconSearch from "@/assets/img/toolbar/search.svg";
 export default {
   components: {
     IconLogoBeta,
-    IconMenuBtn
-  ,
+    IconMenuBtn,
     IconSearch,
   },
 };
@@ -20,10 +19,7 @@ export default {
           <IconMenuBtn />
         </a>
       </div>
-      <router-link
-        to="/"
-        class="uman-logo"
-      >
+      <router-link to="/" class="uman-logo">
         <div class="logo">
           <IconLogoBeta />
         </div>

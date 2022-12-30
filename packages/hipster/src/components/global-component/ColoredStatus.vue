@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center" :class="isFullWidth ? 'w-full' : null">
-    <span :class="classesComputed" style="border-radius: 2px 0px 0px 2px;">
+    <span :class="classesComputed" style="border-radius: 2px 0px 0px 2px">
       <span v-if="isTextInside" class="-mt-0.5 whitespace-nowrap nostyle">
         {{ status }}
       </span>
@@ -30,7 +30,7 @@ export default {
     },
   },
   methods: {
-    reservationStateColor(status: string): string{
+    reservationStateColor(status: string): string {
       switch (status) {
         case "En cours":
         case "Working":
@@ -79,11 +79,11 @@ export default {
         default:
           return "bg-blue-sky";
       }
-    }
+    },
   },
   computed: {
     classesComputed() {
-      let classes = this.bgClass; 
+      let classes = this.bgClass;
       classes += this.isTextInside
         ? " px-1 text-xs badge flex justify-center items-center text-center font-medium rounded-sm"
         : " mr-2 square-custom";

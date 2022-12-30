@@ -1,7 +1,5 @@
 <script lang="ts">
-import {
-STATE_COLOR
-} from "../../../constants";
+import { STATE_COLOR } from "../../../constants";
 import { ITagOptions } from "../../constants/tags/tags";
 import tagOptions from "../../constants/tags/tags.json";
 import ColoredStatus from "../global-component/ColoredStatus.vue";
@@ -14,8 +12,8 @@ export default {
     SvgIcon,
     InitialName,
     ColoredStatus,
-    SelectVue
-},
+    SelectVue,
+  },
   props: {
     data: {
       type: null,
@@ -27,36 +25,35 @@ export default {
     },
     reservationId: {
       type: Number,
-      required: false
-    }
+      required: false,
+    },
   },
   data() {
     return {
       stateFormat: STATE_COLOR,
-      badgeItem: ['status', 'state', 'guestProfileStatus', 'caution'],
+      badgeItem: ["status", "state", "guestProfileStatus", "caution"],
       tagsDropdown: false,
       link: false,
-      tagOptions: tagOptions
+      tagOptions: tagOptions,
     };
   },
-  methods:{
-    imgUrl(){
-      return "src/assets/logos/"+this.data+".png"
+  methods: {
+    imgUrl() {
+      return "src/assets/logos/" + this.data + ".png";
     },
-    isBadge(): boolean{
-      return this.badgeItem.some((item)=> this.itemKey === item);
+    isBadge(): boolean {
+      return this.badgeItem.some((item) => this.itemKey === item);
     },
-    setBadgeColor(): string{
-      let classBadge: string = '';
-      this.stateFormat.forEach((state)=>{
-        if(state.values.some((value) => value === this.data))
+    setBadgeColor(): string {
+      let classBadge: string = "";
+      this.stateFormat.forEach((state) => {
+        if (state.values.some((value) => value === this.data))
           classBadge = state.class;
       });
-      if(classBadge === '')
-        classBadge = 'bg-blue-sky';
+      if (classBadge === "") classBadge = "bg-blue-sky";
       return classBadge;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -65,15 +62,11 @@ export default {
     <a href="google.fr" class="link-custom">{{ data.id }}</a>
     <p>
       |
-      <span> {{ data.notes ? '1 note' : '0 note' }}</span>
+      <span> {{ data.notes ? "1 note" : "0 note" }}</span>
     </p>
   </div>
   <div class="cell-container origin" v-else-if="itemKey === 'origin'">
-    <img
-      class="logo-origin"
-      :src="imgUrl()"
-      :alt="data"
-    />
+    <img class="logo-origin" :src="imgUrl()" :alt="data" />
     <label>{{ data }}</label>
   </div>
   <div v-else-if="itemKey === 'guest_name'" class="cell-container">
@@ -84,7 +77,11 @@ export default {
     <span>{{ data.housing_id }}</span>
   </div>
   <div v-else-if="itemKey === 'tags'" class="cell-container tags">
-    <SelectVue :tagsReservation="(data)" :tagsContainer="(tagOptions as ITagOptions[])" :reservationId="reservationId!"/>
+    <SelectVue
+      :tagsReservation="data"
+      :tagsContainer="(tagOptions as ITagOptions[])"
+      :reservationId="reservationId!"
+    />
   </div>
   <div v-else-if="isBadge()" class="cell-container badge">
     <label :class="setBadgeColor()">{{ data }}</label>
@@ -96,15 +93,11 @@ export default {
   >
     <InitialName
       v-for="(am, index) in data"
-      :fullname="am.firstname+' '+am.lastname"
+      :fullname="am.firstname + ' ' + am.lastname"
       :showText="false"
     />
   </div>
-  <div
-    v-else-if="itemKey === 'ciType'"
-    class="cell-container"
-    :class="itemKey"
-  >
+  <div v-else-if="itemKey === 'ciType'" class="cell-container" :class="itemKey">
     <label>{{ data.ci_type_name }}</label>
   </div>
   <div v-else :class="itemKey" class="cell-container">
@@ -156,8 +149,8 @@ export default {
     padding-left: 12px;
   }
 }
-.badge{
-  label{
+.badge {
+  label {
     @include text-badge();
   }
 }
@@ -165,7 +158,7 @@ export default {
 .housing {
   @apply flex justify-between items-center text-sm;
   span {
-    color: #9898AA;
+    color: #9898aa;
     padding-right: 12px;
   }
 }

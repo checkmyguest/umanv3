@@ -1,9 +1,9 @@
 // Button.stories.ts
-import { Meta, StoryFn } from '@storybook/vue3';
-import CheckboxVue from './checkbox-vue.vue';
+import { Meta, StoryFn } from "@storybook/vue3";
+import CheckboxVue from "./checkbox-vue.vue";
 
-export default{
-  title: 'Checkbox',
+export default {
+  title: "Checkbox",
   component: CheckboxVue,
 } as Meta<typeof CheckboxVue>;
 

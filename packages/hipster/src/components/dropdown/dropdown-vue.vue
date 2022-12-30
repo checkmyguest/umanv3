@@ -13,32 +13,38 @@ export default {
   props: {
     text: { type: String, required: false },
     type: { type: String, required: false },
-    iconLeft: { type: String, required: false, default: '' },
+    iconLeft: { type: String, required: false, default: "" },
     disabled: { type: Boolean, required: false },
     id: { type: String, required: true },
     mainAction: { type: Function, require: false },
     actions: { type: Object as PropType<Actions[]>, required: true },
     split: { type: Boolean, required: false },
-    size: { type: String, required: false }
-  }
+    size: { type: String, required: false },
+  },
 };
 </script>
 
 <template>
   <div :class="[split ? 'split-button_container cmg-btn' : '']">
-    <ButtonVue v-if="split" :style="'border-radius: 4px 0 0 4px;'" :text="text" :type="type" :disabled="disabled"/>
-    <el-dropdown
-      trigger="click"
-      :id="id"
+    <ButtonVue
+      v-if="split"
+      :style="'border-radius: 4px 0 0 4px;'"
+      :text="text"
+      :type="type"
       :disabled="disabled"
-    >
+    />
+    <el-dropdown trigger="click" :id="id" :disabled="disabled">
       <ButtonVue
         :icon="split ? 'ArrowDown' : ''"
         :dropdown="split ? false : true"
         :text="text"
         :type="type"
         :disabled="disabled"
-        :style="split ? 'border-radius: 0 4px 4px 0; margin-top: 1px; border-width: 1px 1px 1px 0px !important;' : ''"
+        :style="
+          split
+            ? 'border-radius: 0 4px 4px 0; margin-top: 1px; border-width: 1px 1px 1px 0px !important;'
+            : ''
+        "
       />
       <template #dropdown>
         <el-dropdown-menu class="dropdown-menu">
@@ -51,7 +57,7 @@ export default {
           </el-dropdown-item>
         </el-dropdown-menu>
       </template>
-  </el-dropdown>
+    </el-dropdown>
   </div>
 </template>
 
@@ -59,12 +65,12 @@ export default {
 .dropdown-menu {
   all: unset;
   box-shadow: 0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2);
-  .dropdown-item:hover{
-    background-color: #F4F6F8;
+  .dropdown-item:hover {
+    background-color: #f4f6f8;
     color: black;
   }
 }
-#tooltip{
+#tooltip {
   display: none;
 }
 .el-button {

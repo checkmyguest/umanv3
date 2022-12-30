@@ -32,7 +32,7 @@
           margin-right: auto !important;
           background-color: $blue;
           border-color: $blue;
-          svg{
+          svg {
             fill: $white;
             margin-bottom: 1px;
           }
@@ -53,7 +53,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            .svg-class{
+            .svg-class {
               margin-right: 1px;
               fill: $ink-lightest !important;
             }
@@ -116,7 +116,6 @@
               }
             }
           }
-          
         }
       }
     }

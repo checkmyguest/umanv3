@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineAsyncComponent } from 'vue';
+import { defineAsyncComponent } from "vue";
 
 export default {
   props: {
@@ -12,7 +12,9 @@ export default {
   computed: {
     dynamicComponent() {
       const name = this.name;
-      return defineAsyncComponent(() => import(`../../../assets/icons/${name}.vue`));
+      return defineAsyncComponent(
+        () => import(`../../../assets/icons/${name}.vue`)
+      );
     },
   },
 };

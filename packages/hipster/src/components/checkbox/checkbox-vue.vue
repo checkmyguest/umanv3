@@ -1,14 +1,13 @@
 <script lang="ts">
-
 export default {
   props: {
     modelValue: {
       type: Boolean,
-      required: true
+      required: true,
     },
     getValue: {
       type: Function,
-      required: true
+      required: true,
     },
     disabled: {
       type: Boolean,
@@ -25,7 +24,7 @@ export default {
     label: {
       type: String,
       required: false,
-      default: ''
+      default: "",
     },
     type: {
       type: String,
@@ -41,7 +40,7 @@ export default {
       requiredColor: "",
       borderDefaultColor: "",
       bgDefaultColor: "",
-      checkboxValue: this.modelValue
+      checkboxValue: this.modelValue,
     };
   },
   mounted() {
@@ -50,26 +49,45 @@ export default {
       this.borderColor = "#196DFD";
       this.tickColor = "#FFFFFF";
       this.borderDefaultColor = "#CCCFDB";
-      this.bgDefaultColor = "#FFFFFF"
+      this.bgDefaultColor = "#FFFFFF";
     } else if (this.type === "required") {
       this.bgColor = "#FFE5EE";
       this.borderColor = "#FF0059";
       this.tickColor = "#FF0059";
       this.borderDefaultColor = "#FF0059";
-      this.bgDefaultColor = "#FFE5EE"
+      this.bgDefaultColor = "#FFE5EE";
     }
-  }
+  },
 };
 </script>
 
 <template>
   <div class="checkbox-container">
     <p>
-      <input type="checkbox" v-model="checkboxValue" :disabled="disabled" :class="[type, minus ? 'minus' : '']" :id="id" @change="getValue(checkboxValue, id)"/>
+      <input
+        type="checkbox"
+        v-model="checkboxValue"
+        :disabled="disabled"
+        :class="[type, minus ? 'minus' : '']"
+        :id="id"
+        @change="getValue(checkboxValue, id)"
+      />
       <label :for="id" aria-describedby="label"></label>
     </p>
-    <label v-if="label !== '' && !disabled" :style="type === 'primary' ? 'color: black' : 'color:'+tickColor" :for="id" class="label-custom">{{ label }}</label>
-    <label v-if="label !== '' && disabled" style="color: #919EAB; cursor: not-allowed;" :for="id" class="label-custom">{{ label }}</label>
+    <label
+      v-if="label !== '' && !disabled"
+      :style="type === 'primary' ? 'color: black' : 'color:' + tickColor"
+      :for="id"
+      class="label-custom"
+      >{{ label }}</label
+    >
+    <label
+      v-if="label !== '' && disabled"
+      style="color: #919eab; cursor: not-allowed"
+      :for="id"
+      class="label-custom"
+      >{{ label }}</label
+    >
   </div>
 </template>
 

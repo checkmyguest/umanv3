@@ -11,19 +11,18 @@ import SelectPageVue from "../pages/SelectPage.vue";
 import TablePageVue from "../pages/TablePage.vue";
 import TogglePageVue from "../pages/TogglePage.vue";
 
-
 const routes: Array<RouteRecordRaw> = [
   { path: "/button", name: "Button", component: ButtonPageVue },
   { path: "/dropdown", name: "Dropdown", component: DropdownPageVue },
-  { path: "/input", name: "Input", component: InputPageVue},
-  { path: "/inputSearch", name: "Input Search", component: InputSearchPageVue},
-  { path: "/pagination", name: "Pagination", component: PaginationPageVue},
-  { path: "/select", name: "Select", component: SelectPageVue},
-  { path: "/input-phone", name: "Input Phone", component: InputPhonePageVue},
-  { path: "/checkbox", name: "Checkbox", component: CheckboxPageVue},
-  { path: "/toggle", name: "Toggle", component: TogglePageVue},
-  { path: "/table", name: "Table", component: TablePageVue},
-  { path: "/table/cell", name: "Cell", component: CellPageVue},
+  { path: "/input", name: "Input", component: InputPageVue },
+  { path: "/inputSearch", name: "Input Search", component: InputSearchPageVue },
+  { path: "/pagination", name: "Pagination", component: PaginationPageVue },
+  { path: "/select", name: "Select", component: SelectPageVue },
+  { path: "/input-phone", name: "Input Phone", component: InputPhonePageVue },
+  { path: "/checkbox", name: "Checkbox", component: CheckboxPageVue },
+  { path: "/toggle", name: "Toggle", component: TogglePageVue },
+  { path: "/table", name: "Table", component: TablePageVue },
+  { path: "/table/cell", name: "Cell", component: CellPageVue },
 ];
 
 const router = createRouter({

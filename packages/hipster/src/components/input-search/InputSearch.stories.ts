@@ -1,9 +1,9 @@
 // Button.stories.ts
-import { Meta, StoryFn } from '@storybook/vue3';
-import InputSearchVue from './input-search-vue.vue';
+import { Meta, StoryFn } from "@storybook/vue3";
+import InputSearchVue from "./input-search-vue.vue";
 
-export default{
-  title: 'InputSearch',
+export default {
+  title: "InputSearch",
   component: InputSearchVue,
 } as Meta<typeof InputSearchVue>;
 
@@ -16,8 +16,8 @@ const Template: StoryFn<typeof InputSearchVue> = (args) => ({
   template: '<InputSearchVue v-bind="args" />',
 });
 
-function getValue(value: string){
-    console.log(value)
+function getValue(value: string) {
+  console.log(value);
 }
 
 export const Default = Template.bind({});

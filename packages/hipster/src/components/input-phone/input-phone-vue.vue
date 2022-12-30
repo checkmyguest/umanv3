@@ -1,12 +1,11 @@
 <script lang="ts">
 export default {
-    components:{
-    },
-    data(){
-        return{
-            yourValue: ''
-        }
-    }
+  components: {},
+  data() {
+    return {
+      yourValue: "",
+    };
+  },
 };
 </script>
 

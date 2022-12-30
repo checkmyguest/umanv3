@@ -4,22 +4,22 @@ import "../../assets/style/style.scss";
 import "../../style.css";
 import InputVue from "./input-vue.vue";
 
-export default{
-    title: 'Input',
-    component: InputVue
+export default {
+  title: "Input",
+  component: InputVue,
 } as Meta<typeof InputVue>;
 
 const Template: StoryFn<typeof InputVue> = (args) => ({
-    components: { InputVue },
-    setup(){
-        return { args };
-    },
-    template: '<InputVue v-bind="args" />',
+  components: { InputVue },
+  setup() {
+    return { args };
+  },
+  template: '<InputVue v-bind="args" />',
 });
 
 export const Primary = Template.bind({});
 
 Primary.args = {
-    type: 'primary',
-    text: "Primary"
-}
+  type: "primary",
+  text: "Primary",
+};

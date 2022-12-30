@@ -1,9 +1,9 @@
 // Button.stories.ts
-import { Meta, StoryFn } from '@storybook/vue3';
-import ButtonVue from './button-vue.vue';
+import { Meta, StoryFn } from "@storybook/vue3";
+import ButtonVue from "./button-vue.vue";
 
-export default{
-  title: 'Button',
+export default {
+  title: "Button",
   component: ButtonVue,
 } as Meta<typeof ButtonVue>;
 
