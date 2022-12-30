@@ -5,6 +5,12 @@ import DropdownVue from "./dropdown-vue.vue";
 export default {
   title: "Dropdown",
   component: DropdownVue,
+  argTypes: {
+    type: {
+      options: ['primary', 'secondary', 'tertiary', 'plain-button', 'destructive'],
+      control: { type: 'radio'}  
+    }
+  }
 } as Meta<typeof DropdownVue>;
 
 //👇 We create a “template” of how args map to rendering
@@ -16,6 +22,15 @@ const Template: StoryFn<typeof DropdownVue> = (args) => ({
   template:
     '<div style="width: 100%; display: flex; justify-content: center;"><dropdown-vue v-bind="args" /></div>',
 });
+
+const actions = [
+  { name: 'Action One', function: actionOne },
+  { name: 'Action Two', function: actionTwo },
+  { name: 'Action 3', function: actionOne },
+  { name: 'Action 4', function: actionTwo },
+  { name: 'Action 5', function: actionOne },
+  { name: 'Action 6', function: actionTwo }
+]
 
 export const Primary = Template.bind({});
 Primary.args = { text: "Primary", type: "primary", id: "primary" };
@@ -96,3 +111,11 @@ DisabledSplit.args = {
   disabled: true,
   split: true,
 };
+
+function actionOne(){
+  console.log('This is action One');
+}
+
+function actionTwo(){
+  console.log('This is action Two');
+}
