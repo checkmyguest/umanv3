@@ -22,7 +22,6 @@
     "hipster": "*",
     "inversify": "^6.0.1",
     "pinia": "^2.0.22",
-    "prettier": "^2.7.1",
     "reflect-metadata": "^0.1.13",
     "uuid": "^9.0.0",
     "vite-svg-loader": "^3.6.0",
