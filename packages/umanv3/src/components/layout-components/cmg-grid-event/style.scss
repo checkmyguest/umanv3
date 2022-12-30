@@ -1,0 +1,13 @@
+.no-results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin-top: 150px;
+  
+    p {
+      color: #919eab;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+  }

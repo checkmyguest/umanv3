@@ -2,13 +2,17 @@
 // This starter template is using Vue 3 <script setup> SFCs
 import Navbar from "./components/@navbar/Navbar.vue";
 import Toolbar from "./components/@toolbar/Toolbar.vue";
+import { useAdminStore } from "./stores/admin";
 document.title = "UmanV3";
+
+const adminStore = useAdminStore();
+
 </script>
 
 <template>
   <div id="app">
-    <Toolbar />
-    <Navbar />
+    <toolbar v-if="adminStore.logStatus" />
+    <navbar v-if="adminStore.logStatus" />
     <router-view class="router-view-class" />
   </div>
 </template>
@@ -30,8 +34,9 @@ document.title = "UmanV3";
     position: absolute;
     top: $toolbar-height;
     left: $navbar-width;
-    width: calc(100vw - $navbar-width);
+    max-width: calc(100vw - $navbar-width);
     height: calc(100vh - $toolbar-height);
+    overflow: hidden !important;
   }
 }
 </style>

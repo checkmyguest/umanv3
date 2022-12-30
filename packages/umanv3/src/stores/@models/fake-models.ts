@@ -1,5 +1,5 @@
-import { faker } from "@faker-js/faker";
-import { v4 as uuidv4 } from "uuid";
+import { faker } from '@faker-js/faker';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface Item {
   id: string;
@@ -16,6 +16,6 @@ export function generateFakeData(): Item {
     proprio: faker.lorem.words(),
     appartement: faker.lorem.words(),
     numero: Math.random(),
-    createdAt: new Date(),
+    createdAt: new Date()
   };
 }
