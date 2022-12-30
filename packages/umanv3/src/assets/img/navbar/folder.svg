@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="14px" viewBox="0 0 18 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Menu-Standard" transform="translate(1.000000, -5.000000)">
+            <g id="icon-folder-fold" transform="translate(0.000000, 5.500000)">
+                <path d="M1,0 L3.89921894,0 C4.12629044,-4.1712357e-17 4.34660094,0.0772807521 4.52391399,0.219131191 L5.22608601,0.780868809 C5.40339906,0.922719248 5.62370956,1 5.85078106,1 L14.5,1 C15.0522847,1 15.5,1.44771525 15.5,2 L15.5,12 C15.5,12.5522847 15.0522847,13 14.5,13 L1,13 C0.44771525,13 6.76353751e-17,12.5522847 0,12 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z" id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" fill-rule="evenodd"></path>
+                <line x1="0" y1="3.5" x2="16" y2="3.5" id="Line" stroke="#171934" stroke-linecap="square"></line>
+            </g>
+        </g>
+    </g>
+</svg>

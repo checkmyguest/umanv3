@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Review" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-13" transform="translate(-388.000000, -68.000000)">
+            <g id="Group-7-Copy-3" transform="translate(388.000000, 68.000000)">
+                <g id="Btn-/-Reduce" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) ">
+                    <circle id="Oval" stroke="#CCCFDB" fill="#FFFFFF" cx="12" cy="12" r="11.5"></circle>
+                    <path d="M12.770412,9.78674155 L15.2539881,14.2571785 C15.3880947,14.4985704 15.3011228,14.802972 15.0597309,14.9370786 C14.9854519,14.9783447 14.9018816,15 14.8169094,15 L9.84975723,15 C9.57361486,15 9.34975723,14.7761424 9.34975723,14.5 C9.34975723,14.4150279 9.37141248,14.3314575 9.41267859,14.2571785 L11.8962547,9.78674155 C12.0303613,9.54534968 12.3347629,9.45837778 12.5761548,9.59248438 C12.6577748,9.63782884 12.7250675,9.70512152 12.770412,9.78674155 Z" id="Triangle" fill="#061249" transform="translate(12.333333, 12.000000) scale(1, -1) rotate(90.000000) translate(-12.333333, -12.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

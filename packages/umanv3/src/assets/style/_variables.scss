@@ -1,0 +1,365 @@
+// Colors
+$primary: #1f2b37;
+$secondary: #1b71ff;
+$background1: #fafafa;
+$background2: #838aa4;
+$border1: #e7e9ef;
+$border2: #cccfdb;
+$shadow: #171934;
+$title: #1d1737;
+$subtitle: #9898aa;
+$white: #ffffff;
+$grey1: #cccfdb;
+$grey2: #e7e9ef;
+$grey3: #596477;
+$grey4: #9898aa;
+$input-border-blue: #7799cd;
+$slider-blue: #d1e3ff;
+$slider-blue-dark: #556b8d;
+
+/// INK
+$ink-lightest: #9898aa;
+$ink-lighter: #637381;
+$ink-light: #454f5b;
+$ink: #1f2b37;
+
+/// SKY
+$sky: #e3e8ee;
+$sky-lighter: #f8fafc;
+$sky-light: #f4f6f8;
+$sky-dark: #ccd2db;
+$sky-darken: #5c5c67;
+
+/// GREEN
+$green: #00b388;
+$green-lighter: #e9fbe3;
+$green-light: #cbf4ca;
+$green-dark: #108043;
+$green-darker: #173630;
+$green-text: #414f3e;
+
+/// RED
+$red: #ff0059;
+$red-btn-hover: #e60354;
+$red-lighter: #ffe5ee;
+$red-alert: #fff1f6;
+$red-light: #fab9ca;
+$red-dark: #bf1d08;
+$red-btn-border: #cd0654;
+$red-darker: #ffc4d5;
+$red-text: #583c35;
+$red-sweet-serenade: #ffc4d5;
+
+/// YELLOW
+$yellow: #f6bb2d;
+$yellow-bgn: #fcf6ab;
+$yellow-lighter: #fcf1cd;
+$yellow-light: #fffcd7;
+$yellow-alert: #fff5e8;
+$yellow-dark: #8a6116;
+$yellow-darker: #573b00;
+$yellow-text: #595130;
+
+/// ORANGE
+$orange: #f49342;
+$orange-lighter: #fcebdb;
+$orange-light: #ffc58b;
+$orange-dark: #c05717;
+$orange-darker: #4a1504;
+$orange-text: #594430;
+
+/// PURPLE
+$purple: #9c6ade;
+$purple-lighter: #f6f0fd;
+$purple-light: #e3d0ff;
+$purple-dark: #50248f;
+$purple-darker: #230051;
+$purple-text: #50495a;
+
+// INDIGO
+$indigo: #5b63af;
+$indigo-lighter: #f5f5fa;
+$indigo-light: #b3bcf5;
+$indigo-dark: #102069;
+$indigo-darker: #1f2b37;
+$indigo-text: #3e4155;
+
+// BLUE
+$blue: #196dfd;
+$blue-lighter: #e8f0ff;
+$blue-light: #9bd1ff;
+$blue-dark: #3c5ad7;
+$blue-dark-btn: #1963e7;
+$blue-darken: #061249;
+$blue-darker: #1f2b37;
+$blue-darker-btn: #155ad7;
+$blue-text: #919eab;
+$blue-sky: #edf3f9;
+$bue-hover: #d1e2ff;
+
+// TEAL
+$teal: #47c1bf;
+$teal-lighter: #e0f5f5;
+$teal-light: #b7ecec;
+$teal-dark: #00848e;
+$teal-darker: #003135;
+$teal-text: #405352;
+
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "bgn1": $background1,
+  "bgn2": $background2,
+  "brd1": $border1,
+  "brd2": $border2,
+  "title": $title,
+  "subtitle": $subtitle,
+  "slider-blue": $slider-blue,
+  "slider-blue-dark": $slider-blue-dark,
+  "ink-lightest": $ink-lightest,
+  "ink-lighter": $ink-lighter,
+  "ink-light": $ink-light,
+  "ink": $ink,
+  "sky": $sky,
+  "sky-lighter": $sky-lighter,
+  "sky-light": $sky-light,
+  "sky-dark": $sky-dark,
+  "sky-darken": $sky-darken,
+  "green": $green,
+  "green-lighter": $green-lighter,
+  "green-light": $green-light,
+  "green-dark": $green-dark,
+  "green-darker": $green-darker,
+  "green-text": $green-text,
+  "red": $red,
+  "red-lighter": $red-lighter,
+  "red-alert": $red-alert,
+  "red-light": $red-light,
+  "red-dark": $red-dark,
+  "red-darker": $red-darker,
+  "red-btn-border": $red-btn-border,
+  "red-btn-hover": $red-btn-hover,
+  "red-text": $red-text,
+  "yellow": $yellow,
+  "yellow-bgn": $yellow-bgn,
+  "yellow-lighter": $yellow-lighter,
+  "yellow-light": $yellow-light,
+  "yellow-alert": $yellow-alert,
+  "yellow-dark": $yellow-dark,
+  "yellow-darker": $yellow-darker,
+  "yellow-text": $yellow-text,
+  "orange": $orange,
+  "orange-lighter": $orange-lighter,
+  "orange-light": $orange-light,
+  "orange-dark": $orange-dark,
+  "orange-darker": $orange-darker,
+  "orange-text": $orange-text,
+  "white": $white,
+  "grey1": $grey1,
+  "grey2": $grey2,
+  "grey3": $grey3,
+  "grey4": $grey4,
+  "purple": $purple,
+  "purple-lighter": $purple-lighter,
+  "purple-light": $purple-light,
+  "purple-dark": $purple-dark,
+  "purple-darker": $purple-darker,
+  "purple-text": $purple-text,
+  "indigo": $indigo,
+  "indigo-lighter": $indigo-lighter,
+  "indigo-light": $indigo-light,
+  "indigo-dark": $indigo-dark,
+  "indigo-darker": $indigo-darker,
+  "indigo-text": $indigo-text,
+  "input-border-blue": $input-border-blue,
+  "blue": $blue,
+  "blue-lighter": $blue-lighter,
+  "blue-light": $blue-light,
+  "blue-dark": $blue-dark,
+  "blue-dark-btn": $blue-dark-btn,
+  "blue-darken": $blue-darken,
+  "blue-darker": $blue-darker,
+  "blue-darker-btn": $blue-darker-btn,
+  "blue-text": $blue-text,
+  "blue-sky": $blue-sky,
+  "teal": $teal,
+  "teal-lighter": $teal-lighter,
+  "teal-light": $teal-light,
+  "teal-dark": $teal-dark,
+  "teal-darker": $teal-darker,
+  "teal-text": $teal-text,
+);
+
+$background: (
+  "bgn-primary": $primary,
+  "bgn-secondary": $secondary,
+  "bgn-bgn1": $background1,
+  "bgn-bgn2": $background2,
+  "bgn-brd1": $border1,
+  "bgn-brd2": $border2,
+  "bgn-title": $title,
+  "bgn-subtitle": $subtitle,
+  "bgn-slider-blue": $slider-blue,
+  "bgn-slider-blue-dark": $slider-blue-dark,
+  "bgn-ink-lightest": $ink-lightest,
+  "bgn-ink-lighter": $ink-lighter,
+  "bgn-ink-light": $ink-light,
+  "bgn-ink": $ink,
+  "bgn-sky": $sky,
+  "bgn-sky-lighter": $sky-lighter,
+  "bgn-sky-light": $sky-light,
+  "bgn-sky-dark": $sky-dark,
+  "bgn-sky-darken": $sky-darken,
+  "bgn-green": $green,
+  "bgn-green-lighter": $green-lighter,
+  "bgn-green-light": $green-light,
+  "bgn-green-dark": $green-dark,
+  "bgn-green-darker": $green-darker,
+  "bgn-green-text": $green-text,
+  "bgn-red": $red,
+  "bgn-red-lighter": $red-lighter,
+  "bgn-red-alert": $red-alert,
+  "bgn-red-light": $red-light,
+  "bgn-red-dark": $red-dark,
+  "bgn-red-darker": $red-darker,
+  "bgn-red-btn-border": $red-btn-border,
+  "bgn-red-btn-hover": $red-btn-hover,
+  "bgn-red-text": $red-text,
+  "bgn-sweet-serenade": $red-sweet-serenade,
+  "bgn-yellow": $yellow,
+  "bgn-yellow-bgn": $yellow-bgn,
+  "bgn-yellow-lighter": $yellow-lighter,
+  "bgn-yellow-light": $yellow-light,
+  "bgn-yellow-alert": $yellow-alert,
+  "bgn-yellow-dark": $yellow-dark,
+  "bgn-yellow-darker": $yellow-darker,
+  "bgn-yellow-text": $yellow-text,
+  "bgn-orange": $orange,
+  "bgn-orange-lighter": $orange-lighter,
+  "bgn-orange-light": $orange-light,
+  "bgn-orange-dark": $orange-dark,
+  "bgn-orange-darker": $orange-darker,
+  "bgn-orange-text": $orange-text,
+  "bgn-white": $white,
+  "bgn-grey1": $grey1,
+  "bgn-grey2": $grey2,
+  "bgn-grey3": $grey3,
+  "bgn-grey4": $grey4,
+  "bgn-purple": $purple,
+  "bgn-purple-lighter": $purple-lighter,
+  "bgn-purple-light": $purple-light,
+  "bgn-purple-dark": $purple-dark,
+  "bgn-purple-darker": $purple-darker,
+  "bgn-purple-text": $purple-text,
+  "bgn-indigo": $indigo,
+  "bgn-indigo-lighter": $indigo-lighter,
+  "bgn-indigo-light": $indigo-light,
+  "bgn-indigo-dark": $indigo-dark,
+  "bgn-indigo-darker": $indigo-darker,
+  "bgn-indigo-text": $indigo-text,
+  "bgn-input-border-blue": $input-border-blue,
+  "bgn-blue": $blue,
+  "bgn-blue-lighter": $blue-lighter,
+  "bgn-blue-light": $blue-light,
+  "bgn-blue-dark": $blue-dark,
+  "bgn-blue-dark-btn": $blue-dark-btn,
+  "bgn-blue-darken": $blue-darken,
+  "bgn-blue-darker": $blue-darker,
+  "bgn-blue-darker-btn": $blue-darker-btn,
+  "bgn-blue-text": $blue-text,
+  "bgn-blue-sky": $blue-sky,
+  "bgn-teal": $teal,
+  "bgn-teal-lighter": $teal-lighter,
+  "bgn-teal-light": $teal-light,
+  "bgn-teal-dark": $teal-dark,
+  "bgn-teal-darker": $teal-darker,
+  "bgn-teal-text": $teal-text,
+);
+
+//// fonts
+$light: "URWGeometric Light";
+$regular: "URWGeometric Regular";
+$medium: "URWGeometric Medium";
+$semibold: "URWGeometric SemiBold";
+$bold: "URWGeometric Bold";
+$fonts: (
+  "light": $light,
+  "regular": $regular,
+  "medium": $medium,
+  "semibold": $semibold,
+  "bold": $bold,
+);
+$fontSizes: (
+  "font-42": 42px,
+  "font-28": 28px,
+  "font-24": 24px,
+  "font-22": 22px,
+  "font-20": 20px,
+  "font-16": 16px,
+  "font-14": 14px,
+  "font-12": 12px,
+  "font-11": 11px,
+  "font-10": 10px,
+);
+$lineHeights: (
+  "line-height-44": 44px,
+  "line-height-36": 36px,
+  "line-height-32": 32px,
+  "line-height-30": 30px,
+  "line-height-28": 28px,
+  "line-height-24": 24px,
+  "line-height-20": 20px,
+  "line-height-16": 16px,
+  "line-height-14": 14px,
+  "line-height-12": 12px,
+);
+
+//// breakpoints
+$devices: (
+  "xxs": 320px,
+  "xs": 375px,
+  "s": 425px,
+  "m": 768px,
+  "l": 1024px,
+  "xl": 1440px,
+  "xxl": 2560px,
+);
+
+// Mixins
+
+//// translate
+@mixin translate($top, $left, $x, $y) {
+  top: $top;
+  left: $left;
+  transform: translate($x, $y);
+}
+
+//// flex center
+@mixin flexCenter($padding) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: $padding;
+}
+
+//// box shadow
+@mixin boxShadow() {
+  box-shadow: 0 1px 3px 0.5px transparentize(#171934, 0.8);
+}
+
+//// media queries
+@mixin maxWidth($device) {
+  @media (max-width: map-get($devices, $device)) {
+    @content;
+  }
+}
+@mixin minWidth($device) {
+  $mw: map-get($devices, $device) + 1px;
+  @media (min-width: $mw) {
+    @content;
+  }
+}
+
+// Body
+$navbar-width: 56px;
+$toolbar-height: 50px;

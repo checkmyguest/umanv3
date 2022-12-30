@@ -1,0 +1,307 @@
+// NOTIFICATION COMPONENTS
+.cmg-notification {
+  width: max-content;
+  height: 36px;
+  border: 1px solid $sky;
+  border-radius: 4px;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 1px $subtitle;
+  font-family: $regular;
+  p {
+    font-weight: 200;
+  }
+  &.no-border {
+    border: 0 !important;
+  }
+  .notification-icon-info {
+    margin-right: 10px;
+  }
+  .alert-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+    .alert-content-body {
+      p {
+        font-weight: 200;
+      }
+    }
+    .notification-btn {
+      font-weight: 400;
+      margin-left: 15px;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .close-notification {
+    span {
+      width: 16px;
+      height: 16px;
+      background-color: rgba($color: $sky, $alpha: 0.5);
+      border: 1px solid $sky-dark;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      svg,
+      img {
+        width: 8px;
+      }
+    }
+  }
+
+  &.info {
+    background-color: $blue-lighter;
+    .notification-icon-info {
+      margin-right: 10px;
+      span {
+        svg,
+        img {
+          path {
+            &:first-child {
+              fill: $blue;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.success {
+    background-color: $green-lighter;
+    .notification-icon-info {
+      span {
+        svg,
+        img {
+          path {
+            &:first-child {
+              fill: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.warning {
+    background-color: $yellow-alert;
+    .notification-icon-info {
+      span {
+        svg,
+        img {
+          path {
+            &:first-child {
+              fill: $yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.danger {
+    background-color: $red-alert;
+    .notification-icon-info {
+      span {
+        svg,
+        img {
+          fill: $red;
+        }
+      }
+    }
+  }
+
+  &.whatsapp {
+    background-color: $ink;
+    border-color: $ink;
+    color: $white;
+    .close-notification {
+      span {
+        background-color: rgba($color: $sky, $alpha: 0.2);
+        border: 1px solid $white;
+        svg,
+        img {
+          fill: $white;
+        }
+      }
+    }
+  }
+}
+
+// ALERTS COMPONENT
+.cmg-alert {
+  width: 100%;
+  background-color: $sky-lighter;
+  border: 1px solid $sky;
+  border-radius: 4px;
+  padding: 12px 16px;
+  display: flex;
+
+  .alert-icon-info {
+    margin-top: 4px;
+    margin-right: 12px;
+  }
+  .alert-content {
+    .alert-content-header {
+      .alert-title {
+        font-weight: 500;
+      }
+    }
+    .alert-content-body {
+      padding-right: 16px;
+      p {
+        font-weight: 200;
+      }
+    }
+    .alert-content-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 16px;
+      padding-right: 24px;
+      .cmg-btn {
+        &:first-child {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+  .close-alert {
+    span {
+      cursor: pointer;
+      svg,
+      img {
+        transition: opacity 0.2s;
+      }
+      &:hover {
+        svg,
+        img {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  &.borderless {
+    border: 0;
+  }
+
+  &.info {
+    background-color: $blue-lighter;
+    .alert-icon-info {
+      span {
+        svg,
+        img {
+          path {
+            &:first-child {
+              fill: $blue;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.success {
+    background-color: $green-lighter;
+    .alert-icon-info {
+      span {
+        svg,
+        img {
+          path {
+            &:first-child {
+              fill: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.warning {
+    background-color: $yellow-alert;
+    .alert-icon-info {
+      span {
+        svg,
+        img {
+          path {
+            &:first-child {
+              fill: $yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.danger {
+    background-color: $red-alert;
+    .alert-icon-info {
+      span {
+        svg,
+        img {
+          fill: $red;
+        }
+      }
+    }
+  }
+}
+
+.cmg-tooltip {
+  position: relative;
+  cursor: pointer;
+  &:hover::after {
+    content: attr(data-content);
+    width: var(--tooltip-width);
+    top: var(--tooltip-top);
+    left: var(--tooltip-left);
+    width: max-content;
+    position: absolute;
+    border-radius: 4px;
+    padding: 5px 8px 7px;
+    background: $white;
+    @include boxShadow;
+    color: $primary;
+    z-index: 1;
+    max-width: 600px;
+  }
+  &.top:hover::after {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+  &.left:hover::after {
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+  }
+  &.right:hover::after {
+    top: 50%;
+    transform: translate(0, -50%);
+    margin-left: 10px;
+  }
+  &.bottom:hover::after {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+  }
+  &-modal {
+    position: absolute;
+    border-radius: 4px;
+    padding: 5px 8px 7px;
+    background: $white;
+    @include boxShadow;
+    color: $primary;
+    max-width: 330px;
+    z-index: 1;
+    transform: translateX(10px);
+  }
+}

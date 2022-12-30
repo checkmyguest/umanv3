@@ -1,0 +1,277 @@
+@import './variables';
+@font-face {
+  font-family: "URWGeometric Light";
+  src: url("../fonts/URWGeometric/URWGeometric-Light.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-Light.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-Light.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-Light.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-Light.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-Light.svg") format("svg");
+}
+@font-face {
+  font-family: "URWGeometric Regular";
+  src: url("../fonts/URWGeometric/URWGeometric-Regular.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-Regular.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-Regular.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-Regular.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-Regular.svg") format("svg");
+}
+@font-face {
+  font-family: "URWGeometric Medium";
+  src: url("../fonts/URWGeometric/URWGeometric-Medium.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-Medium.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-Medium.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-Medium.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-Medium.svg") format("svg");
+}
+@font-face {
+  font-family: "URWGeometric SemiBold";
+  src: url("../fonts/URWGeometric/URWGeometric-SemiBold.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-SemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-SemiBold.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-SemiBold.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-SemiBold.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-SemiBold.svg") format("svg");
+}
+@font-face {
+  font-family: "URWGeometric Bold";
+  src: url("../fonts/URWGeometric/URWGeometric-Bold.eot");
+  src: url("../fonts/URWGeometric/URWGeometric-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/URWGeometric/URWGeometric-Bold.woff2") format("woff2"),
+    url("../fonts/URWGeometric/URWGeometric-Bold.woff") format("woff"),
+    url("../fonts/URWGeometric/URWGeometric-Bold.ttf") format("truetype"),
+    url("../fonts/URWGeometric/URWGeometric-Bold.svg") format("svg");
+}
+
+//// SF Pro Rounded
+@font-face {
+  font-family: "SF-Pro-Rounded-Medium";
+  src: url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.eot");
+  src: url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.woff2") format("woff2"),
+    url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.woff") format("woff"),
+    url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.ttf") format("truetype"),
+    url("../fonts/SF-Pro-Rounded/SF-Pro-Rounded-Medium.svg") format("svg");
+}
+//// SF Pro Rounded
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Medium.eot");
+  src: url("../fonts/Ubuntu/Ubuntu-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/Ubuntu/Ubuntu-Medium.woff2") format("woff2"),
+    url("../fonts/Ubuntu/Ubuntu-Medium.woff") format("woff"),
+    url("../fonts/Ubuntu/Ubuntu-Medium.ttf") format("truetype"),
+    url("../fonts/Ubuntu/Ubuntu-Medium.svg") format("svg");
+}
+
+@mixin border-component{
+  border: 1px solid rgba(6, 18, 73, 0.1);
+}
+
+.playground {
+  display: flex;
+  width: auto;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.card {
+  @apply bg-white flex flex-row justify-evenly items-center;
+  width: 28vw;
+  height: 10vh;
+}
+
+.cmg-btn {
+  font-family: 'URWGeometric Medium';
+  border-radius: 4px;
+  box-shadow: 0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2) !important;
+}
+
+.primary {
+  color: white !important;
+  background: linear-gradient(
+      180deg,
+      rgba(25, 109, 253, 0.5) 0%,
+      rgba(22, 99, 226, 0.5) 100%
+    ),
+    #196dfd;
+  border: 1px solid rgba(6, 18, 73, 0.1);
+  svg{
+    path{
+      fill: white;
+    }
+  }
+  &:hover {
+    background: linear-gradient(
+        0deg,
+        rgba(6, 18, 73, 0.1),
+        rgba(6, 18, 73, 0.1)
+      ),
+      linear-gradient(
+        180deg,
+        rgba(25, 109, 253, 0.5) 0%,
+        rgba(22, 99, 226, 0.5) 100%
+      ),
+      #196dfd;
+    border: 1px solid rgba(6, 18, 73, 0.1);
+  }
+  &:focus {
+    background: linear-gradient(
+        180deg,
+        rgba(25, 109, 253, 0.5) 0%,
+        rgba(22, 99, 226, 0.5) 100%
+      ),
+      #196dfd;
+    border: 1px solid rgba(6, 18, 73, 0.3);
+  }
+  &:active {
+    background: linear-gradient(
+        0deg,
+        rgba(6, 18, 73, 0.2),
+        rgba(6, 18, 73, 0.2)
+      ),
+      linear-gradient(
+        180deg,
+        rgba(25, 109, 253, 0.5) 0%,
+        rgba(22, 99, 226, 0.5) 100%
+      ),
+      #196dfd;
+    border: 1px solid rgba(6, 18, 73, 0.1);
+  }
+  &:disabled {
+    background: linear-gradient(
+        0deg,
+        rgba(27, 113, 255, 0.5),
+        rgba(27, 113, 255, 0.5)
+      ),
+      #ffffff;
+    box-shadow: 0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2);
+    border: 1px solid transparent;
+    &:hover {
+      background: linear-gradient(
+          0deg,
+          rgba(27, 113, 255, 0.5),
+          rgba(27, 113, 255, 0.5)
+        ),
+        #ffffff;
+    }
+  }
+}
+.secondary {
+  background: white !important;
+  color: black;
+  border: 1px solid transparent !important;
+  &:hover {
+    background: #f4f6f8 !important;
+    color: black;
+  }
+  &:focus {
+    border: 1px solid rgba(6, 18, 73, 0.3) !important;
+    color: black;
+  }
+  &:active {
+    border: 1px solid transparent !important;
+    background: linear-gradient(
+        0deg,
+        rgba(6, 18, 73, 0.05),
+        rgba(6, 18, 73, 0.05)
+      ),
+      #f4f6f8 !important;
+  }
+  &:disabled {
+    background: #f8f9fb !important;
+  }
+}
+.selected:focus {
+  background: #e8f0ff !important;
+  border: 1px solid transparent !important;
+  color: #196dfd;
+}
+.tertiary {
+  background: #ffffff !important;
+  border: 1px solid #cccfdb !important;
+  box-shadow: none;
+  color: black;
+  &:hover {
+    background: #f4f6f8 !important;
+    color: black;
+  }
+  &:focus {
+    border: 1px solid rgba(6, 18, 73, 0.3) !important;
+    color: black;
+  }
+  &:active {
+    background: linear-gradient(
+        0deg,
+        rgba(6, 18, 73, 0.05),
+        rgba(6, 18, 73, 0.05)
+      ),
+      #f4f6f8 !important;
+    border: 1px solid #cccfdb !important;
+  }
+  &:disabled {
+    background: #f8f9fb !important;
+    border: 1px solid #cccfdb !important;
+  }
+}
+.plain-button {
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  color: black;
+  &:hover {
+    background: #f4f6f8;
+    color: black;
+  }
+  &:focus {
+    color: #196dfd;
+    background: #e8f0ff;
+  }
+  &:active {
+    background: linear-gradient(
+        0deg,
+        rgba(6, 18, 73, 0.05),
+        rgba(6, 18, 73, 0.05)
+      ),
+      #f4f6f8;
+    color: black;
+  }
+  &:disabled {
+    background: #f8f9fb;
+    &:hover {
+      background: #f8f9fb;
+    }
+  }
+}
+.destructive{
+  background: #FF0055 !important;
+  border: 1px solid rgba(6, 18, 73, 0.1) !important;
+  color: white !important;
+  svg{
+    path{
+      fill: white;
+    }
+  }
+  &:hover{
+      background: linear-gradient(0deg, rgba(6, 18, 73, 0.1), rgba(6, 18, 73, 0.1)), #FF0055 !important;
+  }
+  &:focus{
+      border: 1px solid rgba(6, 18, 73, 0.3) !important;
+  }
+  &:active{
+      background: linear-gradient(0deg, rgba(6, 18, 73, 0.2), rgba(6, 18, 73, 0.2)), #FF0055 !important;
+      border: 1px solid rgba(6, 18, 73, 0.1) !important;
+  }
+  &:disabled{
+      background: linear-gradient(0deg, rgba(255, 0, 85, 0.5), rgba(255, 0, 85, 0.5)), #FFFFFF !important;
+      border: 1px solid transparent !important;
+  }
+}
