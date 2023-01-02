@@ -1,73 +1,213 @@
 import { ViewServiceData } from "@/core/services/view-service";
 import { useEventStore } from "../../stores/event";
 
-export function EventFocusFlow(rId: string | string[] ){
-    console.log("EventFocusFlow")
-    getResa(rId)
+export function EventFocusFlow(rId: string | string[], hId: string | string[], phone: string){
+    getResaById(rId)
     getTags()
+    getTagsByResaId(rId)
+    getPaymentsByResaId(rId)
+    getIdentityFilesById(rId)
+    getSelfieFilesById(rId)
+    getHousingById(hId)
+    getTipByHousingId(hId)
+    getAccountManagerByHousingId(hId)
+    getStatusByHousingId(hId)
+    getLogsByHousingIdAndResaId(hId, rId)
+    getBedroomByHousingId(hId)
+    getChatByPhone(phone)
+    getAirbnbTeam()
+    getIsAccountManager()
+    getPlatformAccount()
 }
 
-function getResa(id: any) {
+function getResaById(id: any) {
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getResaById(id)
     .then(res => {
-        console.log("getResaById", res)
         useEventStore().setCurrentResa(res);
     })
     .catch((error) => {
         return error.response?.status
     })
 }
-  
+
 function getTags() {
-    console.log("getTags", useEventStore().allTags.length)
     if(useEventStore().allTags.length > 0) return;
-    console.log("getTags ELSE")
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getTags()
     .then(res => {
-        console.log("getTags", res)
         useEventStore().setAllTags(res);
     })
     .catch((error) => {  
         return error.response?.status
     })
 }
-  
+
+function getTagsByResaId(id: any) {
+    if(useEventStore().tagsByResaId.length > 0) return;
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getTagsByResaId(id)
+    .then(res => {
+        useEventStore().setTagsByResaId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getPaymentsByResaId(id: any) {
+    if(useEventStore().paymentsByResaId.length > 0) return;
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getPaymentsByResaId(id)
+    .then(res => {
+        useEventStore().setPaymentsByResaId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getIdentityFilesById(id: any) {
+    if(useEventStore().identityFilesById.length > 0) return;
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getIdentityFilesById(id)
+    .then(res => {
+        useEventStore().setIdentityFilesById(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getSelfieFilesById(id: any) {
+    if(useEventStore().selfieFilesById.length > 0) return;
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getSelfieFilesById(id)
+    .then(res => {
+        useEventStore().setSelfieFilesById(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getHousingById(id: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getHousingById(id)
+    .then(res => {
+        useEventStore().setHousingById(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getTipByHousingId(id: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getTipByHousingId(id)
+    .then(res => {
+        useEventStore().setTipByHousingId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getAccountManagerByHousingId(id: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getAccountManagerByHousingId(id)
+    .then(res => {
+        useEventStore().setAccountManagerByHousingId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getStatusByHousingId(id: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getStatusByHousingId(id)
+    .then(res => {
+        useEventStore().setStatusByHousingId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getLogsByHousingIdAndResaId(hId: any, rId: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getLogsByHousingIdAndResaId(hId, rId)
+    .then(res => {
+        useEventStore().setLogsByHousingIdAndResaId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getBedroomByHousingId(id: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getBedroomByHousingId(id)
+    .then(res => {
+        useEventStore().setBedroomByHousingId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getChatByPhone(phone: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getChatByPhone(phone)
+    .then(res => {
+        useEventStore().setChatByPhone(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getAirbnbTeam() {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getAirbnbTeam()
+    .then(res => {
+        useEventStore().setAirbnbTeam(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getIsAccountManager() {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getIsAccountManager()
+    .then(res => {
+        useEventStore().setIsAccountManager(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getPlatformAccount() {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getPlatformAccount()
+    .then(res => {
+        useEventStore().setPlatformAccount(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
 
 
 
-  // LEFT
-  // https://api.cmg.ovh:3000/v2/reservations/434007
-  // https://api.cmg.ovh:3000/v1/tag
 
-
-        // ?? https://api.cmg.ovh:3000/v1/reservation/tags?reservation_id=434007
-
-    // CENTER
-
-    // RIGHT
-
-
-
-
-
-
+ 
     // Requests
     
-    // https://api.cmg.ovh:3000/v1/payments/reservation/434007/all/
-    // https://api.cmg.ovh:3000/v1/infobip?chat_with=+351938530198
-    // https://api.cmg.ovh:3000/v1/housing/1280
-    // https://api.cmg.ovh:3000/v1/housing/1280/tip
-    // https://api.cmg.ovh:3000/v1/housing/1280/alert?status=progress
-    // https://api.cmg.ovh:3000/v1/housing/1280/account_manager
-    // https://api.cmg.ovh:3000/v1/housing/1280/reservation/434007/logs
-    // https://api.cmg.ovh:3000/v1/airbnb_team
-    // https://api.cmg.ovh:3000/v1/file?reservation_id=434007&entity_type=ocis_id
-    // https://api.cmg.ovh:3000/v1/file?reservation_id=434007&entity_type=ocis_selfie
-    // https://api.cmg.ovh:3000/v1/admin?is_account_manager=1
     // https://api.cmg.ovh:3000/v1/platform_account
-    // https://api.cmg.ovh:3000/v1/bedroom?housing_id=1280
 
     // https://umanv2.cmg.ovh/phoneCountryCodes.json
     

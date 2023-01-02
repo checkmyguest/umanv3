@@ -63,7 +63,21 @@ export type EventState = {
   billingAmounts: Array<any>;
   formatedBillingAmounts: Array<any>;
   currentResa: Object;
-  allTags:  Array<any>;
+  allTags: Array<any>;
+  tagsByResaId: Array<any>;
+  paymentsByResaId: Array<any>;
+  identityFilesById: Array<any>;
+  selfieFilesById: Array<any>;
+  housingById: Object;
+  tipByHousingId: Array<any>;
+  accountManagerByHousingId: Array<any>;
+  statusByHousingId: Array<any>;
+  logsByHousingIdAndResaId: Array<any>;
+  bedroomByHousingId: Array<any>;
+  chatByPhone: Array<any>
+  airbnbTeam: Array<any>
+  isAccountManager: Array<any>
+  platformAccount: Array<any>
 };
 
 export const useEventStore = defineStore({
@@ -82,6 +96,20 @@ export const useEventStore = defineStore({
       formatedBillingAmounts: {},
       currentResa: {},
       allTags: [{}],
+      tagsByResaId: [{}],
+      paymentsByResaId: [{}],
+      identityFilesById: [{}],
+      selfieFilesById: [{}],
+      housingById: {},
+      tipByHousingId: [{}],
+      accountManagerByHousingId: [{}],
+      statusByHousingId: [{}],
+      logsByHousingIdAndResaId: [{}],
+      bedroomByHousingId: [{}],
+      chatByPhone: [{}],
+      airbnbTeam: [{}],
+      isAccountManager: [{}],
+      platformAccount: [{}],
     } as EventState),
   getters: {
     getPage(): IEvents[][]{
@@ -129,11 +157,52 @@ export const useEventStore = defineStore({
 
 
     setCurrentResa(data: Object) {
-      console.log('setCurrentResa', data)
       this.currentResa = data;
     },
     setAllTags(data: Array<Object>) {
       this.allTags = data;
+    },
+    setTagsByResaId(data: Array<Object>) {
+      this.tagsByResaId = data;
+    },
+    setPaymentsByResaId(data: Array<Object>) {
+      this.paymentsByResaId = data;
+    },
+    setIdentityFilesById(data: Array<Object>) {
+      this.identityFilesById = data;
+    },
+    setSelfieFilesById(data: Array<Object>) {
+      this.selfieFilesById = data;
+    },
+    setHousingById(data: Array<Object>) {
+      this.housingById = data;
+    },
+    setTipByHousingId(data: Array<Object>) {
+      this.tipByHousingId = data;
+    },
+    setAccountManagerByHousingId(data: Array<Object>) {
+      this.accountManagerByHousingId = data;
+    },
+    setStatusByHousingId(data: Array<Object>) {
+      this.statusByHousingId = data;
+    },
+    setLogsByHousingIdAndResaId(data: Array<Object>) {
+      this.logsByHousingIdAndResaId = data;
+    },
+    setBedroomByHousingId(data: Array<Object>) {
+      this.bedroomByHousingId = data;
+    },
+    setChatByPhone(data: Array<Object>) {
+      this.chatByPhone = data;
+    },
+    setAirbnbTeam(data: Array<Object>) {
+      this.airbnbTeam = data;
+    },
+    setIsAccountManager(data: Array<Object>) {
+      this.isAccountManager = data;
+    },
+    setPlatformAccount(data: Array<Object>) {
+      this.platformAccount = data;
     },
   },
 });
