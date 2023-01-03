@@ -122,10 +122,16 @@ async function getJWTInfo() {
   const token: string | null = localStorage.token;
   if (typeof token !== "string") return null;
   const code = jwtDecode<Token>(token);
-  const viewServiceData = new ViewServiceData()
-  viewServiceData.getAdminById(code.entity_id)
+
+
+  await axios
+    .get(`${url}/v1/admin/${code.entity_id}`, {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`
+      }
+    })
     .then(async (result) => {
-      console.log("hello", result)
      if (
         [9, 14].includes(result.data.admin_type_id) ||
         [37, 66, 26, 29, 124, 128, 79].includes(result.data.admin_id)
@@ -139,10 +145,7 @@ async function getJWTInfo() {
       }
     })
     .catch(({error}) => {
-      console.log("yop yop", error)
-      if (error === "UnauthorizedError" && localStorage.token) {
-        getJWTInfo();
-      } else if (error === "UnauthorizedError") {
+      if (error === "UnauthorizedError") {
         router.push("/login");
       }
     });
@@ -161,10 +164,6 @@ function changeAdminState(): Promise<boolean> {
   adminStore.logIn();
   return Promise.resolve(true);
 }
-
-onMounted(() => {
-  console.log("LOGIN")
-})
 </script>
 
 <style lang="scss" src="./style.scss" scoped></style>

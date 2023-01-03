@@ -9,7 +9,7 @@ export const useAdminStore = defineStore({
         },
         vueActive: 0,
         initVue: false,
-        logStatus: false,
+        logStatus: true,
         allAdmins: [],
     }),
     getters:{
