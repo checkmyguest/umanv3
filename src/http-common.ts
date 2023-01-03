@@ -9,21 +9,23 @@ const http: AxiosInstance = axios.create({
     }
 });
 
+
+http.interceptors.request.use(
+  (config) => {
+    if (config.headers && config.headers['Authorization'] === 'Bearer undefined' && localStorage.token) {
+      config.headers['Authorization'] = `Bearer ${localStorage.token}`;
+    }
+    return config;
+  }
+)
+
 http.interceptors.response.use(
     (res) => res.data,
     (err) => {
       if (err.response.status === 401) {
-        const axiosToken = axios.defaults.headers.common['Authorization'];
-        console.log("axiosToken", axiosToken)
-        console.log("localStorage.token", localStorage.token)
-
-        if ((!axiosToken || err.response.data.error === "UnauthorizedError") && localStorage.token) {
-          console.log("interceptor IF")
-          upadateToken()
-        } else if (!localStorage.token) {
-          console.log("interceptor ELSE IF")
+        if (!localStorage.token) {
           router.push("/login");
-        } else console.log("interceptor ELSE", err.response.data)
+        }
         return Promise.reject(err.response.data);
       }
   

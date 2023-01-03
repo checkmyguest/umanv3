@@ -1,50 +1,43 @@
 import { ViewServiceData } from "@/core/services/view-service";
 import { useEventStore } from "../../stores/event";
 
-export function EventFocusFlow(rId: string | string[], hId: string | string[], phone: string){
-    getResaById(rId)
-    getTags()
+export async function EventFocusFlow(rId: string | string[]){
+    const resa = await getResaById(rId)
     getTagsByResaId(rId)
+    getSelfieFilesById(rId)
     getPaymentsByResaId(rId)
     getIdentityFilesById(rId)
-    getSelfieFilesById(rId)
-    getHousingById(hId)
-    getTipByHousingId(hId)
-    getAccountManagerByHousingId(hId)
-    getStatusByHousingId(hId)
-    getLogsByHousingIdAndResaId(hId, rId)
-    getBedroomByHousingId(hId)
-    getChatByPhone(phone)
+
+    getHousingById(resa.housing_id)
+    getTipByHousingId(resa.housing_id)
+    getStatusByHousingId(resa.housing_id)
+    getBedroomByHousingId(resa.housing_id)
+    getAccountManagerByHousingId(resa.housing_id)
+    getLogsByHousingIdAndResaId(resa.housing_id, rId)
+
+    getChatByPhone(resa.phone)
+
+    getTags()
     getAirbnbTeam()
-    getIsAccountManager()
     getPlatformAccount()
+    getIsAccountManager()
 }
 
 function getResaById(id: any) {
+    console.log("getResaById");
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getResaById(id)
     .then(res => {
+        console.log("getResaById", res);
         useEventStore().setCurrentResa(res);
+        return res;
     })
     .catch((error) => {
         return error.response?.status
     })
 }
 
-function getTags() {
-    if(useEventStore().allTags.length > 0) return;
-    const viewServiceData = new ViewServiceData()
-    return viewServiceData.getTags()
-    .then(res => {
-        useEventStore().setAllTags(res);
-    })
-    .catch((error) => {  
-        return error.response?.status
-    })
-}
-
 function getTagsByResaId(id: any) {
-    if(useEventStore().tagsByResaId.length > 0) return;
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getTagsByResaId(id)
     .then(res => {
@@ -55,8 +48,18 @@ function getTagsByResaId(id: any) {
     })
 }
 
+function getSelfieFilesById(id: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getSelfieFilesById(id)
+    .then(res => {
+        useEventStore().setSelfieFilesById(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
 function getPaymentsByResaId(id: any) {
-    if(useEventStore().paymentsByResaId.length > 0) return;
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getPaymentsByResaId(id)
     .then(res => {
@@ -68,23 +71,10 @@ function getPaymentsByResaId(id: any) {
 }
 
 function getIdentityFilesById(id: any) {
-    if(useEventStore().identityFilesById.length > 0) return;
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getIdentityFilesById(id)
     .then(res => {
         useEventStore().setIdentityFilesById(res);
-    })
-    .catch((error) => {  
-        return error.response?.status
-    })
-}
-
-function getSelfieFilesById(id: any) {
-    if(useEventStore().selfieFilesById.length > 0) return;
-    const viewServiceData = new ViewServiceData()
-    return viewServiceData.getSelfieFilesById(id)
-    .then(res => {
-        useEventStore().setSelfieFilesById(res);
     })
     .catch((error) => {  
         return error.response?.status
@@ -113,33 +103,11 @@ function getTipByHousingId(id: any) {
     })
 }
 
-function getAccountManagerByHousingId(id: any) {
-    const viewServiceData = new ViewServiceData()
-    return viewServiceData.getAccountManagerByHousingId(id)
-    .then(res => {
-        useEventStore().setAccountManagerByHousingId(res);
-    })
-    .catch((error) => {  
-        return error.response?.status
-    })
-}
-
 function getStatusByHousingId(id: any) {
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getStatusByHousingId(id)
     .then(res => {
         useEventStore().setStatusByHousingId(res);
-    })
-    .catch((error) => {  
-        return error.response?.status
-    })
-}
-
-function getLogsByHousingIdAndResaId(hId: any, rId: any) {
-    const viewServiceData = new ViewServiceData()
-    return viewServiceData.getLogsByHousingIdAndResaId(hId, rId)
-    .then(res => {
-        useEventStore().setLogsByHousingIdAndResaId(res);
     })
     .catch((error) => {  
         return error.response?.status
@@ -157,11 +125,44 @@ function getBedroomByHousingId(id: any) {
     })
 }
 
-function getChatByPhone(phone: any) {
+function getAccountManagerByHousingId(id: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getAccountManagerByHousingId(id)
+    .then(res => {
+        useEventStore().setAccountManagerByHousingId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getLogsByHousingIdAndResaId(hId: any, rId: any) {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getLogsByHousingIdAndResaId(hId, rId)
+    .then(res => {
+        useEventStore().setLogsByHousingIdAndResaId(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getChatByPhone(phone: string) {
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getChatByPhone(phone)
     .then(res => {
         useEventStore().setChatByPhone(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
+
+function getTags() {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getTags()
+    .then(res => {
+        useEventStore().setAllTags(res);
     })
     .catch((error) => {  
         return error.response?.status
@@ -179,17 +180,6 @@ function getAirbnbTeam() {
     })
 }
 
-function getIsAccountManager() {
-    const viewServiceData = new ViewServiceData()
-    return viewServiceData.getIsAccountManager()
-    .then(res => {
-        useEventStore().setIsAccountManager(res);
-    })
-    .catch((error) => {  
-        return error.response?.status
-    })
-}
-
 function getPlatformAccount() {
     const viewServiceData = new ViewServiceData()
     return viewServiceData.getPlatformAccount()
@@ -201,12 +191,21 @@ function getPlatformAccount() {
     })
 }
 
-
+function getIsAccountManager() {
+    const viewServiceData = new ViewServiceData()
+    return viewServiceData.getIsAccountManager()
+    .then(res => {
+        useEventStore().setIsAccountManager(res);
+    })
+    .catch((error) => {  
+        return error.response?.status
+    })
+}
 
 
  
-    // Requests
-    
-    // https://umanv2.cmg.ovh/phoneCountryCodes.json
+// Requests
 
-    // https://partnerapi.igloohome.co/v1/locks/IGK3098f285d
+// https://umanv2.cmg.ovh/phoneCountryCodes.json
+
+// https://partnerapi.igloohome.co/v1/locks/IGK3098f285d

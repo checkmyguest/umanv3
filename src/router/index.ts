@@ -1,4 +1,4 @@
-import HelloWorldVue from "@/components/hello-world.vue";
+// import HelloWorldVue from "@/components/hello-world.vue";
 import Blender from "@/components/pages/blender/index.vue";
 import Calendar from "@/components/pages/calendar/index.vue";
 
@@ -16,7 +16,7 @@ import { createRouter, createWebHistory, RouteRecordRaw, RouteLocationNormalized
 
 // flows
 import { EventFlow } from "@/core/flows/EventFlow";
-// import { EventFocusFlow } from "@/core/flows/EventFocusFlow";
+import { EventFocusFlow } from "@/core/flows/EventFocusFlow";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -33,7 +33,8 @@ const routes: Array<RouteRecordRaw> = [
     component: EventFocus,
     beforeEnter: (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
       const id: string | string[] = to.params.id;
-      // EventFocusFlow(id)
+      console.log("to.params.id", to.params.id)
+      EventFocusFlow(id)
     }
   },
   { path: "/blender", name: "Blender", component: Blender },

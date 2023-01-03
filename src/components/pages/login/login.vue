@@ -164,6 +164,11 @@ function changeAdminState(): Promise<boolean> {
   adminStore.logIn();
   return Promise.resolve(true);
 }
+
+onMounted(() => {
+  localStorage.setItem('logStatus', "false");
+  adminStore.logOut();
+})
 </script>
 
 <style lang="scss" src="./style.scss" scoped></style>
