@@ -36,7 +36,6 @@ export class ViewServiceData implements IViewData{
     public getAdmin(): Promise<any> {
         return http.get(`/v1/admin?active=1`)
     }
-    
 
     // FOCUS
     public getAdminById(id: string): Promise<any> {
@@ -87,12 +86,12 @@ export class ViewServiceData implements IViewData{
     public getIsAccountManager(): Promise<any> {
         return http.get(`/v1/admin?is_account_manager=1`)
     }
+    public getPlatformAccount(): Promise<any> {
+        return http.get(`/v1/platform_account`)
+    }
 
-    // WIP
 
-    // public getBedroomByHousingId(id: string): Promise<any> {
-    //     return http.get(`/v1/platform_account`)
-    // }
+
 
 }
 

@@ -71,7 +71,7 @@ export type EventState = {
   housingById: Object;
   tipByHousingId: Array<any>;
   accountManagerByHousingId: Array<any>;
-  statusByHousingId: Array<any>;
+  statusByHousingId: Object;
   logsByHousingIdAndResaId: Array<any>;
   bedroomByHousingId: Array<any>;
   chatByPhone: Array<any>
@@ -103,7 +103,7 @@ export const useEventStore = defineStore({
       housingById: {},
       tipByHousingId: [{}],
       accountManagerByHousingId: [{}],
-      statusByHousingId: [{}],
+      statusByHousingId: {},
       logsByHousingIdAndResaId: [{}],
       bedroomByHousingId: [{}],
       chatByPhone: [{}],

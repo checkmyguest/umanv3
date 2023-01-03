@@ -207,8 +207,6 @@ function getPlatformAccount() {
  
     // Requests
     
-    // https://api.cmg.ovh:3000/v1/platform_account
-
     // https://umanv2.cmg.ovh/phoneCountryCodes.json
-    
+
     // https://partnerapi.igloohome.co/v1/locks/IGK3098f285d
