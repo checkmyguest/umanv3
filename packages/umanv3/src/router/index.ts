@@ -11,7 +11,6 @@ import Login from "@/components/pages/login/login.vue";
 import Price from "@/components/pages/price/index.vue";
 import Reservation from "@/components/pages/reservation/_id.vue";
 import Maintenance from "@/components/pages/maintenance/_id.vue";
-import TestRouter from "@/components/test-router/test-router.vue";
 import { createRouter, createWebHistory, RouteRecordRaw, RouteLocationNormalized } from "vue-router";
 
 // flows
@@ -44,7 +43,6 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/price", name: "Price", component: Price },
   { path: "/reservation/:id", name: "Reservation", component: Reservation },
   { path: "/maintenance/:id", name: "Maintenance", component: Maintenance },
-  { path: "/test-router", name: "TestRouter", component: TestRouter },
 ];
 
 const router = createRouter({
