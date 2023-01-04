@@ -19,7 +19,10 @@ export default {
           <IconMenuBtn />
         </a>
       </div>
-      <router-link to="/" class="uman-logo">
+      <router-link
+        to="/"
+        class="uman-logo"
+      >
         <div class="logo">
           <IconLogoBeta />
         </div>

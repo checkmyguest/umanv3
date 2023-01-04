@@ -25,6 +25,7 @@
         position: relative;
         margin-left: 1px;
         .cmg-actions-plus {
+          padding: 0;
           padding-bottom: 1px !important;
           margin-top: 1rem !important;
           margin-bottom: 1rem !important;
@@ -32,9 +33,15 @@
           margin-right: auto !important;
           background-color: $blue;
           border-color: $blue;
-          svg {
-            fill: $white;
-            margin-bottom: 1px;
+          span{
+            margin: 0;
+            padding: 0;
+            padding-bottom: 2px;
+            svg {
+              fill: $white;
+              width: 100%;
+              height: 100%;
+            }
           }
         }
         .router-class {
@@ -53,9 +60,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            .svg-class {
-              margin-right: 1px;
-              fill: $ink-lightest !important;
+            svg {
+              fill: $ink-lightest;
             }
           }
           span {
@@ -108,12 +114,6 @@
             svg {
               margin-left: 2px;
               fill: $blue !important;
-              g {
-                fill: $blue !important;
-              }
-              path {
-                fill: $blue !important;
-              }
             }
           }
         }

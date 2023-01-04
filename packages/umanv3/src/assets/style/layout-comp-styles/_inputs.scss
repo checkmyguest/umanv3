@@ -1219,7 +1219,8 @@
       li {
         @apply bg-gray-50 hover:bg-gray-100;
         &.selected {
-          @apply bg-blue-50 text-blue-600 hover:bg-blue-100;
+          // TODO : fix
+          // @apply bg-blue-50 text-blue-600 hover:bg-blue-100;
         }
       }
     }

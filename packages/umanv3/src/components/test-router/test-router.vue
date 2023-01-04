@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ReservationServiceData } from "../../core/services/reservation-service";
+import { ReservationServiceData } from '../../core/services/reservation-service';
 
 const reservationServiceData = new ReservationServiceData();
-function injection() {
-  reservationServiceData.getReservation().then((value) => {
+function injection(){
+  reservationServiceData.getReservation().then((value)=>{
     console.log(value);
   });
 }
