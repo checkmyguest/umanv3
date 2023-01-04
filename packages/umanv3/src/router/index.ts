@@ -30,9 +30,8 @@ const routes: Array<RouteRecordRaw> = [
     path: "/event/:id",
     name: "EventFocus",
     component: EventFocus,
-    beforeEnter: (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
+    beforeEnter: (to: RouteLocationNormalized, __) => {
       const id: string | string[] = to.params.id;
-      console.log("to.params.id", to.params.id)
       EventFocusFlow(id)
     }
   },

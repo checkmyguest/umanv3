@@ -27,38 +27,54 @@ export class ViewServiceData implements IViewData{
     public postViewChangeOrder(id: number): Promise<void> {
         return http.delete(`/v2/view/${id}/change-order`);
     }
+
+
     public getReservation(id: number): Promise<any> {
         return http.get(`/v1/reservations/${id}`);
-    }
-    public getMaintenance(id: number): Promise<any> {
-        return http.get(`/v1/maintenances/${id}`);
-    }
-    public getAdmin(): Promise<any> {
-        return http.get(`/v1/admin?active=1`)
-    }
-
-    // FOCUS
-    public getAdminById(id: string): Promise<any> {
-        return http.get(`/v1/admin/${id}`)
     }
     public getResaById(id: string): Promise<any> {
         return http.get(`/v2/reservations/${id}`)
     }
-    public getTags(): Promise<any> {
-        return http.get(`/v1/tag`)
-    }
     public getTagsByResaId(id: string): Promise<any> {
         return http.get(`/v1/reservation/tags?reservation_id=${id}`)
     }
+
+
+
+    public getMaintenance(id: number): Promise<any> {
+        return http.get(`/v1/maintenances/${id}`);
+    }
+
+
+    public getAdminById(id: string): Promise<any> {
+        return http.get(`/v1/admin/${id}`)
+    }
+    public getAdmin(): Promise<any> {
+        return http.get(`/v1/admin?active=1`)
+    }
+    public getIsAccountManager(): Promise<any> {
+        return http.get(`/v1/admin?is_account_manager=1`)
+    }
+
+
+    public getTags(): Promise<any> {
+        return http.get(`/v1/tag`)
+    }
+
+
     public getPaymentsByResaId(id: string): Promise<any> {
         return http.get(`/v1/payments/reservation/${id}/all/`)
     }
+
+
     public getIdentityFilesById(id: string): Promise<any> {
         return http.get(`/v1/file?reservation_id=${id}&entity_type=ocis_id`)
     }
     public getSelfieFilesById(id: string): Promise<any> {
         return http.get(`/v1/file?reservation_id=${id}&entity_type=ocis_selfie`)
     }
+
+
     public getHousingById(id: string): Promise<any> {
         return http.get(`/v1/housing/${id}`)
     }
@@ -74,25 +90,26 @@ export class ViewServiceData implements IViewData{
     public getLogsByHousingIdAndResaId(hId: string, rId: string): Promise<any> {
         return http.get(`/v1/housing/${hId}/reservation/${rId}/logs`)
     }
+
+
     public getBedroomByHousingId(id: string): Promise<any> {
         return http.get(`/v1/bedroom?housing_id=${id}`)
     }
+
+
     public getChatByPhone(phone: string): Promise<any> {
         return http.get(`/v1/infobip?chat_with=${phone}`)
     }
+
+
     public getAirbnbTeam(): Promise<any> {
         return http.get(`/v1/airbnb_team`)
     }
-    public getIsAccountManager(): Promise<any> {
-        return http.get(`/v1/admin?is_account_manager=1`)
-    }
+
+
     public getPlatformAccount(): Promise<any> {
         return http.get(`/v1/platform_account`)
     }
-
-
-
-
 }
 
 export default new ViewServiceData();
