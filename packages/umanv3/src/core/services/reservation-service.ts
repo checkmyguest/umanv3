@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { injectable } from "inversify";
 import { Reservation } from "../@models/reservation";
 import { IReservationData } from "../@models/reservation-database";
@@ -10,6 +9,5 @@ export class ReservationServiceData implements IReservationData{
     }
     public setReservation(reservation: Reservation): Promise<void> {
         throw new Error("Method not implemented.");
-    }
-   
+    }  
 }

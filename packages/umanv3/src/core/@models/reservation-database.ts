@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Reservation } from "./reservation";
 
 export interface IReservationData{
