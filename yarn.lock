@@ -2699,7 +2699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:6.5.15, @storybook/addon-actions@npm:^6.5.14":
+"@storybook/addon-actions@npm:6.5.15, @storybook/addon-actions@npm:^6.5.15":
   version: 6.5.15
   resolution: "@storybook/addon-actions@npm:6.5.15"
   dependencies:
@@ -2791,7 +2791,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:6.5.15":
+"@storybook/addon-docs@npm:6.5.15, @storybook/addon-docs@npm:^6.5.15":
   version: 6.5.15
   resolution: "@storybook/addon-docs@npm:6.5.15"
   dependencies:
@@ -2838,7 +2838,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:^6.5.14":
+"@storybook/addon-essentials@npm:^6.5.15":
   version: 6.5.15
   resolution: "@storybook/addon-essentials@npm:6.5.15"
   dependencies:
@@ -2898,7 +2898,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-interactions@npm:^6.5.14":
+"@storybook/addon-interactions@npm:^6.5.15":
   version: 6.5.15
   resolution: "@storybook/addon-interactions@npm:6.5.15"
   dependencies:
@@ -2929,7 +2929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:^6.5.14":
+"@storybook/addon-links@npm:^6.5.15":
   version: 6.5.15
   resolution: "@storybook/addon-links@npm:6.5.15"
   dependencies:
@@ -3846,7 +3846,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/vue3@npm:^6.5.14":
+"@storybook/vue3@npm:^6.5.15":
   version: 6.5.15
   resolution: "@storybook/vue3@npm:6.5.15"
   dependencies:
@@ -11048,13 +11048,15 @@ __metadata:
   resolution: "hipster@workspace:packages/hipster"
   dependencies:
     "@babel/core": ^7.20.5
-    "@storybook/addon-actions": ^6.5.14
-    "@storybook/addon-essentials": ^6.5.14
-    "@storybook/addon-interactions": ^6.5.14
-    "@storybook/addon-links": ^6.5.14
+    "@mdx-js/react": ^1.6.22
+    "@storybook/addon-actions": ^6.5.15
+    "@storybook/addon-docs": ^6.5.15
+    "@storybook/addon-essentials": ^6.5.15
+    "@storybook/addon-interactions": ^6.5.15
+    "@storybook/addon-links": ^6.5.15
     "@storybook/builder-vite": ^0.2.6
     "@storybook/testing-library": ^0.0.13
-    "@storybook/vue3": ^6.5.14
+    "@storybook/vue3": ^6.5.15
     "@types/node": ^18.11.9
     "@vitejs/plugin-vue": ^3.2.0
     "@vue/cli-plugin-unit-jest": ~5.0.0
