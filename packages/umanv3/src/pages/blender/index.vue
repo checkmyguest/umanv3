@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { useReservationStore } from '../../../stores/fake-use-reservation';
-import { useMainStore } from '../../../stores/fake-use-variable';
+import { useReservationStore } from '../../stores/fake-use-reservation';
+import { useMainStore } from '../../stores/fake-use-variable';
 
   const main = useMainStore();
   const { items, test, cpt } = storeToRefs(main);

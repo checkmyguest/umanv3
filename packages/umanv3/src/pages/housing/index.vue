@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
-import { useMainStore } from '../../../stores/fake-use-variable';
+import { useMainStore } from '../../stores/fake-use-variable';
 
 const main = useMainStore();
 const { items, test, cpt } = storeToRefs(main);

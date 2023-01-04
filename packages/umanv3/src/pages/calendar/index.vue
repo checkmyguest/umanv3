@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
-import { Reservation } from '../../../core/@models/reservation';
-import { ReservationServiceData } from '../../../core/services/reservation-service';
-import { useReservationStore } from '../../../stores/fake-use-reservation';
+import { Reservation } from '../../core/@models/reservation';
+import { ReservationServiceData } from '../../core/services/reservation-service';
+import { useReservationStore } from '../../stores/fake-use-reservation';
 
   const storeReservation = useReservationStore();
   const { reservation } = storeToRefs(storeReservation);

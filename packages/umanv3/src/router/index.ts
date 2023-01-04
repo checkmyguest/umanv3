@@ -1,21 +1,21 @@
-// import HelloWorldVue from "@/components/hello-world.vue";
-import Blender from "@/components/pages/blender/index.vue";
-import Calendar from "@/components/pages/calendar/index.vue";
+// import HelloWorldVue from "@/hello-world.vue";
+import Blender from "@/pages/blender/index.vue";
+import Calendar from "@/pages/calendar/index.vue";
 
 // Event
-import Event from "@/components/pages/event/index.vue";
-import EventFocus from "@/components/pages/event/focus/index.vue";
+import Event from "@/pages/event/index.vue";
+import EventFocus from "@/pages/event/focus/index.vue";
 
-import Housing from "@/components/pages/housing/index.vue";
-import Login from "@/components/pages/login/login.vue";
-import Price from "@/components/pages/price/index.vue";
-import Reservation from "@/components/pages/reservation/_id.vue";
-import Maintenance from "@/components/pages/maintenance/_id.vue";
+import Housing from "@/pages/housing/index.vue";
+import Login from "@/pages/login/login.vue";
+import Price from "@/pages/price/index.vue";
+import Reservation from "@/pages/reservation/_id.vue";
+import Maintenance from "@/pages/maintenance/_id.vue";
 import { createRouter, createWebHistory, RouteRecordRaw, RouteLocationNormalized } from "vue-router";
 
 // flows
-import { EventFlow } from "@/core/flows/EventFlow";
-import { EventFocusFlow } from "@/core/flows/EventFocusFlow";
+import { EventFlow } from "../core/flows/EventFlow";
+import { EventFocusFlow } from "../core/flows/EventFocusFlow";
 
 const routes: Array<RouteRecordRaw> = [
   {
