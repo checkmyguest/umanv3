@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//component size
+.default {
+  @apply h-default text-default leading-default;
+  .input-svg {
+    width: 20px;
+    height: auto;
+    padding-bottom: 1px;
+  }
+  .input-cmg {
+    padding-left: 28px !important;
+  }
+}
+
+.medium {
+  @apply h-medium text-medium leading-medium;
+  .input-svg {
+    width: 24px;
+    height: auto;
+    margin-left: 2px;
+  }
+  .input-cmg {
+    padding-left: 30px !important;
+  }
+}
+
+.large {
+  @apply h-large text-large leading-large;
+  .input-svg {
+    width: 28px;
+    height: auto;
+    margin-left: 2px;
+  }
+  .input-cmg {
+    padding-left: 34px !important;
+  }
+}

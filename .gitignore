@@ -1,4 +1,6 @@
-# Logs
+.yarn/cache/
+.yarn/install-state.gz
+
 logs
 *.log
 npm-debug.log*

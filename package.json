@@ -1,15 +1,16 @@
 {
-  "name": "umanv3-test",
+  "name": "cmg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:checkmyguest/umanv3.git",
+  "author": "CMG Tech Team",
+  "license": "MIT",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "test": "jest"
-  },
+  "workspaces": [
+    "packages/hipster",
+    "packages/umanv3"
+  ],
+  "packageManager": "yarn@3.3.1",
   "dependencies": {
     "@types/crypto-js": "^4.1.1",
     "@types/faker": "^6.6.9",

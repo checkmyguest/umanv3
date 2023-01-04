@@ -11,7 +11,6 @@ module.exports = {
     "eslint:recommended",
     "prettier",
     "plugin:vue/vue3-recommended",
-    "plugin:unicorn/recommended",
   ],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
