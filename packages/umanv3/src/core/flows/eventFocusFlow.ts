@@ -1,4 +1,5 @@
 import { ViewServiceData } from "@/core/services/view-service";
+import { ReservationServiceData } from "@/core/services/reservation-service";
 import { useEventStore } from "../../stores/event";
 
 export async function EventFocusFlow(rId: string | string[]){
@@ -25,8 +26,8 @@ export async function EventFocusFlow(rId: string | string[]){
 
 function getResaById(id: any) {
     console.log("getResaById");
-    const viewServiceData = new ViewServiceData()
-    return viewServiceData.getResaById(id)
+    const reservationServiceData = new ReservationServiceData()
+    return ReservationServiceData.getResaById(id)
     .then(res => {
         console.log("getResaById", res);
         useEventStore().setCurrentResa(res);
@@ -38,8 +39,8 @@ function getResaById(id: any) {
 }
 
 function getTagsByResaId(id: any) {
-    const viewServiceData = new ViewServiceData()
-    return viewServiceData.getTagsByResaId(id)
+    const reservationServiceData = new ReservationServiceData()
+    return ReservationServiceData.getTagsByResaId(id)
     .then(res => {
         useEventStore().setTagsByResaId(res);
     })

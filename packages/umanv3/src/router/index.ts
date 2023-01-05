@@ -4,7 +4,7 @@ import Calendar from "@/pages/calendar/index.vue";
 
 // Event
 import Event from "@/pages/event/index.vue";
-import EventFocus from "@/pages/event/focus/index.vue";
+ import EventFocus from "@/pages/event/focus/index.vue";
 
 import Housing from "@/pages/housing/index.vue";
 import Login from "@/pages/login/login.vue";
