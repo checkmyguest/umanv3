@@ -1,31 +1,30 @@
-// import HelloWorldVue from "@/components/hello-world.vue";
-import Blender from "@/components/pages/blender/index.vue";
-import Calendar from "@/components/pages/calendar/index.vue";
+// import HelloWorldVue from "@/hello-world.vue";
+import Blender from "@/pages/blender/index.vue";
+import Calendar from "@/pages/calendar/index.vue";
 
 // Event
-import Event from "@/components/pages/event/index.vue";
-import EventFocus from "@/components/pages/event/focus/index.vue";
+import EventFocus from "@/pages/event/focus/index.vue";
+import Event from "@/pages/event/index.vue";
 
-import Housing from "@/components/pages/housing/index.vue";
-import Login from "@/components/pages/login/login.vue";
-import Price from "@/components/pages/price/index.vue";
-import Reservation from "@/components/pages/reservation/_id.vue";
-import Maintenance from "@/components/pages/maintenance/_id.vue";
-import TestRouter from "@/components/test-router/test-router.vue";
-import { createRouter, createWebHistory, RouteRecordRaw, RouteLocationNormalized } from "vue-router";
+import Housing from "@/pages/housing/index.vue";
+import Login from "@/pages/login/login.vue";
+import Maintenance from "@/pages/maintenance/_id.vue";
+import Price from "@/pages/price/index.vue";
+import Reservation from "@/pages/reservation/_id.vue";
+import { createRouter, createWebHistory, RouteLocationNormalized, RouteRecordRaw } from "vue-router";
 
 // flows
-import { EventFlow } from "@/core/flows/EventFlow";
-import { EventFocusFlow } from "@/core/flows/EventFocusFlow";
+// import { EventFlow } from "@/core/flows/EventFlow";
+// import { EventFocusFlow } from "@/core/flows/EventFocusFlow";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Event",
     component: Event,
-    beforeEnter: (_, __) => {
-      EventFlow()
-    }
+    // beforeEnter: (_, __) => {
+    //   EventFlow()
+    // }
   },
   {
     path: "/event/:id",
@@ -34,7 +33,7 @@ const routes: Array<RouteRecordRaw> = [
     beforeEnter: (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
       const id: string | string[] = to.params.id;
       console.log("to.params.id", to.params.id)
-      EventFocusFlow(id)
+      // EventFocusFlow(id)
     }
   },
   { path: "/blender", name: "Blender", component: Blender },
@@ -44,7 +43,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/price", name: "Price", component: Price },
   { path: "/reservation/:id", name: "Reservation", component: Reservation },
   { path: "/maintenance/:id", name: "Maintenance", component: Maintenance },
-  { path: "/test-router", name: "TestRouter", component: TestRouter },
+  { path: "/event", name: "Evenement", component: Event }
 ];
 
 const router = createRouter({

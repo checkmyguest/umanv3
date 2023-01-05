@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios, { AxiosInstance } from "axios";
 import router from "./router";
 
 const http: AxiosInstance = axios.create({

@@ -1,6 +1,8 @@
 import axios from "axios";
 import ElementPLus, { dayjs } from "element-plus";
 import "element-plus/dist/index.css";
+import "hipster/src/assets/index.scss";
+import "hipster/src/assets/style/style.scss";
 import { createPinia } from "pinia";
 import "reflect-metadata";
 import { createApp } from "vue";

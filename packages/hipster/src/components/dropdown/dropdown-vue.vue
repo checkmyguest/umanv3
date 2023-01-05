@@ -1,6 +1,6 @@
 <script lang="ts">
 import { PropType } from "vue";
-import ButtonVue from "../../components/button/button-vue.vue";
+import ButtonVue from "../../components/button/index.vue";
 export interface Actions {
   name: string;
   function: Function;
@@ -33,7 +33,11 @@ export default {
       :type="type"
       :disabled="disabled"
     />
-    <el-dropdown trigger="click" :id="id" :disabled="disabled">
+    <el-dropdown
+      :id="id"
+      trigger="click"
+      :disabled="disabled"
+    >
       <ButtonVue
         :icon="split ? 'ArrowDown' : ''"
         :dropdown="split ? false : true"
@@ -50,8 +54,8 @@ export default {
         <el-dropdown-menu class="dropdown-menu">
           <el-dropdown-item
             v-for="(action, i) in actions"
-            @click="action.function"
             class="dropdown-item"
+            @click="action.function"
           >
             {{ action.name }}
           </el-dropdown-item>

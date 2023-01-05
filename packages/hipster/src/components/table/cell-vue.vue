@@ -106,13 +106,35 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @mixin text-badge {
-  @apply rounded-sm font-medium text-xs text-center px-1 flex items-center;
+  border-radius: 2px;
+  font-family: "URWGeometric Medium";
+  font-weight: 500;
+  font-size: 0.75rem/* 12px */;
+  line-height: 1rem/* 16px */;
+  text-align: center;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
   height: 18px;
 }
+
+@mixin flex($justify, $align){
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
 .cell-container {
-  @apply font-medium text-sm text-black text-start w-full;
+  font-family: "URWGeometric Medium";
+  font-weight: 500;
+  font-size: 0.875rem/* 14px */;
+  line-height: 1.25rem/* 20px */;
+  text-align: start;
+  width: 100%;
+  color: black;
+
   label {
     white-space: nowrap;
   }
@@ -121,13 +143,13 @@ export default {
   align-items: center;
 }
 .link-custom {
-  @apply text-blue;
+  color: #196DFD;
   &:hover {
     text-decoration: underline;
   }
 }
 .event {
-  @apply flex justify-between items-center;
+  @include flex("space-between", "center");
   p {
     padding-left: 12px;
     color: #cccfdb;
@@ -138,10 +160,17 @@ export default {
   }
 }
 .origin {
-  @apply flex items-center font-medium text-sm text-black text-start;
+  display: flex;
+  align-items: center;
+  font-family: "URWGeometric Medium";
+  font-weight: 500;
+  font-size: 0.875rem/* 14px */;
+  line-height: 1.25rem/* 20px */;
+  text-align: start;
+  color: black;
   height: 32px;
   .logo-origin {
-    @apply rounded-sm;
+    border-radius: 2px;
     width: 24px;
     height: auto;
   }
@@ -156,7 +185,9 @@ export default {
 }
 
 .housing {
-  @apply flex justify-between items-center text-sm;
+  @include flex('space-between', 'center');
+  font-size: 0.875rem/* 14px */;
+  line-height: 1.25rem/* 20px */;
   span {
     color: #9898aa;
     padding-right: 12px;
@@ -170,11 +201,13 @@ export default {
 }
 
 .accountManagers {
-  @apply flex justify-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .final_price {
-  @apply flex justify-end;
+  display: flex;
+  justify-content: flex-end;
   padding-right: 12px;
   font-family: "URWGeometric Regular";
   font-size: 14px;

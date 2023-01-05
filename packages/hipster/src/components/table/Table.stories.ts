@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/vue3";
 import { EVENT_COLUMNS } from "../../../constants";
 import { dataFormatterEvent } from "./dataFormatter";
 import DataSample from "./data_example2.json";
-import TableVue from "./table-vue.vue";
+import TableVue from "./index.vue";
 
 const dataSample = dataFormatterEvent(DataSample);
 

@@ -4,7 +4,11 @@
 
 //component size
 .default {
-  @apply h-default text-default leading-default;
+  // @apply h-default text-default leading-default;
+  min-width: 26px;
+  height: 26px;
+  font-size: 14px;
+  line-height: 20px;
   .input-svg {
     width: 20px;
     height: auto;
@@ -13,10 +17,18 @@
   .input-cmg {
     padding-left: 28px !important;
   }
+  svg{
+    width: 14px;
+    height: auto;
+  }
 }
 
 .medium {
-  @apply h-medium text-medium leading-medium;
+  // @apply h-medium text-medium leading-medium;
+  min-width: 36px;
+  height: 36px;
+  font-size: 16px;
+  line-height: 24px;
   .input-svg {
     width: 24px;
     height: auto;
@@ -29,6 +41,10 @@
 
 .large {
   @apply h-large text-large leading-large;
+  min-width: 46px;
+  height: 46px;
+  font-size: 18px;
+  line-height: 24px;
   .input-svg {
     width: 28px;
     height: auto;
@@ -36,5 +52,9 @@
   }
   .input-cmg {
     padding-left: 34px !important;
+  }
+  svg{
+    width: 26px;
+    height: auto;
   }
 }
