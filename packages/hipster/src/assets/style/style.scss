@@ -73,101 +73,30 @@
     url("../fonts/Ubuntu/Ubuntu-Medium.svg") format("svg");
 }
 
-.playground {
-  display: flex;
-  width: auto;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 5px;
-}
-.card {
-  @apply bg-white flex flex-row justify-evenly items-center;
-  width: 28vw;
-  height: 10vh;
-}
-
 .cmg-btn {
-  @apply font-medium rounded-btn shadow-btn;
-  border-width: 1px;
-}
-
-@layer{
-  .primary{
-    background: linear-gradient(
-      180deg,
-      rgba(25, 109, 253, 0.5) 0%,
-      rgba(22, 99, 226, 0.5) 100%
-    ),
-    #196dfd;
-  }
+  @apply font-medium rounded-btn shadow-btn border;
 }
 
 .primary {
   @apply text-white border-solid border-default bg-button-primary;
-  // background: linear-gradient(
-  //     180deg,
-  //     rgba(25, 109, 253, 0.5) 0%,
-  //     rgba(22, 99, 226, 0.5) 100%
-  //   ),
-  //   #196dfd;
   svg {
     path {
       @apply fill-white;
     }
   }
   &:hover {
-    @apply text-white border-solid border-default;
-    background: linear-gradient(
-        0deg,
-        rgba(6, 18, 73, 0.1),
-        rgba(6, 18, 73, 0.1)
-      ),
-      linear-gradient(
-        180deg,
-        rgba(25, 109, 253, 0.5) 0%,
-        rgba(22, 99, 226, 0.5) 100%
-      ),
-      #196dfd;
+    @apply text-white border-solid border-default bg-button-primary-hover;
   }
   &:focus {
-    @apply text-white border-solid border-focus;
-    background: linear-gradient(
-        180deg,
-        rgba(25, 109, 253, 0.5) 0%,
-        rgba(22, 99, 226, 0.5) 100%
-      ),
-      #196dfd;
+    @apply text-white border-solid border-focus bg-button-primary-focus;
   }
   &:active {
-    @apply text-white border-solid border-default;
-    background: linear-gradient(
-        0deg,
-        rgba(6, 18, 73, 0.2),
-        rgba(6, 18, 73, 0.2)
-      ),
-      linear-gradient(
-        180deg,
-        rgba(25, 109, 253, 0.5) 0%,
-        rgba(22, 99, 226, 0.5) 100%
-      ),
-      #196dfd;
+    @apply text-white border-solid border-default bg-button-primary-active;
   }
   &:disabled {
-    @apply border-solid border-transparent shadow-btn text-white;
-    background: linear-gradient(
-        0deg,
-        rgba(27, 113, 255, 0.5),
-        rgba(27, 113, 255, 0.5)
-      ),
-      #ffffff;
+    @apply border-solid border-transparent shadow-btn text-white bg-button-primary-disabled;
     &:hover {
-      @apply border-solid border-transparent text-white;
-      background: linear-gradient(
-          0deg,
-          rgba(27, 113, 255, 0.5),
-          rgba(27, 113, 255, 0.5)
-        ),
-        #ffffff;
+      @apply border-solid border-transparent text-white bg-button-primary-disabled;
     }
   }
 }
@@ -175,79 +104,54 @@
 .secondary {
   @apply bg-white text-black border-solid border-transparent;
   &:hover {
-    @apply text-black border-solid border-transparent;
-    background: #f4f6f8 !important;
+    @apply text-black border-solid border-transparent bg-grey-200;
   }
   &:focus {
-    @apply text-black border-solid border-focus;
+    @apply text-black border-solid border-focus bg-white;
   }
   &:active {
-    @apply border-solid border-transparent;
-    background: linear-gradient(
-        0deg,
-        rgba(6, 18, 73, 0.05),
-        rgba(6, 18, 73, 0.05)
-      ),
-      #f4f6f8 !important;
+    @apply border-solid border-transparent bg-grey-200;
   }
   &:disabled {
-    background: #f8f9fb !important;
+    @apply bg-button-secondary-disabled;
   }
 }
 
 .selected {
-  background: #e8f0ff !important;
-  border: 1px solid transparent !important;
-  color: #196dfd;
+  @apply bg-blue-100 border-solid border-transparent text-blue;
 }
 
 .tertiary {
   @apply bg-white border-solid border-tertiary shadow-none text-black;
   &:hover {
-    @apply bg-white border-solid border-tertiary shadow-none text-black;
-    background: #f4f6f8 !important;
+    @apply border-solid shadow-none text-black bg-grey-200 border-tertiary;
   }
   &:focus {
     @apply bg-white text-black border-solid border-focus;
   }
   &:active {
-    @apply border-solid border-tertiary;
-    background: linear-gradient(
-        0deg,
-        rgba(6, 18, 73, 0.05),
-        rgba(6, 18, 73, 0.05)
-      ),
-      #f4f6f8 !important;
+    @apply border-solid border-tertiary bg-button-tertiary-active;
   }
   &:disabled {
-    @apply border-solid border-tertiary;
-    background: #f8f9fb !important;
+    @apply border-solid border-tertiary bg-button-tertiary-disabled;
   }
 }
 
 .plain-button {
   @apply border-solid border-transparent shadow-none text-black;
   &:hover {
-    @apply text-black border-solid border-transparent;
-    background: #f4f6f8;
+    @apply text-black border-solid border-transparent bg-grey-200;
   }
   &:focus {
-    @apply text-blue border-solid border-transparent;
-    background: #e8f0ff;
+    @apply text-blue border-solid border-transparent bg-blue-100;
   }
   &:active {
-    @apply text-black border-solid border-transparent;
-    background: linear-gradient(
-        0deg,
-        rgba(6, 18, 73, 0.05),
-        rgba(6, 18, 73, 0.05)
-      ),
-      #f4f6f8;
+    @apply text-black border-solid border-transparent bg-button-plainbutton-active;
   }
   &:disabled {
-    background: #f8f9fb;
+    @apply bg-button-plainbutton-disabled border-transparent;
     &:hover {
-      background: #f8f9fb;
+      @apply bg-button-plainbutton-disabled border-transparent;
     }
   }
 }
@@ -260,32 +164,15 @@
     }
   }
   &:hover {
-    background: linear-gradient(
-        0deg,
-        rgba(6, 18, 73, 0.1),
-        rgba(6, 18, 73, 0.1)
-      ),
-      #ff0055 !important;
+    @apply bg-button-destructive-hover text-white border-default;
   }
   &:focus {
-    @apply border-solid border-focus;
+    @apply border-solid border-focus bg-button-destructive-focus text-white;
   }
   &:active {
-    @apply border-solid border-default;
-    background: linear-gradient(
-        0deg,
-        rgba(6, 18, 73, 0.2),
-        rgba(6, 18, 73, 0.2)
-      ),
-      #ff0055 !important;
+    @apply border-solid border-default bg-button-destructive-focus text-white;
   }
   &:disabled {
-    @apply border-solid border-transparent;
-    background: linear-gradient(
-        0deg,
-        rgba(255, 0, 85, 0.5),
-        rgba(255, 0, 85, 0.5)
-      ),
-      #ffffff !important;
+    @apply border-solid border-transparent bg-button-destructive-disabled text-white;
   }
 }

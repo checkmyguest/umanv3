@@ -27,6 +27,9 @@ module.exports = {
         white: {
           DEFAULT: "#FFFFFF"
         },
+        disabled: {
+          DEFAULT: "#F8F9FB"
+        },
         blue: {
           DEFAULT: "#196DFD",
           100: "#E8F0FF",
@@ -82,7 +85,31 @@ module.exports = {
           300: "#E3D0FF"
         },
         button: {
-          "primary": "linear-gradient(180deg,rgba(25, 109, 253, 0.5) 0%,rgba(22, 99, 226, 0.5) 100%),#196dfd;"
+          primary: {
+            DEFAULT: "#196BF6",
+            "hover": "#1762E5",
+            "focus": "#196BF6",
+            "active": "#1559D4",
+            "disabled": "#8DB8FF",
+          },
+          secondary: {
+            "active": "#E8EBEF",
+            "disabled": "#F8F9FB"
+          },
+          tertiary: {
+            "active": "#E8EBEF",
+            "disabled": "#F8F9FB"
+          },
+          plainbutton: {
+            "active": "#E8EBEF",
+            "disabled": "#F8F9FB"
+          },
+          destructive: {
+            "hover": "#E60254",
+            "focus": "#FF0055",
+            "active": "#CD0453",
+            "disabled": "#FF80AA"
+          }
         }
       },
       fontSize: {
@@ -113,7 +140,7 @@ module.exports = {
       borderColor: {
         default: "rgba(6, 18, 73, 0.1)",
         focus: "rgba(6, 18, 73, 0.3)",
-        tertiary: "grey-400"
+        tertiary: "#CCCFCB"
       },
       borderRadius: {
         btn: "4px",
