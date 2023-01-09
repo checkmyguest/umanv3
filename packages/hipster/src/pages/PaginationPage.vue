@@ -1,5 +1,5 @@
 <script lang="ts">
-import PaginationVue from "@/components/pagination/pagination-vue.vue";
+import PaginationVue from "@/components/pagination/index.vue";
 
 export default {
   components: {

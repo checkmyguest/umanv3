@@ -1,6 +1,6 @@
 <script lang="ts">
 import { PropType } from "vue";
-import ButtonVue from "../../components/button/index.vue";
+import ButtonVue from "../button/index.vue";
 export interface Actions {
   name: string;
   function: Function;
@@ -44,6 +44,7 @@ export default {
         :text="text"
         :type="type"
         :disabled="disabled"
+        :iconLeft="iconLeft"
         :style="
           split
             ? 'border-radius: 0 4px 4px 0; margin-top: 1px; border-width: 1px 1px 1px 0px !important;'

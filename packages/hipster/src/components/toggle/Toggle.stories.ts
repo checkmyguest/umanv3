@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import ToggleVue from "./toggle-vue.vue";
+import ToggleVue from "./index.vue";
 
 export default {
   title: "Toggle",

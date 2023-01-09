@@ -45,6 +45,7 @@ const props = defineProps({
   },
 });
 </script>
+
 <template>
   <div>
     <el-button
@@ -58,27 +59,30 @@ const props = defineProps({
       :disabled="disabled"
       :style="style"
     >
-      <el-icon v-if="iconLeft.length > 0" class="el-icon--left icon-class"
+      <el-icon v-if="iconLeft.length > 0 && icon.length === 0" class="el-icon--left icon-class"
         ><SvgIcon :name="iconLeft"
       /></el-icon>
       <span v-if="!(icon.length > 0)">
         <label>{{ text }}</label>
       </span>
-      <SvgIcon class="icon-class" v-else :name="icon" />
-      <el-icon v-if="dropdown" class="el-icon--right icon-class"
+      <SvgIcon class="icon-class" v-if="icon.length > 0" :name="icon" />
+      <el-icon v-if="dropdown && icon.length === 0" class="el-icon--right icon-class"
         ><SvgIcon name="ArrowDown"
       /></el-icon>
     </el-button>
   </div>
 </template>
+
 <style scoped lang="scss">
 * {
   margin: 0;
   padding: 0;
 }
+
 .el-button {
   padding: 2px 12px 4px 12px;
 }
+
 .el-icon--left {
   margin-top: 4px;
   margin-left: -3px;

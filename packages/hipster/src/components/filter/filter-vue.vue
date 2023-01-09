@@ -1,5 +1,5 @@
 <script lang="ts">
-import ButtonVue from "../button/button-vue.vue";
+import ButtonVue from "../button/index.vue";
 
 export default {
   components: { ButtonVue },

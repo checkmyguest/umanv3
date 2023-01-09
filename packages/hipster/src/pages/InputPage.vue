@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import InputVue from "@/components/input/index.vue";
 import { ref } from "vue";
-import InputVue from "@/components/input/input-vue.vue";
 const model = ref("");
 </script>
 

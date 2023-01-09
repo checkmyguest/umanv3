@@ -13,26 +13,77 @@ module.exports = {
       "2xl": "1440px",
     },
     extend: {
-      boxShadow: {
-        cmg: "0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2)",
-      },
-      borderRadius: {
-        cmg: "4px",
-      },
       colors: {
-        blue: "#196DFD",
-        red: "#FF0055",
-        white: "#FFFFFF",
-        black: "#000000",
-        "orange-light": "#FFC58B",
-        sky: "#E3E8EE",
-        "yellow-bgn": "#FCF6AB",
-        "red-light": "#FAB9CA",
-        "purple-light": "#E3D0FF",
-        "green-light": "#CBF4CA",
-        grey1: "#CCCFDB",
-        "red-darker": "#FFC4D5",
-        "blue-sky": "#EDF3F9",
+        grey: {
+          100: "#F8FAFC",
+          200: "#F4F6F8",
+          300: "#E3E8EE",
+          400: "#CCCFDB",
+          600: "#919EAB",
+          700: "#637381",
+          800: "#454F5B",
+          900: "#1F2B37"
+        },
+        white: {
+          DEFAULT: "#FFFFFF"
+        },
+        blue: {
+          DEFAULT: "#196DFD",
+          100: "#E8F0FF",
+          200: "#D1E2FF",
+          300: "#9BD1FF",
+          400: "#8CB6FE",
+          800: "#061249"
+        },
+        red: {
+          DEFAULT: "#FF0059",
+          100: "#FFE5EE",
+          300: "#FFC4D5",
+          500: "#BF1D08"
+        },
+        yellow: {
+          DEFAULT: "#F6BB2D",
+          100: "#FFFCD7",
+          200: "#FCF6AB",
+          400: "#8A6116"
+        },
+        green: {
+          DEFAULT: "#00B388",
+          100: "#E9FBE3",
+          200: "#CBF4CA",
+          400: "#108043",
+          500: "#173630",
+          600: "#414F3E",
+        },
+        pink: {
+          300: "#FFA5E6"
+        },
+        orange: {
+          DEFAULT: "#F49342",
+          200: "#FFD6A5",
+          300: "#FCEBDB",
+          400: "#C05717",
+          500: "#4A1504",
+          600: "#594430"
+        },
+        indigo: {
+          DEFAULT: "#5B63AF",
+          100: "#F5F5FA",
+          300: "#B3BCF5"
+        },
+        teal: {
+          DEFAULT: "#47C1BF",
+          100: "#E0F5F5",
+          300: "#B7ECEC"
+        },
+        purple: {
+          DEFAULT: "#9C6ADE",
+          100: "#F6F0FD",
+          300: "#E3D0FF"
+        },
+        button: {
+          "primary": "linear-gradient(180deg,rgba(25, 109, 253, 0.5) 0%,rgba(22, 99, 226, 0.5) 100%),#196dfd;"
+        }
       },
       fontSize: {
         default: "14px",
@@ -44,11 +95,33 @@ module.exports = {
         medium: "24px",
         large: "24px",
       },
+      minWidth: {
+        default: "26px",
+        medium: "36px",
+        large: "46px",
+      },
+      width: {
+        "svg-default": "14px",
+        "svg-medium": "20px",
+        "svg-large": "26px",
+      },
       height: {
         default: "26px",
         medium: "36px",
         large: "46px",
       },
+      borderColor: {
+        default: "rgba(6, 18, 73, 0.1)",
+        focus: "rgba(6, 18, 73, 0.3)",
+        tertiary: "grey-400"
+      },
+      borderRadius: {
+        btn: "4px",
+      },
+      boxShadow: {
+        btn: "0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2)",
+      },
+      
     },
   },
   plugins: [],

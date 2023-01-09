@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/vue3";
 import "element-plus/dist/index.css";
 import "../../assets/style/style.scss";
 import "../../style.css";
-import InputVue from "./input-vue.vue";
+import InputVue from "./index.vue";
 
 export default {
   title: "Input",

@@ -1,5 +1,5 @@
 <script lang="ts">
-import InputSearchVue from "@/components/input-search/input-search-vue.vue";
+import InputSearchVue from "@/components/input-search/index.vue";
 
 export default {
   components: {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DropdownVue, { Actions } from "@/components/dropdown/dropdown-vue.vue";
-import InputSearchVue from "@/components/input-search/input-search-vue.vue";
+import DropdownVue, { Actions } from "@/components/dropdown/index.vue";
+import InputSearchVue from "@/components/input-search/index.vue";
 import { dataFormatterEvent } from "@/components/table/dataFormatter";
 import DataSample from "@/components/table/data_example2.json";
 import TableVue from "@/components/table/index.vue";

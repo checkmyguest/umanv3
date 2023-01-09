@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CheckboxVue from "@/components/checkbox/checkbox-vue.vue";
+import CheckboxVue from "@/components/checkbox/index.vue";
 import { ref } from "vue";
 
 const model = ref(false);

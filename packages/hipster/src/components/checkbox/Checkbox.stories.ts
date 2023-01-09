@@ -1,6 +1,6 @@
 // Button.stories.ts
 import { Meta, StoryFn } from "@storybook/vue3";
-import CheckboxVue from "./checkbox-vue.vue";
+import CheckboxVue from "./index.vue";
 
 export default {
   title: "Checkbox",

@@ -3,7 +3,7 @@ export interface Actions {
   name: string;
   function: Function;
 }
-import DropdownVue from "@/components/dropdown/dropdown-vue.vue";
+import DropdownVue from "@/components/dropdown/index.vue";
 import FilterVue from "@/components/filter/filter-vue.vue";
 import { ElNotification } from "element-plus";
 

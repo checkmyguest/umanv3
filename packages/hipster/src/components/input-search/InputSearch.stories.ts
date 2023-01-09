@@ -1,6 +1,6 @@
 // Button.stories.ts
 import { Meta, StoryFn } from "@storybook/vue3";
-import InputSearchVue from "./input-search-vue.vue";
+import InputSearchVue from "./index.vue";
 
 export default {
   title: "InputSearch",

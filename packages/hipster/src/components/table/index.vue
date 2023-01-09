@@ -1,7 +1,7 @@
 <script lang="ts">
 import { ElTable } from "element-plus";
 import { PropType, ref } from "vue";
-import PaginationVue from "../pagination/pagination-vue.vue";
+import PaginationVue from "../pagination/index.vue";
 import CellVue from "./cell-vue.vue";
 import { IDataEvent } from "./dataFormatter";
 import { widthSetter } from "./style-table";

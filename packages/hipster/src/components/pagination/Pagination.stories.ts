@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import PaginationVue from "./pagination-vue.vue";
+import PaginationVue from "./index.vue";
 
 export default {
   title: "Pagination",

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import PanelSliderVue from "@/components/panel-slider/panel-slider-vue.vue";
-import ToggleVue from "@/components/toggle/toggle-vue.vue";
+import ToggleVue from "@/components/toggle/index.vue";
+import { ref } from "vue";
 
 const model = ref(false);
 </script>

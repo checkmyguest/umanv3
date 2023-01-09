@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ITagOptions, ITagsEvent } from "@/constants/tags/tags";
 import { onMounted, PropType, Ref, ref } from "vue";
-import CheckboxVue from "../checkbox/checkbox-vue.vue";
+import CheckboxVue from "../checkbox/index.vue";
 
 const props = defineProps({
   tagsContainer: {

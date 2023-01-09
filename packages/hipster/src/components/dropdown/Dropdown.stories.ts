@@ -1,6 +1,6 @@
 // Button.stories.ts
 import { Meta, StoryFn } from "@storybook/vue3";
-import DropdownVue from "./dropdown-vue.vue";
+import DropdownVue from "./index.vue";
 
 export default {
   title: "Dropdown",
@@ -8,8 +8,16 @@ export default {
   argTypes: {
     type: {
       options: ['primary', 'secondary', 'tertiary', 'plain-button', 'destructive'],
-      control: { type: 'radio'}  
-    }
+      control: { type: 'radio'}
+    },
+    size: {
+      options: ['default', 'medium', 'large'],
+      control: { type: 'radio'}
+    },
+    iconLeft: {
+      options: ['Filter', 'ArrowDown', 'Loader'],
+      control: { type: 'radio'}
+    },
   }
 } as Meta<typeof DropdownVue>;
 
