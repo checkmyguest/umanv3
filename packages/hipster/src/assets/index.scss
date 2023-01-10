@@ -6,12 +6,11 @@
 .default {
   @apply h-default text-default leading-default min-w-default;
   .input-svg {
-    width: 20px;
-    height: auto;
+    @apply w-5 h-auto;
     padding-bottom: 1px;
   }
   .input-cmg {
-    padding-left: 28px !important;
+    @apply pl-7;
   }
   svg{
     @apply h-auto w-svg-default;

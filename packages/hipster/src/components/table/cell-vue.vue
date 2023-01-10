@@ -108,74 +108,37 @@ export default {
 
 <style lang="scss">
 @mixin text-badge {
-  border-radius: 2px;
-  font-family: "URWGeometric Medium";
-  font-weight: 500;
-  font-size: 0.75rem/* 12px */;
-  line-height: 1rem/* 16px */;
-  text-align: center;
-  padding: 0 4px;
-  display: flex;
-  align-items: center;
-  height: 18px;
-}
-
-@mixin flex($justify, $align){
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
+  @apply rounded-sm font-medium text-sm text-start px-1 flex items-center h-badge;
 }
 
 .cell-container {
-  font-family: "URWGeometric Medium";
-  font-weight: 500;
-  font-size: 0.875rem/* 14px */;
-  line-height: 1.25rem/* 20px */;
-  text-align: start;
-  width: 100%;
-  color: black;
-
+  @apply font-medium text-sm text-start w-full text-black h-8 flex items-center;
   label {
-    white-space: nowrap;
+    @apply whitespace-nowrap;
   }
-  height: 32px;
-  display: flex;
-  align-items: center;
 }
 .link-custom {
-  color: #196DFD;
+  @apply text-blue;
   &:hover {
-    text-decoration: underline;
+    @apply underline;
   }
 }
 .event {
-  @include flex("space-between", "center");
+  @apply flex justify-between items-center;
   p {
-    padding-left: 12px;
-    color: #cccfdb;
+    @apply pl-3 text-grey-400;
     span {
-      padding-right: 12px;
-      text-decoration: underline;
+      @apply pr-3 underline;
     }
   }
 }
 .origin {
-  display: flex;
-  align-items: center;
-  font-family: "URWGeometric Medium";
-  font-weight: 500;
-  font-size: 0.875rem/* 14px */;
-  line-height: 1.25rem/* 20px */;
-  text-align: start;
-  color: black;
-  height: 32px;
+  @apply flex items-center font-medium text-sm text-start text-black h-8;
   .logo-origin {
-    border-radius: 2px;
-    width: 24px;
-    height: auto;
+    @apply rounded-sm w-6 h-auto;
   }
   label {
-    padding-left: 12px;
+    @apply pl-3;
   }
 }
 .badge {
@@ -185,31 +148,22 @@ export default {
 }
 
 .housing {
-  @include flex('space-between', 'center');
-  font-size: 0.875rem/* 14px */;
-  line-height: 1.25rem/* 20px */;
+  @apply flex justify-between items-center text-sm;
   span {
+    @apply pr-3;
     color: #9898aa;
-    padding-right: 12px;
   }
 }
 
 .tags {
-  position: absolute;
-  top: 0;
-  left: 0;
+  @apply absolute top-0 left-0;
 }
 
 .accountManagers {
-  display: flex;
-  justify-content: flex-start;
+  @apply flex justify-start
 }
 
 .final_price {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 12px;
-  font-family: "URWGeometric Regular";
-  font-size: 14px;
+  @apply flex justify-end pr-3 font-medium text-sm;
 }
 </style>

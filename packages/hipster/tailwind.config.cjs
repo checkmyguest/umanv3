@@ -136,6 +136,7 @@ module.exports = {
         default: "26px",
         medium: "36px",
         large: "46px",
+        badge: "18px"
       },
       borderColor: {
         default: "rgba(6, 18, 73, 0.1)",
