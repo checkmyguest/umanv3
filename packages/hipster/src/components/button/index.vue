@@ -44,6 +44,9 @@ const props = defineProps({
     default: "",
   },
 });
+
+const typeBtn = "btn-"+props.type;
+
 </script>
 
 <template>
@@ -51,7 +54,7 @@ const props = defineProps({
     <el-button
       class="cmg-btn"
       :class="[
-        type,
+        typeBtn,
         size,
         iconLeft.length > 0 ? 'icon-left' : '',
         icon.length > 0 ? 'icon-only' : '',

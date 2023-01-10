@@ -74,43 +74,43 @@
 }
 
 .cmg-btn {
-  @apply font-medium rounded-btn shadow-btn border;
+  @apply font-medium rounded-btn shadow-btn border border-solid;
 }
 
-.primary {
-  @apply text-white border-solid border-default bg-button-primary;
+.btn-primary {
+  @apply text-white border-default bg-button-primary;
   svg {
     path {
       @apply fill-white;
     }
   }
   &:hover {
-    @apply text-white border-solid border-default bg-button-primary-hover;
+    @apply text-white border-default bg-button-primary-hover;
   }
   &:focus {
-    @apply text-white border-solid border-focus bg-button-primary-focus;
+    @apply text-white border-focus bg-button-primary-focus;
   }
   &:active {
-    @apply text-white border-solid border-default bg-button-primary-active;
+    @apply text-white border-default bg-button-primary-active;
   }
   &:disabled {
-    @apply border-solid border-transparent shadow-btn text-white bg-button-primary-disabled;
+    @apply border-transparent shadow-btn text-white bg-button-primary-disabled;
     &:hover {
-      @apply border-solid border-transparent text-white bg-button-primary-disabled;
+      @apply border-transparent text-white bg-button-primary-disabled;
     }
   }
 }
 
-.secondary {
-  @apply bg-white text-black border-solid border-transparent;
+.btn-secondary {
+  @apply bg-white text-black border-transparent;
   &:hover {
-    @apply text-black border-solid border-transparent bg-grey-200;
+    @apply text-black border-transparent bg-grey-200;
   }
   &:focus {
-    @apply text-black border-solid border-focus bg-white;
+    @apply text-black border-focus bg-white;
   }
   &:active {
-    @apply border-solid border-transparent bg-grey-200;
+    @apply border-transparent bg-grey-200;
   }
   &:disabled {
     @apply bg-button-secondary-disabled;
@@ -118,35 +118,35 @@
 }
 
 .selected {
-  @apply bg-blue-100 border-solid border-transparent text-blue;
+  @apply bg-blue-100 border-transparent text-blue;
 }
 
-.tertiary {
-  @apply bg-white border-solid border-tertiary shadow-none text-black;
+.btn-tertiary {
+  @apply bg-white border-tertiary shadow-none text-black;
   &:hover {
-    @apply border-solid shadow-none text-black bg-grey-200 border-tertiary;
+    @apply shadow-none text-black bg-grey-200 border-tertiary;
   }
   &:focus {
-    @apply bg-white text-black border-solid border-focus;
+    @apply bg-white text-black border-focus;
   }
   &:active {
-    @apply border-solid border-tertiary bg-button-tertiary-active;
+    @apply border-tertiary bg-button-tertiary-active;
   }
   &:disabled {
-    @apply border-solid border-tertiary bg-button-tertiary-disabled;
+    @apply border-tertiary bg-button-tertiary-disabled;
   }
 }
 
-.plain-button {
-  @apply border-solid border-transparent shadow-none text-black;
+.btn-plain-button {
+  @apply border-transparent shadow-none text-black;
   &:hover {
-    @apply text-black border-solid border-transparent bg-grey-200;
+    @apply text-black border-transparent bg-grey-200;
   }
   &:focus {
-    @apply text-blue border-solid border-transparent bg-blue-100;
+    @apply text-blue border-transparent bg-blue-100;
   }
   &:active {
-    @apply text-black border-solid border-transparent bg-button-plainbutton-active;
+    @apply text-black border-transparent bg-button-plainbutton-active;
   }
   &:disabled {
     @apply bg-button-plainbutton-disabled border-transparent;
@@ -156,8 +156,8 @@
   }
 }
 
-.destructive {
-  @apply bg-red border-solid border-default text-white;
+.btn-destructive {
+  @apply bg-red border-default text-white;
   svg {
     path {
       @apply fill-white;
@@ -167,12 +167,12 @@
     @apply bg-button-destructive-hover text-white border-default;
   }
   &:focus {
-    @apply border-solid border-focus bg-button-destructive-focus text-white;
+    @apply border-focus bg-button-destructive-focus text-white;
   }
   &:active {
-    @apply border-solid border-default bg-button-destructive-focus text-white;
+    @apply border-default bg-button-destructive-focus text-white;
   }
   &:disabled {
-    @apply border-solid border-transparent bg-button-destructive-disabled text-white;
+    @apply border-transparent bg-button-destructive-disabled text-white;
   }
 }
