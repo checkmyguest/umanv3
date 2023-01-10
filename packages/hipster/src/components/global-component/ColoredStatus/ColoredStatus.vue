@@ -34,63 +34,63 @@ export default {
       switch (status) {
         case "En cours":
         case "Working":
-          return "bg-orange-light";
+          return "bg-orange-200";
         case "Non demandée":
         case "Terminée":
-          return "bg-sky";
+          return "bg-grey-300";
         case "Expiré":
-          return "border bg-sky";
+          return "border bg-grey-300";
         case "Todo":
         case "À faire":
         case "À vérifier":
         case "À venir":
         case "En attente":
-          return "bg-yellow-bgn";
+          return "bg-yellow-200";
         case "Stuck":
         case "Bloqué":
         case "Echoué":
         case "Non réglée":
         case "Fermé":
         case "Non renseigné":
-          return "bg-red-light";
+          return "bg-red-300";
         case "Annulée":
-          return "bg-sky";
+          return "bg-grey-300";
         case "Done":
         case "Terminé":
-          return "bg-sky";
+          return "bg-grey-300";
         case "Toutes":
         case "Unsolved":
         case "Non résolu":
-          return "bg-purple-light";
+          return "bg-purple-200";
         case "Réservée":
         case "Encaissé":
         case "Réglée":
         case "Ouvert":
         case "Définitif":
         case "Vérifié":
-          return "bg-green-light";
+          return "bg-green-200";
         case "Tentative":
-          return "bg-purple-light";
+          return "bg-purple-200";
         case "Archivé":
         case "Archived":
-          return "bg-grey1";
+          return "bg-grey-400";
         case "Prévisionnel":
-          return "bg-red-darker";
+          return "bg-red-300";
         default:
-          return "bg-blue-sky";
+          return "bg-blue-200";
       }
     },
   },
   computed: {
     classesComputed() {
-      let classes = this.bgClass;
+      let classes = this.class;
       classes += this.isTextInside
         ? " px-1 text-xs badge flex justify-center items-center text-center font-medium rounded-sm"
         : " mr-2 square-custom";
       if (this.isFullWidth) classes += " w-full";
       return `${classes} ${this.classes}`;
     },
-    bgClass(): string {
+    class(): string {
       return this.reservationStateColor(this.status);
     },
   },
@@ -99,11 +99,10 @@ export default {
 
 <style scoped>
 .badge {
-  height: 18px;
+  @apply h-badge;
 }
 
 .square-custom {
-  width: 26px;
-  height: 26px;
+  @apply w-6 h-6;
 }
 </style>

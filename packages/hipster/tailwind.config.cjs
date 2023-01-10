@@ -87,28 +87,39 @@ module.exports = {
         button: {
           primary: {
             DEFAULT: "#196BF6",
-            "hover": "#1762E5",
-            "focus": "#196BF6",
-            "active": "#1559D4",
-            "disabled": "#8DB8FF",
+            hover: "#1762E5",
+            focus: "#196BF6",
+            active: "#1559D4",
+            disabled: "#8DB8FF",
           },
           secondary: {
-            "active": "#E8EBEF",
-            "disabled": "#F8F9FB"
+            active: "#E8EBEF",
+            disabled: "#F8F9FB"
           },
           tertiary: {
-            "active": "#E8EBEF",
-            "disabled": "#F8F9FB"
+            active: "#E8EBEF",
+            disabled: "#F8F9FB"
           },
           plainbutton: {
-            "active": "#E8EBEF",
-            "disabled": "#F8F9FB"
+            active: "#E8EBEF",
+            disabled: "#F8F9FB"
           },
           destructive: {
-            "hover": "#E60254",
-            "focus": "#FF0055",
-            "active": "#CD0453",
-            "disabled": "#FF80AA"
+            hover: "#E60254",
+            focus: "#FF0055",
+            active: "#CD0453",
+            disabled: "#FF80AA"
+          }
+        },
+        toggle: {
+          DEFAULT: "#D1E2FF",
+          primary: {
+            active: "#196DFD",
+            hover: "#7799CD"
+          },
+          destructive: {
+            active: "#FF0059",
+            hover: "#820951"
           }
         }
       },
@@ -131,11 +142,13 @@ module.exports = {
         "svg-default": "14px",
         "svg-medium": "20px",
         "svg-large": "26px",
+        toggle: "18px"
       },
       height: {
         default: "26px",
         medium: "36px",
         large: "46px",
+        toggle: "18px",
         badge: "18px"
       },
       borderColor: {
@@ -154,4 +167,5 @@ module.exports = {
   },
   plugins: [],
   purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  important: true
 };

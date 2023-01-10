@@ -38,37 +38,25 @@ export default {
 
 <style lang="scss">
 .toggle-container {
-  @apply w-8 h-5 relative;
-  background-color: #d1e3ff;
-  border-radius: 48px;
+  @apply w-8 h-5 relative bg-toggle rounded-full;
   transition: all 0.2s ease-in-out;
   &:hover {
-    background-color: #7799cd;
+    @apply bg-toggle-primary-hover;
   }
   .toggle-btn {
-    @apply absolute;
+    @apply absolute w-toggle h-toggle rounded-full bg-white shadow-btn;
     top: 5%;
     left: 1px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: white;
-    box-shadow: 0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2);
     transition: all 0.2s ease-in-out;
   }
 }
 .active_default {
-  background-color: #196dfd !important;
+  @apply bg-toggle-primary-active;
 }
 .active_destructive {
-  background-color: #ff0059 !important;
+  @apply bg-toggle-destructive-active;
   &:hover {
-    background: linear-gradient(
-        0deg,
-        rgba(6, 18, 73, 0.2),
-        rgba(6, 18, 73, 0.2)
-      ),
-      #ff0059;
+    @apply bg-toggle-destructive-hover;
   }
 }
 </style>

@@ -2,7 +2,7 @@
 import { STATE_COLOR } from "../../../constants";
 import { ITagOptions } from "../../constants/tags/tags";
 import tagOptions from "../../constants/tags/tags.json";
-import ColoredStatus from "../global-component/ColoredStatus.vue";
+import ColoredStatus from "../global-component/ColoredStatus/ColoredStatus.vue";
 import InitialName from "../global-component/InitialName/InitialName.vue";
 import SvgIcon from "../global-component/SvgIcon/svg-icon.vue";
 import SelectVue from "../select/select-vue.vue";
@@ -84,7 +84,7 @@ export default {
     />
   </div>
   <div v-else-if="isBadge()" class="cell-container badge">
-    <label :class="setBadgeColor()">{{ data }}</label>
+    <ColoredStatus :status="data" :is-text-inside="true" />
   </div>
   <div
     v-else-if="itemKey === 'accountManagers'"

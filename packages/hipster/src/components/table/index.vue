@@ -135,16 +135,11 @@ const handleSelectionChange = (val: Column[]) => {
 }
 
 .table-section {
-  @apply flex flex-col;
-  width: 100%;
-  height: 90%;
-  gap: 16px;
+  @apply flex flex-col w-full h-5/6 gap-4;
   .table-container {
-    height: 90%;
+    @apply h-5/6; 
     .table-custom {
-      color: black;
-      width: 100%;
-      height: 100%;
+      @apply text-black w-full h-full;
     }
   }
   .pagination-container {
@@ -153,9 +148,9 @@ const handleSelectionChange = (val: Column[]) => {
 }
 
 .cell {
-  height: 32px !important;
+  @apply h-8;
   padding: 0 !important;
-  padding-left: 11px !important;
+  padding-left: 12px !important;
 }
 
 .el-table__cell {
@@ -163,25 +158,15 @@ const handleSelectionChange = (val: Column[]) => {
 }
 
 .header-custom {
-  font-family: "URWGeometric Medium";
-  font-weight: bolder !important;
-  font-size: 11px;
-  line-height: normal;
-  text-transform: uppercase;
+  @apply font-medium font-bold text-xs leading-normal uppercase h-8 whitespace-nowrap;
   color: #5c5c67;
-  height: 32px !important;
-  white-space: nowrap !important;
   .cell {
-    @apply flex items-center;
-    padding-left: 12px !important;
+    @apply flex items-center pl-3;
     .caret-wrapper {
-      margin-top: 2px !important;
-      padding-right: 5px !important;
-      transform: scale(0.7);
-      display: none;
+      @apply mt-0.5 pr-1.5 scale-75 invisible;
     }
     &:hover .caret-wrapper {
-      display: block;
+      @apply visible;
     }
   }
 }
