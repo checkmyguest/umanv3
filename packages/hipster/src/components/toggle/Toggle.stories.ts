@@ -3,6 +3,12 @@ import ToggleVue from "./index.vue";
 
 export default {
   title: "Toggle",
+  argTypes: {
+    type: {
+      options: ["default", "destructive"],
+      control: { type: "radio" } 
+    }
+  },
   component: ToggleVue,
 } as Meta<typeof ToggleVue>;
 
@@ -19,6 +25,7 @@ let modelValue = false
 export const Primary = Template.bind({});
 Primary.args = {
   modelValue: modelValue,
+  type: "default",
   id: "toggle",
   getValue: getValue
 };
