@@ -14,15 +14,23 @@ const Template: StoryFn<typeof ToggleVue> = (args) => ({
   template: '<ToggleVue v-bind="args" />',
 });
 
+let modelValue = false
+
 export const Primary = Template.bind({});
 Primary.args = {
-  model: true,
+  modelValue: modelValue,
   id: "toggle",
+  getValue: getValue
 };
 
 export const Destructive = Template.bind({});
 Destructive.args = {
-  model: true,
+  modelValue: true,
   id: "toggle2",
   type: "destructive",
+  getValue: getValue
 };
+
+function getValue(value: boolean){
+  modelValue = value;
+}

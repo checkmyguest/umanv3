@@ -21,14 +21,19 @@ export default {
   },
   data(){
     return{
-      value: false
+      value: this.modelValue
     }
   },
   methods: {
+    toggle(){
+      this.value = !this.value;
+      this.getValue(this.value);
+      this.changeState();
+    },
     changeState() {
       const el = document.querySelector<HTMLElement>("#" + this.id + "-btn")!;
       const el2 = document.querySelector("#" + this.id)!;
-      if (!el2.classList.contains("active_" + this.type)) {
+      if (!el2.classList.contains("active_" + this.type) && this.value === true) {
         el2.classList.add("active_" + this.type);
         el.style.transform = "translateX(12px)";
       } else {
@@ -37,10 +42,13 @@ export default {
       }
     },
   },
+  mounted(){
+    this.changeState();
+  }
 };
 </script>
 <template>
-  <div class="toggle-container" :id="id" @click="changeState">
+  <div class="toggle-container" :id="id" @click="toggle">
     <div class="toggle-btn" :id="id + '-btn'"></div>
   </div>
 </template>
@@ -71,4 +79,5 @@ export default {
     @apply bg-toggle-destructive-hover;
   }
 }
+
 </style>
