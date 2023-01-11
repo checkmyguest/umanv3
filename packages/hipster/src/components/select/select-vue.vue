@@ -101,62 +101,47 @@ function getValue(checked: boolean, id: string) {
   display: none;
 }
 .container {
-  @apply flex items-center justify-center;
-  color: black;
-  overflow-x: scroll;
+  @apply relative flex items-center justify-center text-black overflow-x-scroll h-8;
   width: 250px;
   max-width: 250px;
-  height: 32px;
-  position: relative;
   .tag-container {
-    @apply absolute flex items-center top-0 left-0 w-full h-full px-3;
-    overflow-x: scroll;
+    @apply absolute flex items-center top-0 left-0 w-full h-full px-3 overflow-x-scroll;
   }
 }
 .tag-custom {
   @apply flex items-center justify-center text-xs text-blue font-medium;
-  weight: auto;
+  @apply w-auto bg-blue-100 rounded-lg px-1 pb-0.5 mr-2 pt-0.5 whitespace-nowrap;
   height: 18px;
-  background: #e8f0ff;
   border: 0.5px solid #196dfd;
-  border-radius: 9px;
-  padding: 0 4px;
-  padding-bottom: 2px;
-  margin-right: 8px;
-  margin-top: 2px;
-  white-space: nowrap;
 }
 
 .checkbox {
-  padding-bottom: 4px;
+  @apply pb-1;
   label {
-    width: 100% !important;
+    @apply w-full;
   }
 }
 
 .el-select-dropdown {
-  padding: 8px 12px;
+  @apply py-2 px-3;
 }
 
 .el-select-dropdown__list {
-  margin: 0 !important;
+  @apply m-0;
 }
 
 .el-select-dropdown__item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0 !important;
-  padding-left: 8px !important;
-  height: 30px !important;
-  border-radius: 4px !important;
+  @apply flex items-center p-0 pl-2;
+  height: 30px;
+  border-radius: 4px;
   label {
-    margin-top: 6px !important;
+    @apply mt-1.5;
   }
 }
 
+
 .selected {
-  background-color: #e8f0ff !important;
+  @apply bg-blue-100;
 }
 
 .selected::after {
@@ -171,13 +156,12 @@ function getValue(checked: boolean, id: string) {
 }
 
 .el-input__wrapper {
+  @apply w-full opacity-0;
   max-width: 300px;
-  width: 100%;
-  opacity: 0;
 }
 
 .el-tag {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .el-popper__arrow {

@@ -137,6 +137,7 @@ module.exports = {
         default: "26px",
         medium: "36px",
         large: "46px",
+        input: "300px"
       },
       width: {
         "svg-default": "14px",
@@ -149,7 +150,8 @@ module.exports = {
         medium: "36px",
         large: "46px",
         toggle: "18px",
-        badge: "18px"
+        badge: "18px",
+        input: "30px"
       },
       borderColor: {
         default: "rgba(6, 18, 73, 0.1)",
@@ -157,11 +159,14 @@ module.exports = {
         tertiary: "#CCCFCB"
       },
       borderRadius: {
-        btn: "4px",
+        regular: "4px",
       },
       boxShadow: {
         btn: "0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2)",
       },
+      padding: {
+        btn: "2px 12px 4px 12px"
+      }
       
     },
   },

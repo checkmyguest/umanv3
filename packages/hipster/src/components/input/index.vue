@@ -4,10 +4,15 @@ import SvgIcon from "../global-component/SvgIcon/svg-icon.vue";
 export default {
   data() {
     return {
-      text: "",
+      text: this.modelValue,
     };
   },
   props: {
+    modelValue: {
+      type: String,
+      required: false,
+      default: ""
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -23,10 +28,6 @@ export default {
     },
     selected: {
       type: Boolean,
-      required: false,
-    },
-    size: {
-      type: String,
       required: false,
     },
     cross: {
@@ -45,6 +46,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    getValue: {
+      type: Function,
+      required: true
+    }
   },
   components: { SvgIcon },
   methods: {
@@ -57,145 +62,111 @@ export default {
 
 <template>
   <div class="input-vue">
-    <label v-if="label !== ''" id="label">{{ label }}</label>
+    <label v-if="label !== ''" class="label-container" :class="required ? 'text-red' : ''" id="label">{{ label }}</label>
     <div class="input-container">
       <SvgIcon
         class="icon-input"
         v-if="iconLeft !== ''"
         :name="iconLeft"
-        :style="selected && text !== '' ? 'fill: #196DFD;' : ''"
+        :class="selected && text !== '' ? 'fill-blue' : ''"
       />
       <input
         class="input-cmg"
-        :style="iconLeft ? 'padding-left: 28px' : ''"
-        :class="[selected && text !== '' ? 'selected' : '', size]"
+        :class="[selected && text !== '' ? 'selected' : '', iconLeft ? 'pl-7' : '']"
         :disabled="disabled"
         v-model="text"
         placeholder="Enter value"
         :required="required || error"
+        @input="getValue(text)"
       />
       <SvgIcon
         class="icon-clear"
-        v-if="cross"
-        name="Close - Clear"
+        v-if="cross && !price"
+        name="Close-Clear"
         @click="clearInput"
       />
-      <SvgIcon class="icon-clear price" v-if="price" name="Euro" />
+      <SvgIcon class="price" v-if="price" name="Euro" />
     </div>
     <div class="error" v-if="error">
-      <SvgIcon class="error-icon" name="Danger circled" />
+      <SvgIcon class="error-icon" name="Danger-circled" />
       <label> Error handling</label>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .input-vue {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  @apply flex flex-col items-start w-auto relative;
   .error {
-    display: flex;
-    justify-content: flex-start;
-    color: #ff0055;
+    @apply absolute flex justify-start text-red -bottom-9;
     svg {
-      width: 12px;
-      height: auto;
-      fill: #ff0055;
+      @apply w-3 h-auto pb-0.5 fill-red;
     }
     label {
-      margin-left: 4px;
-      margin-bottom: 1px;
-      font-size: 12px;
+      @apply text-xs text-red pl-1;
     }
   }
-  label {
-    font-size: 14px;
-    color: black;
-  }
-  .label-error {
-    font-size: 12px;
-    color: #ff0055 !important;
+  .label-container {
+    @apply absolute text-sm text-black -top-10 font-medium;
   }
   .input-container {
-    width: auto;
-    height: auto;
-    position: relative;
-    display: flex;
-    align-items: center;
+    @apply min-w-input h-input relative flex items-center;
     .icon-input {
-      position: absolute;
-      padding-left: 7px;
-      width: 18px !important;
-      height: auto;
+      @apply absolute w-6 h-auto z-10 pl-2;
       svg {
-        fill: #1f2b37;
+        @apply fill-grey-900;
       }
     }
     .icon-clear {
-      position: absolute;
-      width: 14px;
-      height: auto;
-      right: 5px;
-      cursor: pointer;
+      @apply absolute cursor-default visible opacity-100 right-2 w-4 h-auto;
       svg {
-        fill: #1f2b37;
+        @apply fill-grey-900;
       }
     }
     .price {
-      cursor: default;
-    }
-    .selected {
-      background-color: #e8f0ff !important;
-      border: 1px solid #196dfd !important;
-      color: #196dfd !important;
-      &:hover {
-        background-color: #d1e2ff !important;
+      @apply absolute cursor-default visible opacity-100 right-2 w-4 h-auto;
+      svg {
+        path{
+          @apply fill-grey-900;
+        }
       }
     }
     .input-cmg {
       all: unset;
-      height: 30px;
-      border-radius: 4px;
-      background-color: white;
-      border: 1px solid #cccfdb;
-      font-size: 14px;
-      padding: 0px 8px;
-      color: black;
-      text-align: start;
+      @apply box-border absolute left-0 w-full h-full bg-white rounded-regular border border-solid border-grey-400 font-medium text-sm pl-2 text-black text-start;
       &::placeholder {
-        color: #596477;
+        @apply text-grey-700;
       }
       &:hover {
-        border: 1px solid #196dfd;
+        @apply border-blue;
       }
       &:focus {
-        border: 1px solid #196dfd;
+        @apply border-blue;
       }
       &:active {
-        border: solid 2px #196dfd;
+        @apply border-blue border-2;
       }
       &:disabled {
-        border: 1px solid #cccfdb;
-        background-color: #e3e8ee;
-        color: #919eab;
+        @apply border-grey-400 bg-grey-300 text-grey-600;
       }
       &:disabled::placeholder {
-        color: #919eab;
+        @apply text-grey-600;
+      }
+      &:disabled:active{
+        @apply border;
       }
       &:required {
-        background-color: #ffe5ee;
-        border: 1px solid #ff0055;
-        &:focus {
-          border: 1px solid #ff0055;
-        }
-        &:active {
-          border: 2px solid #ff0055;
-        }
+        @apply bg-red-100 border-red;
       }
     }
-    .sm {
-      height: 24px !important;
+    .selected {
+      @apply bg-blue-100 border-blue text-blue;
+      &:hover {
+        @apply bg-blue-200;
+      }
+      &:focus{
+        @apply bg-blue-100;
+      }
     }
   }
 }

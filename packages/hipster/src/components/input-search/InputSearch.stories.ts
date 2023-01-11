@@ -13,7 +13,7 @@ const Template: StoryFn<typeof InputSearchVue> = (args) => ({
   setup() {
     return { args };
   },
-  template: '<InputSearchVue v-bind="args" />',
+  template: '<div style="width: auto; display: flex; align-items: center"><InputSearchVue v-bind="args" /></div>',
 });
 
 function getValue(value: string) {
@@ -21,10 +21,4 @@ function getValue(value: string) {
 }
 
 export const Default = Template.bind({});
-Default.args = { getValue: getValue };
-
-export const Medium = Template.bind({});
-Medium.args = { getValue: getValue, size: "medium" };
-
-export const Large = Template.bind({});
-Large.args = { getValue: getValue, size: "large" };
+Default.args = { getValue: getValue, modelValue: "Hello my friends" };

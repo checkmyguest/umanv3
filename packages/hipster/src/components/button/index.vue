@@ -78,29 +78,26 @@ const typeBtn = "btn-"+props.type;
 
 <style scoped lang="scss">
 * {
-  margin: 0;
-  padding: 0;
+  @apply m-0 p-0;
 }
 
 .el-button {
-  padding: 2px 12px 4px 12px;
+  @apply p-btn;
 }
 
 .el-icon--left {
-  margin-top: 4px;
-  margin-left: -3px;
+  @apply mt-1 -ml-1;
 }
 
 .icon-class {
-  margin-bottom: 2px;
+  @apply mb-0.5;
 }
 
 .icon-only {
-  padding: 0 5px;
+  @apply px-1 pt-1;
 }
 
 .el-icon--right {
-  margin-left: 5px;
-  margin-right: -5px;
+  @apply ml-1.5 -mr-1.5;
 }
 </style>

@@ -15,5 +15,18 @@ const Template: StoryFn<typeof PaginationVue> = (args) => ({
   template: '<PaginationVue v-bind="args" />',
 });
 
+let currentPage = 1;
+let totalPage = 10;
+
 export const Primary = Template.bind({});
-Primary.args = { currentPage: 1, totalPage: 10 };
+Primary.args = { currentPage: currentPage, totalPage: totalPage };
+
+function nextPage(){
+  if(currentPage < totalPage)
+    currentPage++;
+}
+
+function previousPage(){
+  if(currentPage > 0)
+    currentPage--;
+}

@@ -11,6 +11,7 @@
   }
   .input-cmg {
     @apply pl-7;
+    padding-left: 28px !important; 
   }
   svg{
     @apply h-auto w-svg-default;
@@ -23,7 +24,7 @@
     @apply w-6 h-auto ml-0.5;
   }
   .input-cmg {
-    padding-left: 30px;
+    padding-left: 30px !important;
   }
   svg{
     @apply h-auto w-svg-medium;
@@ -36,7 +37,7 @@
     @apply w-7 h-auto ml-0.5;
   }
   .input-cmg {
-    padding-left: 34px;
+    padding-left: 34px !important;
   }
   svg{
     @apply h-auto w-svg-large;

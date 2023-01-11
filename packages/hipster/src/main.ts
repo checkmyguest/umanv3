@@ -5,7 +5,6 @@ import VueTelInput from "vue-tel-input";
 import App from "./App.vue";
 import "./assets/index.scss";
 import "./assets/style/style.scss";
-import "./assets/style/_variables.scss";
 import router from "./router/index";
 import "./style.css";
 

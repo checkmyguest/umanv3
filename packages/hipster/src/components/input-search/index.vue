@@ -3,96 +3,73 @@ import { ref } from "vue";
 import SvgIcon from "../global-component/SvgIcon/svg-icon.vue";
 
 const props = defineProps({
+  modelValue: {
+    type: String,
+    required: false
+  },
   getValue: {
     type: Function,
     required: true,
-  },
-  size: {
-    type: String,
-    required: false,
-    default: "default",
-  },
+  }
 });
 
-const text = ref("");
+const text = ref(props.modelValue);
 const clearInput = () => {
   text.value = "";
   props.getValue(text.value);
 };
 </script>
 <template>
-  <div class="input-container" :class="size">
-    <SvgIcon class="icon-input input-svg" name="Search" :class="size" />
+  <div class="input-container">
+    <SvgIcon class="icon-input input-svg" name="Search" />
     <input
       v-model="text"
       @input="getValue(text)"
       class="input-cmg"
-      :class="size"
       placeholder="Recherche"
       :style="text !== '' ? 'border: 1px solid #CCCFDB' : ''"
     />
-    <SvgIcon class="icon-clear" name="Close - Clear" @click="clearInput" />
+    <SvgIcon class="icon-clear" name="Close-Clear" @click="clearInput" />
   </div>
 </template>
 <style lang="scss">
 .input-container {
-  min-width: 100px;
-  display: flex;
-  align-items: center;
+  @apply flex items-center relative min-w-input h-input;
   .icon-input {
-    position: absolute;
+    @apply absolute w-6 h-auto;
     padding-left: 7px;
-    // padding-bottom: 2px;
     svg {
-      fill: #1f2b37;
+      @apply fill-black;
     }
   }
   .icon-clear {
-    position: absolute;
-    width: 14px;
-    height: auto;
-    right: 8px;
-    opacity: 0;
-    cursor: pointer;
+    @apply absolute w-3.5 h-auto right-2 opacity-0 cursor-pointer;
     svg {
-      fill: #1f2b37;
+      @apply fill-black;
     }
     &:hover {
-      opacity: 1;
+      @apply opacity-100;
       + .input-cmg {
-        border: 1px solid #e8f0ff;
+        @apply border border-solid border-blue-100;
       }
     }
   }
   .input-cmg {
     all: unset;
-    min-width: 100px;
-    border-radius: 4px;
-    background-color: white;
-    border: 1px solid transparent;
-    padding-left: 8px;
-    padding-right: 26px;
-    color: black;
-    height: 100%;
-    text-align: start;
+    @apply rounded-regular bg-white border border-solid border-transparent pl-7 pr-6 text-black w-full h-full text-start text-sm font-medium;
     &:hover {
-      background-color: #f4f6f8;
+      @apply bg-grey-200;
       & + .icon-clear {
-        opacity: 1;
+        @apply opacity-100;
       }
     }
     &:focus {
-      border: 1px solid #196dfd;
-      background-color: white;
-      & + .icon-clear {
-        opacity: 1;
-      }
+      @apply border border-solid border-blue bg-white;
     }
     &:focus + .icon-clear:hover {
-      background-color: #e8f0ff;
-      border-radius: 50%;
+      @apply bg-blue-100 rounded-full;
       svg {
-        fill: #196dfd !important;
+        @apply fill-blue;
       }
     }
   }

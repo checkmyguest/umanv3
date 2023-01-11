@@ -49,27 +49,19 @@ export default {
 .pagination {
   @apply flex items-center justify-center;
   .pagination-container {
-    @apply flex flex-row items-center justify-center relative;
+    @apply flex flex-row items-center justify-center relative h-8;
     width: 150px;
-    height: 32px;
     span {
-      margin: 0 10px;
-      font-size: 14px;
+      @apply mx-2.5 text-sm;
     }
     .button-arrow {
-      @apply flex items-center justify-center;
-      width: 24px;
-      height: 24px;
-      border-radius: 2px;
-      border: 1px solid #cccfdb;
+      @apply flex items-center justify-center w-6 h-6 rounded-sm border border-solid border-grey-400;
     }
     .button-arrow_left {
-      @apply absolute rotate-90 pb-0.5;
-      left: 0;
+      @apply absolute rotate-90 pb-0.5 left-0;
     }
     .button-arrow_right {
-      @apply absolute -rotate-90 pb-0.5;
-      right: 0;
+      @apply absolute -rotate-90 pb-0.5 right-0;
     }
   }
 }

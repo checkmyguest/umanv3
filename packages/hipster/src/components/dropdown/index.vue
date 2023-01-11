@@ -25,13 +25,15 @@ export default {
 </script>
 
 <template>
-  <div :class="[split ? 'split-button_container cmg-btn' : '']">
+  <div :class="[split ? 'split-button_container' : '']">
     <ButtonVue
       v-if="split"
       :style="'border-radius: 4px 0 0 4px;'"
       :text="text"
       :type="type"
       :disabled="disabled"
+      :iconLeft="iconLeft"
+      :size="size"
     />
     <el-dropdown
       :id="id"
@@ -45,6 +47,7 @@ export default {
         :type="type"
         :disabled="disabled"
         :iconLeft="iconLeft"
+        :size="size"
         :style="
           split
             ? 'border-radius: 0 4px 4px 0; margin-top: 1px; border-width: 1px 1px 1px 0px !important;'
@@ -66,33 +69,19 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
-.dropdown-menu {
-  all: unset;
-  box-shadow: 0px 0.5px 1px 0.5px rgba(6, 18, 73, 0.2);
-  .dropdown-item:hover {
-    background-color: #f4f6f8;
-    color: black;
-  }
-}
-#tooltip {
-  display: none;
-}
+<style lang="scss">
 .el-button {
-  @apply shadow-none m-0 text-sm font-medium;
+  @apply m-0 text-sm font-medium;
   padding: 2px 6px 6px 10px;
   height: 26px;
   max-height: 26px;
 }
 
 .split-button_container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: none !important;
+  @apply flex items-center justify-between;
   .white-svg {
     svg {
-      fill: white;
+      @apply fill-white;
     }
   }
   .border-left {

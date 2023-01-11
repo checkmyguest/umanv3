@@ -41,7 +41,7 @@ const actions = [
 ]
 
 export const Primary = Template.bind({});
-Primary.args = { text: "Primary", type: "primary", id: "primary" };
+Primary.args = { text: "Primary", type: "primary", id: "primary", actions: actions };
 
 export const Secondary = Template.bind({});
 Secondary.args = { text: "Secondary", type: "secondary", id: "secondary" };

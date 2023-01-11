@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ButtonVue from "@/components/button/button-vue.vue";
+import ButtonVue from "@/components/button/index.vue";
 import { ElNotification } from "element-plus";
 
 const notification = () => {

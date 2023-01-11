@@ -1,7 +1,7 @@
 <script lang="ts">
 export default {
   props: {
-    model: {
+    modelValue: {
       type: Boolean,
       required: true,
     },
@@ -14,6 +14,15 @@ export default {
       required: false,
       default: "default",
     },
+    getValue: {
+      type: Function,
+      required: true
+    }
+  },
+  data(){
+    return{
+      value: false
+    }
   },
   methods: {
     changeState() {
@@ -52,6 +61,9 @@ export default {
 }
 .active_default {
   @apply bg-toggle-primary-active;
+  &:hover{
+    @apply bg-toggle-primary-active;
+  }
 }
 .active_destructive {
   @apply bg-toggle-destructive-active;
